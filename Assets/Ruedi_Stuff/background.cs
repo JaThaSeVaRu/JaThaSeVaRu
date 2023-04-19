@@ -4,166 +4,239 @@ using UnityEngine;
 
 public class background : MonoBehaviour
 {
-    public GameObject frontHouse1;
-    public GameObject firstHouse2;
-    public GameObject firstHouse3;
+    public GameObject house1;
+    public GameObject house2;
+    public GameObject house3;
+    public GameObject house4;
+    public GameObject park1;
+    public GameObject park2;
+    public GameObject park3;
 
-    public GameObject secondHouse1;
-    public GameObject secondHouse2;
-    public GameObject secondHouse3;
-
-    public GameObject thirdHouse1;
-    public GameObject thirdHouse2;
-    public GameObject thirdHouse3;
-
-    public int firstHouseAmount = 15;
+    public int frontHouseAmount = 15;
     public int secondHouseAmount = 15;
-    public int thirdHouseAmount = 15;
-    public int firstHouseChoice;
-    public int secondHouseChoice;
-    public int thirdHouseChoice;
-    public int startHousePos = -10;
-    public float firstHousePos = 12;
-    public float secondHousePos = 12;
-    public float thirdHousePos = 12;
+    public int backHouseAmount = 15;
 
-    public static int firstSpawnState;
-    public static int secondSpawnState;
-    public static int thirdSpawnState;
+     int frontHouseChoice;
+     int midHouseChoice;
+     int backHouseChoice;
+
+    public float startHousePos = -10;
+    public float firstHousePos = 12;
+    public float midHousePos = 12;
+    public float backHousePos = 12;
+
+     float frontSpawnTimer;
+     float midSpawnTimer;
+     float backSpawnTimer;
+
+    float frontSpawnRate;
+    public float frontSpawnMin;
+    public float frontSpawnMax;
+
+    float midSpawnRate;
+    public float midSpawnMin;
+    public float midSpawnMax;
+
+    float backSpawnRate;
+    public float backSpawnMin;
+    public float backSpawnMax;
+
+    public float frontHouseHeight;
+    public float midHouseHeight;
+    public float backHouseHeight;
 
 
 
     void Start()
     {
-        for (var i = 0; i < thirdHouseAmount; i++)
+        for (var i = 0; i < frontHouseAmount; i++)
         {
             
 
-            if (i <= firstHouseAmount)
+            if (i <= frontHouseAmount)
             {
-                firstHouseChoice = Random.Range(1, 4);
+                frontHouseChoice = Random.Range(1, 9);
 
-                if (firstHouseChoice == 1)
+                if (frontHouseChoice >= 1 && frontHouseChoice <= 2)
                 {
-                    Instantiate(frontHouse1, new Vector3(startHousePos, -4.5f, 0), Quaternion.identity);
+                    Instantiate(house1, new Vector3(startHousePos, frontHouseHeight, 0), Quaternion.identity);
                 }
-                if (firstHouseChoice == 2)
+                if (frontHouseChoice >= 3 && frontHouseChoice <= 5)
                 {
-                    Instantiate(firstHouse2, new Vector3(startHousePos, -4, 0), Quaternion.identity);
+                    Instantiate(house2, new Vector3(startHousePos, frontHouseHeight, 0), Quaternion.identity);
                 }
-                if (firstHouseChoice == 3)
+                if (frontHouseChoice == 6)
                 {
-                    Instantiate(firstHouse3, new Vector3(startHousePos, -3, 0), Quaternion.identity);
+                    Instantiate(park1, new Vector3(startHousePos, frontHouseHeight, 0), Quaternion.identity);
+                }
+                if (frontHouseChoice == 7)
+                {
+                    Instantiate(park2, new Vector3(startHousePos, frontHouseHeight, 0), Quaternion.identity);
+                }
+                if (frontHouseChoice == 8)
+                {
+                    Instantiate(park3, new Vector3(startHousePos, frontHouseHeight, 0), Quaternion.identity);
                 }
             }
 
             
             if (i <= secondHouseAmount)
             {
-                secondHouseChoice = Random.Range(1, 4);
+                midHouseChoice = Random.Range(1, 8);
 
-                if (secondHouseChoice == 1)
+                if (midHouseChoice == 1)
                 {
-                    Instantiate(secondHouse1, new Vector3(startHousePos, -3.5f, 0.5f), Quaternion.identity);
+                    Instantiate(house1, new Vector3(startHousePos, midHouseHeight, 0.5f), Quaternion.identity);
                 }
-                if (secondHouseChoice == 2)
+                if (midHouseChoice == 2)
                 {
-                    Instantiate(secondHouse2, new Vector3(startHousePos, -3, 0.5f), Quaternion.identity);
+                    Instantiate(house2, new Vector3(startHousePos, midHouseHeight, 0.5f), Quaternion.identity);
                 }
-                if (secondHouseChoice == 3)
+                if (midHouseChoice == 3)
                 {
-                    Instantiate(secondHouse3, new Vector3(startHousePos, -2, 0.5f), Quaternion.identity);
+                    Instantiate(house3, new Vector3(startHousePos, midHouseHeight, 0.5f), Quaternion.identity);
+                }
+                if (midHouseChoice == 4)
+                {
+                    Instantiate(park1, new Vector3(startHousePos, midHouseHeight, 0.5f), Quaternion.identity);
+                }
+                if (midHouseChoice == 5)
+                {
+                    Instantiate(park2, new Vector3(startHousePos, midHouseHeight, 0.5f), Quaternion.identity);
+                }
+                if (midHouseChoice == 6)
+                {
+                    Instantiate(park3, new Vector3(startHousePos, midHouseHeight, 0.5f), Quaternion.identity);
                 }
 
             }
 
-            if (i <= thirdHouseAmount)
+            if (i <= backHouseAmount)
             {
-                thirdHouseChoice = Random.Range(1, 4);
+                backHouseChoice = Random.Range(1, 6);
 
-                if (thirdHouseChoice == 1)
+                if (backHouseChoice == 1)
                 {
-                    Instantiate(thirdHouse1, new Vector3(startHousePos, -2.5f, 1f), Quaternion.identity);
+                    Instantiate(house1, new Vector3(startHousePos, backHouseHeight, 1f), Quaternion.identity);
                 }
-                if (thirdHouseChoice == 2)
+                if (backHouseChoice == 2)
                 {
-                    Instantiate(thirdHouse2, new Vector3(startHousePos, -2, 1f), Quaternion.identity);
+                    Instantiate(house2, new Vector3(startHousePos, backHouseHeight, 1f), Quaternion.identity);
                 }
-                if (thirdHouseChoice == 3)
+                if (backHouseChoice == 3)
                 {
-                    Instantiate(thirdHouse3, new Vector3(startHousePos, -1, 1f), Quaternion.identity);
+                    Instantiate(house3, new Vector3(startHousePos, backHouseHeight, 1f), Quaternion.identity);
+                }
+                if (backHouseChoice == 4)
+                {
+                    Instantiate(house4, new Vector3(startHousePos, backHouseHeight, 1f), Quaternion.identity);
                 }
 
             }
 
 
-            startHousePos += 2;
+            startHousePos += 2.5f;
         }
     }
 
 
     void Update()
     {
+        frontSpawnTimer += Time.deltaTime;
+        midSpawnTimer += Time.deltaTime;
+        backSpawnTimer += Time.deltaTime;
 
-        if (firstSpawnState >= 1)
+
+
+        if (frontSpawnTimer >= frontSpawnRate)
         {
-            firstHouseChoice = Random.Range(1, 4);
+            frontHouseChoice = Random.Range(1, 9);
 
-            if (firstHouseChoice == 1)
+            if (frontHouseChoice >= 1 && frontHouseChoice <= 2)
             {
-                Instantiate(frontHouse1, new Vector2(firstHousePos, -4.5f), Quaternion.identity);
+                Instantiate(house1, new Vector2(firstHousePos, frontHouseHeight), Quaternion.identity);
             }
-            if (firstHouseChoice == 2)
+            if (frontHouseChoice >= 3 && frontHouseChoice <= 5)
             {
-                Instantiate(firstHouse2, new Vector2(firstHousePos, -4), Quaternion.identity);
+                Instantiate(house2, new Vector2(firstHousePos, frontHouseHeight), Quaternion.identity);
             }
-            if (firstHouseChoice == 3)
+            if (frontHouseChoice == 6)
             {
-                Instantiate(firstHouse3, new Vector2(firstHousePos, -3), Quaternion.identity);
+                Instantiate(park1, new Vector3(firstHousePos, frontHouseHeight, 0), Quaternion.identity);
+            }
+            if (frontHouseChoice == 7)
+            {
+                Instantiate(park2, new Vector3(firstHousePos, frontHouseHeight, 0), Quaternion.identity);
+            }
+            if (frontHouseChoice == 8)
+            {
+                Instantiate(park3, new Vector3(firstHousePos, frontHouseHeight, 0), Quaternion.identity);
             }
 
-            firstSpawnState = 0;
+            frontSpawnRate = Random.Range(frontSpawnMin, frontSpawnMax);
+
+            frontSpawnTimer = 0;
         }
 
 
-        if (secondSpawnState >= 1)
+        if (midSpawnTimer >= midSpawnRate)
         {
-            secondHouseChoice = Random.Range(1, 4);
+            midHouseChoice = Random.Range(1, 7);
 
-            if (secondHouseChoice == 1)
+            if (midHouseChoice == 1)
             {
-                Instantiate(secondHouse1, new Vector3(secondHousePos, -3.5f, 0.5f), Quaternion.identity);
+                Instantiate(house1, new Vector3(midHousePos, midHouseHeight, 0.5f), Quaternion.identity);
             }
-            if (secondHouseChoice == 2)
+            if (midHouseChoice == 2)
             {
-                Instantiate(secondHouse2, new Vector3(secondHousePos, -3f, 0.5f), Quaternion.identity);
+                Instantiate(house2, new Vector3(midHousePos, midHouseHeight, 0.5f), Quaternion.identity);
             }
-            if (secondHouseChoice == 3)
+            if (midHouseChoice == 3)
             {
-                Instantiate(secondHouse3, new Vector3(secondHousePos, -2, 0.5f), Quaternion.identity);
+                Instantiate(house3, new Vector3(midHousePos, midHouseHeight, 0.5f), Quaternion.identity);
             }
+            if (frontHouseChoice == 4)
+            {
+                Instantiate(park1, new Vector3(midHousePos, midHouseHeight, 0.5f), Quaternion.identity);
+            }
+            if (midHouseChoice == 5)
+            {
+                Instantiate(park2, new Vector3(midHousePos, midHouseHeight, 0.5f), Quaternion.identity);
+            }
+            if (midHouseChoice == 6)
+            {
+                Instantiate(park3, new Vector3(midHousePos, midHouseHeight, 0.5f), Quaternion.identity);
+            }
+            midSpawnRate = Random.Range(midSpawnMin, midSpawnMax);
 
-            secondSpawnState = 0;
+            midSpawnTimer = 0;
         }
 
-        if (thirdSpawnState >= 1)
+        if (backSpawnTimer >= backSpawnRate)
         {
-            thirdHouseChoice = Random.Range(1, 4);
+            backHouseChoice = Random.Range(1, 5);
 
-            if (thirdHouseChoice == 1)
+            if (backHouseChoice == 1)
             {
-                Instantiate(thirdHouse1, new Vector3(thirdHousePos, -2.5f, 1f), Quaternion.identity);
+                Instantiate(house1, new Vector3(backHousePos, backHouseHeight, 1f), Quaternion.identity);
             }
-            if (thirdHouseChoice == 2)
+            if (backHouseChoice == 2)
             {
-                Instantiate(thirdHouse2, new Vector3(thirdHousePos, -2f, 1f), Quaternion.identity);
+                Instantiate(house2, new Vector3(backHousePos, backHouseHeight, 1f), Quaternion.identity);
             }
-            if (thirdHouseChoice == 3)
+            if (backHouseChoice == 3)
             {
-                Instantiate(thirdHouse3, new Vector3(thirdHousePos, -1, 1f), Quaternion.identity);
+                Instantiate(house3, new Vector3(backHousePos, backHouseHeight, 1f), Quaternion.identity);
+            }
+            if (backHouseChoice == 4)
+            {
+                Instantiate(house4, new Vector3(backHousePos, backHouseHeight, 1f), Quaternion.identity);
             }
 
-            thirdSpawnState = 0;
+            backSpawnRate = Random.Range(backSpawnMin, backSpawnMax);
+
+            backSpawnTimer = 0;
         }
+
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class houseMovement : MonoBehaviour
 {
-    public float speed;
+    public float speed = 0;
 
     void Start()
     {
@@ -15,24 +15,23 @@ public class houseMovement : MonoBehaviour
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
+
+        if (transform.position.y == -5)
+        {
+            speed = 1;
+        }
+        if (transform.position.y == -6)
+        {
+            speed = 3;
+        }
+        if (transform.position.y == -7.5f)
+        {
+            speed = 5;
+        }
+
         if (transform.position.x <= -13)
         {
-            if (speed == 5)
-            {
-                background.firstSpawnState = 1;
-                Destroy(gameObject);
-            }
-            if (speed == 3)
-            {
-                background.secondSpawnState = 1;
-                Destroy(gameObject);
-            }
-            if (speed == 1)
-            {
-                background.thirdSpawnState = 1;
-                Destroy(gameObject);
-            }
-
+            Destroy(gameObject);
         }
     }
 }
