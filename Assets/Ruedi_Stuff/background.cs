@@ -11,14 +11,20 @@ public class background : MonoBehaviour
     public GameObject park1;
     public GameObject park2;
     public GameObject park3;
+    public GameObject cloud1;
+    public GameObject cloud2;
+    public GameObject cloud3;
 
     public int frontHouseAmount = 15;
-    public int secondHouseAmount = 15;
+    public int midHouseAmount = 15;
     public int backHouseAmount = 15;
+    public int cloudAmount = 5;
 
-     int frontHouseChoice;
-     int midHouseChoice;
-     int backHouseChoice;
+    int frontHouseChoice;
+    int midHouseChoice;
+    int backHouseChoice;
+    int cloudChoice;
+
 
     public float startHousePos = -10;
     public float firstHousePos = 12;
@@ -28,6 +34,7 @@ public class background : MonoBehaviour
      float frontSpawnTimer;
      float midSpawnTimer;
      float backSpawnTimer;
+    float cloudSpawnTimer;
 
     float frontSpawnRate;
     public float frontSpawnMin;
@@ -40,6 +47,10 @@ public class background : MonoBehaviour
     float backSpawnRate;
     public float backSpawnMin;
     public float backSpawnMax;
+
+    float cloudSpawnRate;
+    public float cloudSpawnMin;
+    public float cloudSpawnMax;
 
     public float frontHouseHeight;
     public float midHouseHeight;
@@ -80,7 +91,7 @@ public class background : MonoBehaviour
             }
 
             
-            if (i <= secondHouseAmount)
+            if (i <= midHouseAmount)
             {
                 midHouseChoice = Random.Range(1, 8);
 
@@ -134,6 +145,23 @@ public class background : MonoBehaviour
 
             }
 
+            if (i <= cloudAmount)
+            {
+                cloudChoice = Random.Range(1, 7);
+
+                if (backHouseChoice == 1)
+                {
+                    Instantiate(cloud1, new Vector3(Random.Range(-8f, 8f), Random.Range(0f, 4f), 5f), Quaternion.identity);
+                }
+                if (backHouseChoice == 2)
+                {
+                    Instantiate(cloud2, new Vector3(Random.Range(-8f, 8f), Random.Range(0f, 4f), 5f), Quaternion.identity);
+                }
+                if (backHouseChoice == 3)
+                {
+                    Instantiate(cloud3, new Vector3(Random.Range(-8f, 8f), Random.Range(0f, 4f), 5f), Quaternion.identity);
+                }
+            }
 
             startHousePos += 2.5f;
         }
@@ -145,6 +173,7 @@ public class background : MonoBehaviour
         frontSpawnTimer += Time.deltaTime;
         midSpawnTimer += Time.deltaTime;
         backSpawnTimer += Time.deltaTime;
+        cloudSpawnTimer += Time.deltaTime;
 
 
 
@@ -237,6 +266,30 @@ public class background : MonoBehaviour
 
             backSpawnTimer = 0;
         }
+
+
+        if (cloudSpawnTimer >= cloudSpawnRate)
+        {
+            cloudChoice = Random.Range(1, 4);
+
+            if (cloudChoice == 1)
+            {
+                Instantiate(cloud1, new Vector3(11f, Random.Range(0f, 4f), 5f), Quaternion.identity);
+            }
+            if (cloudChoice == 2)
+            {
+                Instantiate(cloud2, new Vector3(11f, Random.Range(0f, 4f), 5f), Quaternion.identity);
+            }
+            if (cloudChoice == 3)
+            {
+                Instantiate(cloud3, new Vector3(11f, Random.Range(0f, 4f), 5f), Quaternion.identity);
+            }
+
+            cloudSpawnRate = Random.Range(cloudSpawnMin, cloudSpawnMax);
+
+            cloudSpawnTimer = 0;
+        }
+
 
     }
 }

@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class train : MonoBehaviour
 {
-    public float speed = 8;
+    public float speed = 8f;
+    public Vector3 startPosition;
 
 
     void Start()
     {
-        
+        startPosition = transform.position;
     }
 
     void Update()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-        if (transform.position.x <= -15)
+        if (transform.position.x <= -27.84)
         {
-            transform.position = new Vector3(15, -2, -1);
+            transform.position = startPosition;
         }
     }
 }

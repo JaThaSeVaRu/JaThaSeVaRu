@@ -29,7 +29,7 @@ public class houseMovement : MonoBehaviour
             speed = 5;
         }
 
-        if (transform.position.x <= -13)
+        if (transform.position.x <= -15)
         {
             Destroy(gameObject);
         }
