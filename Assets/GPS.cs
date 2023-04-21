@@ -1,30 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class TestLocationService : MonoBehaviour
+
+
+public class GPS : MonoBehaviour
 {
+    public static GPS singleton;
     // Start is called before the first frame update
     void Start()
     {
+        singleton = this;
+
         StartCoroutine(LocationCoroutine());
     }
 
+
     IEnumerator LocationCoroutine()
     {
-        Debug.Log("test");
         // Uncomment if you want to test with Unity Remote
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
                 yield return new WaitWhile(() => !UnityEditor.EditorApplication.isRemoteConnected);
                 yield return new WaitForSecondsRealtime(5f);
-        #endif
+#endif
 #if UNITY_EDITOR
         // No permission handling needed in Editor
 #elif UNITY_ANDROID
         if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.CoarseLocation)) {
             UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.CoarseLocation);
         }
-        Debug.Log("Test");
+                                                     
         // First, check if user has location service enabled
         if (!UnityEngine.Input.location.isEnabledByUser) {
             // TODO Failure
@@ -41,8 +47,6 @@ public class TestLocationService : MonoBehaviour
 #endif
         // Start service before querying location
         UnityEngine.Input.location.Start(10f, 10f);
-
-        Debug.Log("Starting Location Search");
 
         // Wait until service initializes
         int maxWait = 15;
@@ -61,7 +65,7 @@ public class TestLocationService : MonoBehaviour
             editorMaxWait--;
         }
 #endif
-        Debug.Log("15s waited");
+
         // Service didn't initialize in 15 seconds
         if (maxWait < 1)
         {
@@ -94,6 +98,23 @@ public class TestLocationService : MonoBehaviour
         }
 
         // Stop service if there is no need to query location updates continuously
-        UnityEngine.Input.location.Stop();
+        //UnityEngine.Input.location.Stop();
+    }
+
+    void ModeChanged()
+    {
+        if (!EditorApplication.isPlayingOrWillChangePlaymode &&
+             EditorApplication.isPlaying)
+        {
+            Debug.Log("Exiting playmode.");
+            Input.location.Stop();
+        }
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
