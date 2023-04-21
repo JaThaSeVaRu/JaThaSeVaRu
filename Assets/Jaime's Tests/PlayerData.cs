@@ -9,5 +9,5 @@ public class PlayerData : ScriptableObject
     [SerializeField] public float Velocity;
     [SerializeField] public StationData LastStation;
     [SerializeField] public StationData TargetStation;
-    
+    [SerializeField] public double time;
 }
