@@ -57,7 +57,7 @@ public class WeatherData : MonoBehaviour {
 		}
         Debug.Log("We got weather data");
 		Info = JsonUtility.FromJson<WeatherInfo>(www.downloadHandler.text);
-        Debug.Log(www.downloadHandler.text);
+        //Debug.Log(www.downloadHandler.text);
 	}
 }
 [Serializable]
