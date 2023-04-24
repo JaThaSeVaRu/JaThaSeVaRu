@@ -49,7 +49,7 @@ public class WeatherData : MonoBehaviour {
         Debug.Log("Getting Weather data.");
 		yield return www.SendWebRequest();
 
-		if (www.isNetworkError || www.isHttpError)
+		if (www.error != null)
 		{
 			//error
             Debug.Log("Something went wrong with Weather API");
