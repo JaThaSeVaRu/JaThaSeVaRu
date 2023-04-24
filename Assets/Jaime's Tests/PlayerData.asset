@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baadf72d3b4624693addc512d029deda, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  Coordinates: {x: 19.4326, y: 99.1332}
+  Coordinates: {x: 52.5216, y: 13.4112}
   Velocity: 0.001
   LastStation: {fileID: 0}
   TargetStation: {fileID: 0}
