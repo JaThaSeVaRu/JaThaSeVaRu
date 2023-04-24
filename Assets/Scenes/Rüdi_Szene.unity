@@ -763,9 +763,15 @@ MonoBehaviour:
   stumbleBase: {x: 0, y: 0, z: 0}
   jumpingLimit: 0.2
   slidingLimit: 0.5
-  train: {fileID: 1736028061}
   stumbleLimit: 0.25
   stumbleSpeed: 0
+  startPos: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  directionChosen: 0
+  slideSensitivity: 200
+  touchHeld: 0
+  posingTimer: 0
+  holdSensitivity: 0.5
 --- !u!70 &1174327761
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

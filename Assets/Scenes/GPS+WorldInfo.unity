@@ -2216,6 +2216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: {fileID: 11400000, guid: a829f6294f1ed43969a258647177f97f, type: 2}
+  player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
 --- !u!1 &1765134769
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,7 +46,7 @@ public class GPS : MonoBehaviour
         }
 #endif
         // Start service before querying location
-        UnityEngine.Input.location.Start(10f, 10f);
+        UnityEngine.Input.location.Start(0f, 0f);
 
         // Wait until service initializes
         int maxWait = 15;
