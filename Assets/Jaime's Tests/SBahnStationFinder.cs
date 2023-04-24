@@ -68,7 +68,11 @@ public class StationInfo
 [Serializable]
 public class PlaceDetails
 {
+	public string business_status;
 	public Geometry geometry;
+	public string icon;
+	public string icon_background_color;
+	public string icon_mask_base_uri;
 	public string name;
 }
 [Serializable]
