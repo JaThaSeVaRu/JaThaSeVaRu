@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,10 @@ public class characterControl : MonoBehaviour
     float stumbleTime;
     public float stumbleLimit;
     public float stumbleSpeed;
+    
+    public Vector2 startPos;
+    public Vector2 direction;
+    public bool directionChosen;
 
     void Start()
     {
@@ -47,35 +52,63 @@ public class characterControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("up"))
+        if (Input.touchCount > 0)
         {
-            if (state == runstate.INTRAIN)
+            Touch touch = Input.GetTouch(0);
+            switch (touch.phase)
             {
-                state = runstate.SWITCHUP;
+                // Record initial touch position.
+                case TouchPhase.Began:
+                    startPos = touch.position;
+                    directionChosen = false;
+                    break;
+
+                // Determine direction by comparing the current touch position with the initial one.
+                case TouchPhase.Moved:
+                    direction = touch.position - startPos;
+                    break;
+
+                // Report that a direction has been chosen when the finger is lifted.
+                case TouchPhase.Ended:
+                    directionChosen = true;
+                    break;
             }
 
-
-            if (state == runstate.ONTRAIN)
+            if (directionChosen)
             {
-                state = runstate.JUMPING;
+                if (Input.GetKeyDown("up") || Math.Sign(direction.y) == 1)
+                {
+                    if (state == runstate.INTRAIN)
+                    {
+                        state = runstate.SWITCHUP;
+                    }
+
+
+                    if (state == runstate.ONTRAIN)
+                    {
+                        state = runstate.JUMPING;
+                    }
+                }
+
+                if (Input.GetKeyDown("down") || Math.Sign(direction.y) == -1)
+                {
+                    if (state == runstate.INTRAIN)
+                    {
+                        state = runstate.SLIDING;
+                    }
+
+
+                    if (state == runstate.ONTRAIN)
+                    {
+                        state = runstate.SWITCHDOWN;
+                    }
+                }
+            }
+            else
+            {
+                //TO DO: Check if player touched a UI Icon.
             }
         }
-
-
-        if (Input.GetKeyDown("down"))
-        {
-            if (state == runstate.INTRAIN)
-            {
-                state = runstate.SLIDING;
-            }
-
-
-            if (state == runstate.ONTRAIN)
-            {
-                state = runstate.SWITCHDOWN;
-            }
-        }
-
 
         if (Input.GetKeyDown("space"))
         {
