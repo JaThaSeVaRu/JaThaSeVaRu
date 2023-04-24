@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -29,6 +30,7 @@ public class SBahnStationFinder : MonoBehaviour {
 	}
 	void Update() {
 		if (locationInitialized) {
+			locationInitialized = false;
 			if (timer <= 0) {
 				StartCoroutine (GetStationsInfo ());
 				timer = minutesBetweenUpdate * 60;
@@ -40,7 +42,7 @@ public class SBahnStationFinder : MonoBehaviour {
 	private IEnumerator GetStationsInfo()
 	{
 		var www = new UnityWebRequest(
-        "https://maps.googleapis.com/maps/api/place/search/json?location=" + latitude + "," + longitude + "&radius=" + searchRadius + "&keyword=sbahn&type=light_rail_station&key=" + API_key)
+        "https://maps.googleapis.com/maps/api/place/search/json?location=" + latitude.ToString().Replace(",",".") + "," + longitude.ToString().Replace(",", ".") + "&radius=" + searchRadius + "&keyword=&type=train_station&key=" + API_key)
 		{
 			downloadHandler = new DownloadHandlerBuffer()
 		};
@@ -55,9 +57,13 @@ public class SBahnStationFinder : MonoBehaviour {
 			yield break;
 		}
         Debug.Log("We got station data");
-		Info = JsonUtility.FromJson<StationInfo>(www.downloadHandler.text);
-        Debug.Log(www.downloadHandler.text);
-		Debug.Log(Info.results);
+		Info = JsonConvert.DeserializeObject<StationInfo>(www.downloadHandler.text);
+		//Info = JsonUtility.FromJson<StationInfo>(www.downloadHandler.text);
+		Debug.Log(www.downloadHandler.text);
+		foreach (PlaceDetails pd in Info.results)
+		{
+			Debug.Log(pd.geometry.location.ToString());
+		}
 	}
 }
 [Serializable]
@@ -84,4 +90,9 @@ public class Location
 {
 	public double lat;
 	public double lng;
+
+    public override string ToString()
+    {
+		return lat + "," + lng;
+    }
 }

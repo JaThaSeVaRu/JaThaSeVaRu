@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     private void Update() 
     {
         PlayerLocationText.text = player.Coordinates.ToString();
-        ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;
+       // ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;
         CurrentWeatherText.text = world.currentWeather.ToString();
         CurrentTimeText.text = world.currentTime.ToString();
