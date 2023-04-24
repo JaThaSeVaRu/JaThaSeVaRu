@@ -41,6 +41,7 @@ public class characterControl : MonoBehaviour
     public bool directionChosen;
     public float slideSensitivity;
     public bool touchHeld;
+    public bool tapped;
     public float posingTimer;
     public float holdSensitivity;
 
@@ -63,6 +64,8 @@ public class characterControl : MonoBehaviour
                 case TouchPhase.Began:
                     startPos = touch.position;
                     directionChosen = false;
+                    tapped = false;
+                    touchHeld = false;
                     break;
 
                 // Determine direction by comparing the current touch position with the initial one.
@@ -76,8 +79,12 @@ public class characterControl : MonoBehaviour
                     {
                         directionChosen = true;
                     }
-                    posingTimer = 0;
+                    if (posingTimer < holdSensitivity && !directionChosen)
+                    {
+                        tapped = true;
+                    }
                     touchHeld = false;
+                    posingTimer = 0;
                     break;
                 
                 //Report that touch was held
@@ -125,6 +132,11 @@ public class characterControl : MonoBehaviour
             {
                 //Change post
                 Debug.Log("Strike a pose!");
+            }
+
+            if (tapped)
+            {
+                Debug.Log("Screen was tapped)");
             }
             //TO DO: Check if player touched a UI Icon by tapping
         }
