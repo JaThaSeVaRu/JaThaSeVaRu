@@ -32,8 +32,6 @@ public class characterControl : MonoBehaviour
     float slidingTime;
     public float slidingLimit;
 
-    public GameObject train;
-
     float stumbleTime;
     public float stumbleLimit;
     public float stumbleSpeed;
@@ -41,6 +39,10 @@ public class characterControl : MonoBehaviour
     public Vector2 startPos;
     public Vector2 direction;
     public bool directionChosen;
+    public float slideSensitivity;
+    public bool touchHeld;
+    public float posingTimer;
+    public float holdSensitivity;
 
     void Start()
     {
@@ -70,7 +72,21 @@ public class characterControl : MonoBehaviour
 
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
-                    directionChosen = true;
+                    if (Math.Abs(direction.y) > slideSensitivity)
+                    {
+                        directionChosen = true;
+                    }
+                    posingTimer = 0;
+                    touchHeld = false;
+                    break;
+                
+                //Report that touch was held
+                case TouchPhase.Stationary:
+                    posingTimer += Time.deltaTime;
+                    if (posingTimer > holdSensitivity)
+                    {
+                        touchHeld = true;
+                    }
                     break;
             }
 
@@ -104,10 +120,13 @@ public class characterControl : MonoBehaviour
                     }
                 }
             }
-            else
+
+            if (touchHeld)
             {
-                //TO DO: Check if player touched a UI Icon.
+                //Change post
+                Debug.Log("Strike a pose!");
             }
+            //TO DO: Check if player touched a UI Icon by tapping
         }
 
         if (Input.GetKeyDown("space"))
@@ -255,7 +274,7 @@ public class characterControl : MonoBehaviour
 
     public void Stumble()
     {
-        stumbleSpeed = train.GetComponent<train>().speed;
+        stumbleSpeed = train.staticSpeed;
         stumbleTime += Time.deltaTime;
         transform.Translate(Vector3.left * stumbleSpeed * Time.deltaTime);
 
