@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WorldData
   m_EditorClassIdentifier: 
   currentTime: 1
-  currentWeather: 1
+  currentWeather: 0

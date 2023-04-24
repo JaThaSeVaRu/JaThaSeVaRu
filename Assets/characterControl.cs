@@ -137,8 +137,10 @@ public class characterControl : MonoBehaviour
             if (tapped)
             {
                 Debug.Log("Screen was tapped)");
+                //TO DO: Check if player touched a UI Icon by tapping.
+                //Send mouse position to function in UI Manager to check.
             }
-            //TO DO: Check if player touched a UI Icon by tapping
+            
         }
 
         if (Input.GetKeyDown("space"))

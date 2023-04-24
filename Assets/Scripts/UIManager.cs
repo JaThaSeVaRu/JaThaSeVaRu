@@ -5,12 +5,13 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    //Testing Stuff
     public TextMeshProUGUI ClosestStationText;
     public TextMeshProUGUI PlayerLocationText;
-    public TextMeshProUGUI CurrentWeatherText;
     public TextMeshProUGUI CurrentTimeText;
+    
+    public TextMeshProUGUI CurrentWeatherText;
     public PlayerData player;
-    public WeatherData weather;
     public WorldData world;
 
     private void Update() 
