@@ -20,7 +20,17 @@ public class StationFinder : MonoBehaviour
     }
     private void Update() 
     {
-        FindNearestStation();
+        //FindNearestStation();
+    }
+
+    public void clearStations()
+    {
+        Stations.Clear();
+    }
+
+    public void addStation(StationData newStation)
+    {
+        Stations.Add(newStation);
     }
 
     public void FindNearestStation() 
@@ -34,6 +44,7 @@ public class StationFinder : MonoBehaviour
                 ClosestStation = station;
             }
         }
+        ShortestDistance = 100;
     }
 
 }

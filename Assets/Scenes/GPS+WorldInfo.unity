@@ -123,52 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &83378789
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 83378791}
-  - component: {fileID: 83378790}
-  m_Layer: 0
-  m_Name: "Friedrichstra\xDFe"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &83378790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83378789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85919e9f427e0487899da764f0e2489c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StationName: "Friedrichstra\xDFe"
-  Coordinates: {x: 52.5203, y: 13.387}
---- !u!4 &83378791
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83378789}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1044464, y: -0.39752197, z: 0.0082204}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1831610612}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96847676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,52 +1152,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966507993}
   m_CullTransparentMesh: 1
---- !u!1 &1065613954
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1065613955}
-  - component: {fileID: 1065613956}
-  m_Layer: 0
-  m_Name: Hackerschermarkt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1065613955
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065613954}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1044464, y: -0.39752197, z: 0.0082204}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1831610612}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1065613956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065613954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85919e9f427e0487899da764f0e2489c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StationName: Hackerschermarkt
-  Coordinates: {x: 52.520664, y: 13.401665}
 --- !u!1 &1085905737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,52 +1557,6 @@ RectTransform:
   m_AnchoredPosition: {x: 400.2152, y: 45}
   m_SizeDelta: {x: 355.2401, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1162543343
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1162543345}
-  - component: {fileID: 1162543344}
-  m_Layer: 0
-  m_Name: AlexanderPlatz
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1162543344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162543343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85919e9f427e0487899da764f0e2489c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StationName: Alexanderplatz
-  Coordinates: {x: 52.5216, y: 13.4112}
---- !u!4 &1162543345
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162543343}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1044464, y: -0.39752197, z: 0.0082204}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1831610612}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1381935135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,8 +2042,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
-  OriginStation: {fileID: 1162543344}
-  TargetStation: {fileID: 83378790}
   world: {fileID: 0}
   playerMockSpeed: 0
 --- !u!114 &1697003071
@@ -2362,6 +2222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831610612}
   - component: {fileID: 1831610611}
+  - component: {fileID: 1831610613}
   m_Layer: 0
   m_Name: Stations
   m_TagString: Untagged
@@ -2381,14 +2242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9f00473340344c180c58ecec26eeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stations:
-  - {fileID: 1162543344}
-  - {fileID: 1065613956}
-  - {fileID: 83378790}
   ShortestDistance: 100
   player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
-  ClosestStation: {fileID: 0}
-  LastStation: {fileID: 1162543344}
 --- !u!4 &1831610612
 Transform:
   m_ObjectHideFlags: 0
@@ -2400,13 +2255,28 @@ Transform:
   m_LocalPosition: {x: 175.70483, y: 359.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1162543345}
-  - {fileID: 1065613955}
-  - {fileID: 83378791}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1831610613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831610610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1329f961575e94ca1ba8e3a67a4a259c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minutesBetweenUpdate: 1
+  Info:
+    results: []
+  API_key: AIzaSyDBxaYo7Czn997zWx_g1Hvr2yhubycfCYM
+  searchRadius: 2500
+  player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
 --- !u!1 &1835496175
 GameObject:
   m_ObjectHideFlags: 0

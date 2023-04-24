@@ -31,7 +31,6 @@ public class WeatherData : MonoBehaviour {
 	}
 	void Update() {
 		if (locationInitialized) {
-			locationInitialized = false;
 			if (timer <= 0) {
 				StartCoroutine (GetWeatherInfo ());
 				timer = minutesBetweenUpdate * 60;

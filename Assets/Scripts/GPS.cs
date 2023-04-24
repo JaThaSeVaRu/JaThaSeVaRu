@@ -103,12 +103,15 @@ public class GPS : MonoBehaviour
 
     void ModeChanged()
     {
+#if UNITY_EDITOR
         if (!EditorApplication.isPlayingOrWillChangePlaymode &&
              EditorApplication.isPlaying)
         {
             Debug.Log("Exiting playmode.");
             Input.location.Stop();
         }
+
+#endif
     }
 
 
