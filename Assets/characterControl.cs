@@ -31,22 +31,42 @@ public class characterControl : MonoBehaviour
     float slidingTime;
     public float slidingLimit;
 
-    public GameObject train;
+    //public GameObject train;
 
     float stumbleTime;
     public float stumbleLimit;
     public float stumbleSpeed;
 
+    public float safeTime;
+    public float safeLimit;
+
+    public SpriteRenderer m_SpriteRenderer;
+
     void Start()
     {
         state = runstate.INTRAIN;
         slideBase = transform.position;
-
-
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        safeTime = safeLimit;
     }
 
     void Update()
     {
+        if (safeTime <= safeLimit)
+        {
+            safeTime += Time.deltaTime;
+        }
+
+        if (safeTime < safeLimit)
+        {
+            m_SpriteRenderer.color = new Color(1, 0.9f, 0.9f);
+        }
+
+        if (safeTime >= safeLimit)
+        {
+            m_SpriteRenderer.color = new Color(1, 0.48f, 0.78f);
+        }
+
         if (Input.GetKeyDown("up"))
         {
             if (state == runstate.INTRAIN)
@@ -222,7 +242,10 @@ public class characterControl : MonoBehaviour
 
     public void Stumble()
     {
-        stumbleSpeed = train.GetComponent<train>().speed;
+
+        safeTime = 0;
+
+        stumbleSpeed = train.staticSpeed;
         stumbleTime += Time.deltaTime;
         transform.Translate(Vector3.left * stumbleSpeed * Time.deltaTime);
 
@@ -240,7 +263,32 @@ public class characterControl : MonoBehaviour
             }
 
             stumbleTime = 0;
+
         }
 
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("obstacle"))
+        {
+            if (state != runstate.STUMBLING && safeTime >= safeLimit)
+            {
+
+                if (state == runstate.ONTRAIN || state == runstate.JUMPING)
+                {
+                    //jumpBase = transform.position;
+                    stumbleBase = jumpBase;
+                }
+                if (state == runstate.INTRAIN || state == runstate.SLIDING || state == runstate.SWITCHUP || state == runstate.SWITCHDOWN)
+                {
+                    //slideBase = transform.position;
+                    stumbleBase = slideBase;
+                }
+
+                state = runstate.STUMBLING;
+            }
+
+        }
     }
 }
