@@ -43,7 +43,7 @@ public class WeatherData : MonoBehaviour {
 	private IEnumerator GetWeatherInfo()
 	{
 		var www = new UnityWebRequest(
-        "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + latitude + "%2C" + longitude + "/today?unitGroup=metric&elements=temp%2Cwindspeed%2Csunrise%2Csunset%2Cicon&key=" + API_key + "&contentType=json")
+        "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + latitude + "%2C" + longitude + "/today?unitGroup=metric&elements=temp%2Cwindspeed%2Csunrise%2Csunset%2Cicon&key=" + API_key + "deleteThis" + "&contentType=json")
 		{
 			downloadHandler = new DownloadHandlerBuffer()
 		};

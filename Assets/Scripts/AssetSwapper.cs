@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AssetSwapper : MonoBehaviour
 {
-    [SerializeField] private WorldData world;
-
-    void SwapWeatherAssets()
+    [SerializeField] private Image weatherIcon;
+    public void SwapWeatherAssets(WorldData world)
     {
         if (world != null)
         {
@@ -29,7 +29,7 @@ public class AssetSwapper : MonoBehaviour
         }
     }
 
-    void SwapTimeOfDayAssets()
+    public void SwapTimeOfDayAssets(WorldData world)
     {
         if (world != null)
         {
@@ -37,15 +37,21 @@ public class AssetSwapper : MonoBehaviour
             {
                 case WorldData.CurrentTime.sunrise:
                     //Set background and use assets
+                    weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Sunrise/sunriseIcon");
                     break;
                 case WorldData.CurrentTime.day:
                     //Set background and use assets
+                    //Ex
+                    weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Day/sunIcon");
                     break;
                 case WorldData.CurrentTime.sunset:
                     //Set background and use assets
+                    weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Sunset/sunsetIcon");
                     break;
                 case WorldData.CurrentTime.night:
                     //Set background and use assets
+                    //Ex
+                    weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Day/moonIcon");
                     break;
             }
         }
