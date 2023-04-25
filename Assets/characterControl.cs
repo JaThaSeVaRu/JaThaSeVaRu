@@ -89,7 +89,7 @@ public class characterControl : MonoBehaviour
                 
                 //Report that touch was held
                 case TouchPhase.Stationary:
-                    posingTimer += Time.deltaTime;
+                    posingTimer += Time.unscaledDeltaTime;
                     if (posingTimer > holdSensitivity)
                     {
                         touchHeld = true;

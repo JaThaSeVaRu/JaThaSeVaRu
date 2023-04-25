@@ -117,21 +117,25 @@ public class UIManager : MonoBehaviour
                 StartScreenUI.gameObject.SetActive(true);
                 GameUI.gameObject.SetActive(false);
                 PauseUI.gameObject.SetActive(false);
+                Time.timeScale = 1;
                 break;
             case CurrentScreen.gameScreen:
                 StartScreenUI.gameObject.SetActive(false);
                 GameUI.gameObject.SetActive(true);
                 PauseUI.gameObject.SetActive(false);
+                Time.timeScale = 1;
                 break;
             case CurrentScreen.pauseScreen:
                 StartScreenUI.gameObject.SetActive(false);
                 GameUI.gameObject.SetActive(false);
                 PauseUI.gameObject.SetActive(true);
+                Time.timeScale = 0;
                 break;
             default:
                 StartScreenUI.gameObject.SetActive(true);
                 GameUI.gameObject.SetActive(false);
                 PauseUI.gameObject.SetActive(false);
+                Time.timeScale = 1;
                 break;
         }
     }
