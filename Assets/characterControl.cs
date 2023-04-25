@@ -13,6 +13,7 @@ public class characterControl : MonoBehaviour
     public float slideSpeed;
 
     public float approachSpeed;
+    public float approachBase;
     public float approachLimit;
 
     public bool falling;
@@ -42,6 +43,8 @@ public class characterControl : MonoBehaviour
 
     public SpriteRenderer m_SpriteRenderer;
 
+    public GameObject manager;
+
     void Start()
     {
         state = runstate.INTRAIN;
@@ -52,6 +55,8 @@ public class characterControl : MonoBehaviour
 
     void Update()
     {
+        approachSpeed = approachBase * (1 + (manager.GetComponent<gameManager>().heartsStolen * 0.1f));
+
         if (safeTime <= safeLimit)
         {
             safeTime += Time.deltaTime;
@@ -96,7 +101,7 @@ public class characterControl : MonoBehaviour
             }
         }
 
-
+        /*
         if (Input.GetKeyDown("space"))
         {
             if (state == runstate.ONTRAIN || state == runstate.JUMPING)
@@ -112,7 +117,7 @@ public class characterControl : MonoBehaviour
 
             state = runstate.STUMBLING;
         }
-
+        */
 
 
         if (state == runstate.INTRAIN || state == runstate.ONTRAIN)

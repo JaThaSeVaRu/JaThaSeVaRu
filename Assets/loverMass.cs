@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class loverMass : MonoBehaviour
 {
+    public float baseSpeed;
     public float speed;
-    public float upDownSpeed;
-
-    public float upDownTimer;
-    public float upDownTime;
+    public float switchSpeed;
 
 
     public GameObject character;
+    public GameObject manager;
 
 
     void Start()
@@ -21,19 +20,30 @@ public class loverMass : MonoBehaviour
 
     void Update()
     {
-        upDownTime += Time.deltaTime;
 
-        if (transform.position.x >= -3.5f)
+        switchSpeed = character.GetComponent<characterControl>().speed / 4f;
+
+        speed = baseSpeed * ( 1 + manager.GetComponent<gameManager>().heartsStolen);
+
+        if (transform.position.x <= -3.5f)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
 
-        transform.Translate(Vector3.up * upDownSpeed * Time.deltaTime);
-
-        if (upDownTime >= upDownTimer)
+        if (transform.position.y <= -0.6f)
         {
-            upDownSpeed = -upDownSpeed;
-            upDownTime = 0;
+            if (character.GetComponent<characterControl>().transform.position.y <= transform.position.y)
+            {
+                transform.Translate(Vector3.down * switchSpeed * Time.deltaTime);
+            }
+            if (character.GetComponent<characterControl>().transform.position.y >= transform.position.y)
+            {
+                transform.Translate(Vector3.up * switchSpeed * Time.deltaTime);
+            }
+        }
+        if (transform.position.y > -0.6f)
+        {
+            transform.position = new Vector3(transform.position.x, -0.6f, transform.position.z);
         }
     }
 }

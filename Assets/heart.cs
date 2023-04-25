@@ -21,7 +21,11 @@ public class heart : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("pose"))
         {
-            inLove = true;
+            if (inLove == false)
+            {
+                gameManager.staticHeartsStolen++;
+                inLove = true;
+            }
         }
     }
 }
