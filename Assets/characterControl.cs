@@ -45,12 +45,16 @@ public class characterControl : MonoBehaviour
 
     public GameObject manager;
 
+    private Animator anim;
+
+
     void Start()
     {
         state = runstate.INTRAIN;
         slideBase = transform.position;
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         safeTime = safeLimit;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -162,6 +166,9 @@ public class characterControl : MonoBehaviour
             Debug.Log("on Train");
             state = runstate.ONTRAIN;
             jumpBase = transform.position;
+            anim.SetBool("Switch_Up", false);
+            anim.SetBool("IsJumping", false);
+            anim.SetBool("Switch_Down", false);
         }
 
         if (transform.position.y <= slideBase.y && state == runstate.SWITCHDOWN)
@@ -170,11 +177,16 @@ public class characterControl : MonoBehaviour
             Debug.Log("in Train");
             state = runstate.INTRAIN;
             slideBase = transform.position;
+            anim.SetBool("Switch_Down", false);
+            anim.SetBool("Switch_Up", false);
+            anim.SetBool("IsJumping", false);
         }
     }
 
     public void Jump()
     {
+        anim.SetBool("IsJumping", true);
+
         Debug.Log("jumping");
 
         if (transform.position.y <= jumpBase.y + jumpHeight && falling == false)
@@ -196,6 +208,7 @@ public class characterControl : MonoBehaviour
             state = runstate.ONTRAIN;
             jumpingTime = 0;
             jumpBase = transform.position;
+            anim.SetBool("IsJumping", false);
         }
 
         if (falling == true)
@@ -207,7 +220,9 @@ public class characterControl : MonoBehaviour
 
     public void Slide()
     {
-        Debug.Log("sliding");
+        anim.SetBool("Slide", true);
+
+        Debug.Log("Slide");
         if (transform.position.y >= slideBase.y + slideHeight && gettingUp == false)
         {
             transform.Translate(Vector3.down * slideSpeed * Time.deltaTime);
@@ -228,6 +243,7 @@ public class characterControl : MonoBehaviour
             slidingTime = 0;
             state = runstate.INTRAIN;
             slideBase = transform.position;
+            anim.SetBool("Slide", false);
         }
         
         if (gettingUp == true)
@@ -239,10 +255,12 @@ public class characterControl : MonoBehaviour
     public void SwitchDown()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
+        anim.SetBool("Switch_Up", true);
     }
     public void SwitchUp()
     {
         transform.Translate(Vector3.up * speed * Time.deltaTime);
+        anim.SetBool("Switch_Down", true);
     }
 
     public void Stumble()
