@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3576705936842731271}
   - component: {fileID: 8871794287240433596}
   m_Layer: 0
-  m_Name: Obstacle 6
+  m_Name: Obstacle OT bird
   m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

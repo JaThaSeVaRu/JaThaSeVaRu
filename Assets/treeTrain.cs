@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class train : MonoBehaviour
+public class treeTrain : MonoBehaviour
 {
     public float speed = 8f;
-    public static float staticSpeed;
     public Vector3 startPosition;
     public float setBack = -27.84f;
 
@@ -17,8 +16,6 @@ public class train : MonoBehaviour
 
     void Update()
     {
-        staticSpeed = speed;
-        
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
         if (transform.position.x <= setBack)

@@ -6,14 +6,13 @@ public class obstacleSpawn : MonoBehaviour
 {
     public GameObject character;
 
-    public GameObject inTrainObstacle1;
-    public GameObject inTrainObstacle2;
-    public GameObject inTrainObstacle3;
-    public GameObject inTrainObstacle4;
-    public GameObject inTrainObstacle5;
+    public GameObject inTrainSmall;
+    public GameObject inTrainMedium;
+    public GameObject inTrainLarge;
+    public GameObject Lover;
 
-    public GameObject onTrainObstacle1;
-    public GameObject onTrainObstacle2;
+    public GameObject onTrainPylon;
+    public GameObject onTrainBird;
 
     public float inTrainSpawnTime;
     public float inTrainSpawnMin;
@@ -74,11 +73,11 @@ public class obstacleSpawn : MonoBehaviour
 
         if (inTrainSpawnTime >= inTrainSpawnRate)
         {
-            inTrainChoice = Random.Range(1, 6);
+            inTrainChoice = Random.Range(1, 5);
 
             if (inTrainChoice == 1)
             {
-                Instantiate(inTrainObstacle1, new Vector3(15, -3.5f, -6f), Quaternion.identity);
+                Instantiate(inTrainSmall, new Vector3(15, -3.3f, -6f), Quaternion.identity);
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
                 inTrainSpawnTime = 0;
                 noSpawn = true;
@@ -86,7 +85,7 @@ public class obstacleSpawn : MonoBehaviour
 
             if (inTrainChoice == 2)
             {
-                Instantiate(inTrainObstacle2, new Vector3(15, -4f, -6f), Quaternion.identity);
+                Instantiate(inTrainMedium, new Vector3(15, -3.3f, -6f), Quaternion.identity);
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
                 inTrainSpawnTime = 0;
                 noSpawn = true;
@@ -94,7 +93,7 @@ public class obstacleSpawn : MonoBehaviour
 
             if (inTrainChoice == 3)
             {
-                Instantiate(inTrainObstacle3, new Vector3(15, -4.8f, -6f), Quaternion.identity);
+                Instantiate(inTrainLarge, new Vector3(15, -3.3f, -6f), Quaternion.identity);
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
                 inTrainSpawnTime = 0;
                 noSpawn = true;
@@ -102,15 +101,7 @@ public class obstacleSpawn : MonoBehaviour
 
             if (inTrainChoice == 4)
             {
-                Instantiate(inTrainObstacle4, new Vector3(15, -5f, -6f), Quaternion.identity);
-                inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
-                inTrainSpawnTime = 0;
-                noSpawn = true;
-            }
-
-            if (inTrainChoice == 5)
-            {
-                Instantiate(inTrainObstacle5, new Vector3(15, -4f, -4.8f), Quaternion.identity);
+                Instantiate(Lover, new Vector3(15, -4f, -4.8f), Quaternion.identity);
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
                 inTrainSpawnTime = 0;
                 noSpawn = true;
@@ -125,14 +116,14 @@ public class obstacleSpawn : MonoBehaviour
 
             if (onTrainChoice == 1)
             {
-                Instantiate(onTrainObstacle1, new Vector3(15, -6f, -0.5f), Quaternion.identity);
+                Instantiate(onTrainPylon, new Vector3(15, -6f, -0.5f), Quaternion.identity);
                 onTrainSpawnRate = Random.Range(onTrainSpawnMin, onTrainSpawnMax);
                 onTrainSpawnTime = 0;
                 noSpawn = true;
             }
             if (onTrainChoice == 2)
             {
-                Instantiate(onTrainObstacle2, new Vector3(15, -2.5f, -0.5f), Quaternion.identity);
+                Instantiate(onTrainBird, new Vector3(15, -2.5f, -0.5f), Quaternion.identity);
                 onTrainSpawnRate = Random.Range(onTrainSpawnMin, onTrainSpawnMax);
                 onTrainSpawnTime = 0;
                 noSpawn = true;
