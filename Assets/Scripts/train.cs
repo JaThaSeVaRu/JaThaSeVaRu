@@ -7,6 +7,7 @@ public class train : MonoBehaviour
     public float speed = 8f;
     public static float staticSpeed;
     public Vector3 startPosition;
+    public float setBack = -27.84f;
 
 
     void Start()
@@ -20,7 +21,7 @@ public class train : MonoBehaviour
         
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-        if (transform.position.x <= -27.84)
+        if (transform.position.x <= setBack)
         {
             transform.position = startPosition;
         }

@@ -10,4 +10,5 @@ public class PlayerData : ScriptableObject
     [SerializeField] public StationData LastStation;
     [SerializeField] public StationData TargetStation;
     [SerializeField] public double time;
+    [SerializeField] public int CollectedHearts;
 }

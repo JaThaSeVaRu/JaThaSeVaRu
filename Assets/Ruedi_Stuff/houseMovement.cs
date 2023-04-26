@@ -16,15 +16,15 @@ public class houseMovement : MonoBehaviour
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
 
-        if (transform.position.y == -5)
+        if (transform.position.y == background.staticBackHouseHeight)
         {
             speed = 1;
         }
-        if (transform.position.y == -6)
+        if (transform.position.y == background.staticMidHouseHeight)
         {
             speed = 3;
         }
-        if (transform.position.y == -7.5f)
+        if (transform.position.y == background.staticFrontHouseHeight)
         {
             speed = 5;
         }
