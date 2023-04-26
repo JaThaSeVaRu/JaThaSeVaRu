@@ -76,7 +76,9 @@ public class UIManager : MonoBehaviour
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;
         CurrentWeatherText.text = world.currentWeather.ToString();
         CurrentTimeText.text = world.currentTime.ToString();
-
+    
+        //Update heart counter
+        HeartCounter.text = player.CollectedHearts.ToString();
         //Test swapping sides
         if (Input.GetKey(KeyCode.A))
         {

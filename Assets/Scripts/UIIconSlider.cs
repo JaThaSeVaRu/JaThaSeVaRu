@@ -15,7 +15,8 @@ public class UIIconSlider : MonoBehaviour
     void Awake()
     {
         goalPosition = GetComponentInParent<Transform>().position;
-        //startPosition = Transform.position;
+        startPosition = this.transform.position;
+        
         animationCurve.postWrapMode = WrapMode.Once;
     }
     void Update()
