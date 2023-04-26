@@ -15,7 +15,7 @@ public class UIIconSlider : MonoBehaviour
     void Awake()
     {
         goalPosition = GetComponentInParent<Transform>().position;
-        startPosition = Transform.position;
+        //startPosition = Transform.position;
         animationCurve.postWrapMode = WrapMode.Once;
     }
     void Update()
@@ -23,10 +23,10 @@ public class UIIconSlider : MonoBehaviour
         
     }
 
-    private IEnumerator SlideObject()
-    {
+    //private IEnumerator SlideObject()
+    //{
         //Animate
-        yield return WaitForSeconds(showObjectForSeconds);
+        //yield return WaitForSeconds(showObjectForSeconds);
         //Animate backwards
-    }
+    //}
 }
