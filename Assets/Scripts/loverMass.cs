@@ -10,7 +10,7 @@ public class loverMass : MonoBehaviour
 
 
     public GameObject character;
-    public GameObject manager;
+    public PlayerData player;
 
 
     void Start()
@@ -23,7 +23,7 @@ public class loverMass : MonoBehaviour
 
         switchSpeed = character.GetComponent<characterControl>().speed / 4f;
 
-        speed = baseSpeed * ( 1 + manager.GetComponent<gameManager>().heartsStolen);
+        speed = baseSpeed * ( 1 + player.CollectedHearts);
 
         if (transform.position.x <= -3.5f)
         {

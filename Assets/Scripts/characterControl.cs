@@ -42,7 +42,7 @@ public class characterControl : MonoBehaviour
 
     public SpriteRenderer m_SpriteRenderer;
 
-    public GameObject manager;
+    public PlayerData player;
 
     public Vector2 startPos;
     public Vector2 direction;
@@ -63,7 +63,7 @@ public class characterControl : MonoBehaviour
 
     void Update()
     {
-        approachSpeed = approachBase * (1 + (manager.GetComponent<gameManager>().heartsStolen * 0.1f));
+        approachSpeed = approachBase * (1 + (player.CollectedHearts * 0.1f));
 
         if (safeTime <= safeLimit)
         {

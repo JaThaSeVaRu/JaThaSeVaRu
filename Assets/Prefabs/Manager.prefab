@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4531590395739823288}
   - component: {fileID: 4531590395739823289}
-  - component: {fileID: 4531590395739823291}
   - component: {fileID: 4531590395739823290}
   - component: {fileID: 4531590395739823301}
+  - component: {fileID: 1850093561}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece566ce590004866a528e5b9adb8952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutesBetweenUpdate: 1
+  minutesBetweenUpdate: 10
   Info:
     currentConditions:
       datetime: 
@@ -57,25 +57,8 @@ MonoBehaviour:
       icon: 
       sunrise: 
       sunset: 
-  API_key: 
+  API_key: M44TEVPMER3GCB5RSP42GPFDB
   player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
---- !u!114 &4531590395739823291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4531590395739823294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4090f8ad1ffb04edc8b1341eaa853c56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
-  OriginStation: {fileID: 0}
-  TargetStation: {fileID: 0}
-  world: {fileID: 0}
-  playerMockSpeed: 0
 --- !u!114 &4531590395739823290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,13 +71,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0acc7b5b18d314e77b8c4317b6b66feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentScreen: 0
   ClosestStationText: {fileID: 0}
   PlayerLocationText: {fileID: 0}
-  CurrentWeatherText: {fileID: 0}
   CurrentTimeText: {fileID: 0}
+  HeartCounter: {fileID: 0}
+  CurrentWeatherText: {fileID: 0}
   player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
-  weather: {fileID: 0}
   world: {fileID: 11400000, guid: a829f6294f1ed43969a258647177f97f, type: 2}
+  IconsUI: {fileID: 0}
+  ButtonsUI: {fileID: 0}
+  LeftSideMaxAnchor: {x: 0, y: 1}
+  LeftSideMinAnchor: {x: 0, y: 1}
+  LeftSidePivot: {x: 0, y: 1}
+  RightSideMaxAnchor: {x: 1, y: 1}
+  RightSideMinAnchor: {x: 1, y: 1}
+  RightSidePivot: {x: 1, y: 1}
+  ButtonsOnTheRight: 1
+  StartScreenUI: {fileID: 0}
+  GameUI: {fileID: 0}
+  PauseUI: {fileID: 0}
 --- !u!114 &4531590395739823301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +105,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world: {fileID: 11400000, guid: a829f6294f1ed43969a258647177f97f, type: 2}
   player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
+  swapper: {fileID: 1850093561}
+  timeBetweenUpdates: 0
+--- !u!114 &1850093561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531590395739823294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3566f329abd427e8451dedac6c1ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weatherIcon: {fileID: 0}
