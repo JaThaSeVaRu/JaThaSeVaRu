@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public enum runstate { ONTRAIN, INTRAIN, JUMPING, SLIDING, SWITCHUP, SWITCHDOWN, STUMBLING }
@@ -14,6 +14,7 @@ public class characterControl : MonoBehaviour
     public float slideSpeed;
 
     public float approachSpeed;
+    public float approachBase;
     public float approachLimit;
 
     public bool falling;
@@ -35,7 +36,14 @@ public class characterControl : MonoBehaviour
     float stumbleTime;
     public float stumbleLimit;
     public float stumbleSpeed;
-    
+
+    public float safeTime;
+    public float safeLimit;
+
+    public SpriteRenderer m_SpriteRenderer;
+
+    public GameObject manager;
+
     public Vector2 startPos;
     public Vector2 direction;
     public bool directionChosen;
@@ -49,12 +57,29 @@ public class characterControl : MonoBehaviour
     {
         state = runstate.INTRAIN;
         slideBase = transform.position;
-
-
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        safeTime = safeLimit;
     }
 
     void Update()
     {
+        approachSpeed = approachBase * (1 + (manager.GetComponent<gameManager>().heartsStolen * 0.1f));
+
+        if (safeTime <= safeLimit)
+        {
+            safeTime += Time.deltaTime;
+        }
+
+        if (safeTime < safeLimit)
+        {
+            m_SpriteRenderer.color = new Color(1, 0.9f, 0.9f);
+        }
+
+        if (safeTime >= safeLimit)
+        {
+            m_SpriteRenderer.color = new Color(1, 0.48f, 0.78f);
+        }
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -86,7 +111,7 @@ public class characterControl : MonoBehaviour
                     touchHeld = false;
                     posingTimer = 0;
                     break;
-                
+
                 //Report that touch was held
                 case TouchPhase.Stationary:
                     posingTimer += Time.unscaledDeltaTime;
@@ -140,26 +165,37 @@ public class characterControl : MonoBehaviour
                 //TO DO: Check if player touched a UI Icon by tapping.
                 //Send mouse position to function in UI Manager to check.
             }
-            
+
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("up"))
         {
-            if (state == runstate.ONTRAIN || state == runstate.JUMPING)
+            if (state == runstate.INTRAIN)
             {
-                jumpBase = transform.position;
-                stumbleBase = jumpBase;
-            }
-            if (state == runstate.INTRAIN || state == runstate.SLIDING || state == runstate.SWITCHUP ||state == runstate.SWITCHDOWN)
-            {
-                slideBase = transform.position;
-                stumbleBase = slideBase;
+                state = runstate.SWITCHUP;
             }
 
-            state = runstate.STUMBLING;
+
+            if (state == runstate.ONTRAIN)
+            {
+                state = runstate.JUMPING;
+            }
         }
 
 
+        if (Input.GetKeyDown("down"))
+        {
+            if (state == runstate.INTRAIN)
+            {
+                state = runstate.SLIDING;
+            }
+
+
+            if (state == runstate.ONTRAIN)
+            {
+                state = runstate.SWITCHDOWN;
+            }
+        }
 
         if (state == runstate.INTRAIN || state == runstate.ONTRAIN)
         {
@@ -288,6 +324,9 @@ public class characterControl : MonoBehaviour
 
     public void Stumble()
     {
+
+        safeTime = 0;
+
         stumbleSpeed = train.staticSpeed;
         stumbleTime += Time.deltaTime;
         transform.Translate(Vector3.left * stumbleSpeed * Time.deltaTime);
@@ -306,7 +345,32 @@ public class characterControl : MonoBehaviour
             }
 
             stumbleTime = 0;
+
         }
 
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("obstacle"))
+        {
+            if (state != runstate.STUMBLING && safeTime >= safeLimit)
+            {
+
+                if (state == runstate.ONTRAIN || state == runstate.JUMPING)
+                {
+                    //jumpBase = transform.position;
+                    stumbleBase = jumpBase;
+                }
+                if (state == runstate.INTRAIN || state == runstate.SLIDING || state == runstate.SWITCHUP || state == runstate.SWITCHDOWN)
+                {
+                    //slideBase = transform.position;
+                    stumbleBase = slideBase;
+                }
+
+                state = runstate.STUMBLING;
+            }
+
+        }
     }
 }
