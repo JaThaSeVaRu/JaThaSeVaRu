@@ -37,6 +37,21 @@ public class GPSTesting : MonoBehaviour
 
     void Update()
     {
+        /*
+        */
+    }
+
+    public void buttonGPS()
+    {
+        updateGPSnum();
+    }
+
+    public void buttonStation()
+    {
+        StationFinder.instance.FindNearestStation();
+    }
+    public bool updateGPSnum()
+    {
         if (UnityEngine.Input.location.status == LocationServiceStatus.Running)
         {
             //Debug.Log(Input.location.lastData.timestamp);
@@ -57,7 +72,7 @@ public class GPSTesting : MonoBehaviour
                     //speedLatitude *= 110.574;
                     //speedLongitude *= 111.320 * System.Math.Cos(speedLatitude);
 
-                    Speed.text = "Speed: " + (d / (Input.location.lastData.timestamp - oldTimestamp))*3600f + " km/h";
+                    Speed.text = "Speed: " + (d / (Input.location.lastData.timestamp - oldTimestamp)) * 3600f + " km/h";
                 }
                 OldGPS.text = "OldGPS: " + oldLatitude + ", " + oldLongitude;
                 oldLongitude = Input.location.lastData.longitude;
@@ -67,7 +82,9 @@ public class GPSTesting : MonoBehaviour
                 oldTimestamp = Input.location.lastData.timestamp;
                 Timestamp.text = "Time: " + oldTimestamp;
             }
+            return true;
         }
+        return false;
     }
 
 }

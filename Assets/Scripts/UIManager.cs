@@ -15,9 +15,12 @@ public class UIManager : MonoBehaviour
 
     private void Update() 
     {
-        player.Coordinates.x = Input.location.lastData.latitude;
-        player.Coordinates.y = Input.location.lastData.longitude;
-        player.time = Input.location.lastData.timestamp;
+        if (UnityEngine.Input.location.status == LocationServiceStatus.Running)
+        {
+            player.Coordinates.x = Input.location.lastData.latitude;
+            player.Coordinates.y = Input.location.lastData.longitude;
+            player.time = Input.location.lastData.timestamp;
+        }
         PlayerLocationText.text = player.Coordinates.ToString();
         if(StationFinder.instance.ClosestStation != null)
             ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;

@@ -25,7 +25,7 @@ public class SBahnStationFinder : MonoBehaviour {
 		locationInitialized = true;
 	}
 	void Update() {
-		if (locationInitialized) {
+		/*if (locationInitialized) {
 			if (timer <= 0) {
 				StartCoroutine (GetStationsInfo ());
 				
@@ -33,9 +33,11 @@ public class SBahnStationFinder : MonoBehaviour {
 			} else {
 				timer -= Time.deltaTime;
 			}
-		}
+		}*/
 	}
-	private IEnumerator GetStationsInfo()
+
+
+	public IEnumerator GetStationsInfo()
 	{
 		var www = new UnityWebRequest(
         "https://maps.googleapis.com/maps/api/place/search/json?location=" + player.Coordinates.x.ToString().Replace(",",".") + "," + player.Coordinates.y.ToString().Replace(",", ".") + "&radius=" + searchRadius + "&keyword=&type=train_station&key=" + API_key)
@@ -64,7 +66,6 @@ public class SBahnStationFinder : MonoBehaviour {
 			Debug.Log(pd.geometry.location.ToString());
 		}
 
-		StationFinder.instance.FindNearestStation();
 	}
 }
 [Serializable]

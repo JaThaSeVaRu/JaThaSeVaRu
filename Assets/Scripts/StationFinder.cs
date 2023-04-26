@@ -18,8 +18,10 @@ public class StationFinder : MonoBehaviour
         	instance = this;
         }
     }
+    float cd = 3;
     private void Update() 
     {
+        cd -= Time.deltaTime;
         //FindNearestStation();
     }
 
@@ -35,16 +37,28 @@ public class StationFinder : MonoBehaviour
 
     public void FindNearestStation() 
     {
+        if (cd < 0)
+        {
+            StartCoroutine(SBahnStationFinder.instance.GetStationsInfo());
+            StartCoroutine(Search());
+            cd = 3;
+        }
+    }
+
+    IEnumerator Search()
+    {
+        yield return new WaitForSeconds(3);
         foreach (StationData station in Stations)
         {
             float distance = Vector2.Distance(player.Coordinates, station.Coordinates);
-            if(distance < ShortestDistance)
+            if (distance < ShortestDistance)
             {
                 ShortestDistance = distance;
                 ClosestStation = station;
             }
         }
-        ShortestDistance = 100;
+        ShortestDistance = float.MaxValue;
+        yield return null;
     }
 
 }
