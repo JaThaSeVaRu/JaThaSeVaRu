@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
             player.Coordinates.y = Input.location.lastData.longitude;
             player.time = Input.location.lastData.timestamp;
         }
-        PlayerLocationText.text = player.Coordinates.ToString();
+        
         if(StationFinder.instance.ClosestStation != null)
             ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;

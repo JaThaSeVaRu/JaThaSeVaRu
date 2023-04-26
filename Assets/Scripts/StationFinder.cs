@@ -39,7 +39,7 @@ public class StationFinder : MonoBehaviour
     {
         if (cd < 0)
         {
-            StartCoroutine(SBahnStationFinder.instance.GetStationsInfo());
+            //StartCoroutine(SBahnStationFinder.instance.GetStationsInfo());
             StartCoroutine(Search());
             cd = 3;
         }

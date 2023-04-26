@@ -25,7 +25,7 @@ public class SBahnStationFinder : MonoBehaviour {
 		locationInitialized = true;
 	}
 	void Update() {
-		/*if (locationInitialized) {
+		if (locationInitialized) {
 			if (timer <= 0) {
 				StartCoroutine (GetStationsInfo ());
 				
@@ -33,7 +33,7 @@ public class SBahnStationFinder : MonoBehaviour {
 			} else {
 				timer -= Time.deltaTime;
 			}
-		}*/
+		}
 	}
 
 
@@ -66,6 +66,7 @@ public class SBahnStationFinder : MonoBehaviour {
 			Debug.Log(pd.geometry.location.ToString());
 		}
 
+		StationFinder.instance.FindNearestStation();
 	}
 }
 [Serializable]
