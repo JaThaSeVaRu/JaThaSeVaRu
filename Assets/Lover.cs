@@ -2,25 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class obstacle : MonoBehaviour
+public class Lover : MonoBehaviour
 {
     public float speed;
 
-
-    public Sprite[] sprites;
-
-    public int listlength;
-
-    public int spriteChoice;
-
     void Start()
     {
-        listlength = sprites.Length;
-
-        spriteChoice = Random.Range(0, listlength);
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = sprites[spriteChoice];
-
+        
     }
+
 
     void Update()
     {
@@ -34,5 +24,6 @@ public class obstacle : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 }
