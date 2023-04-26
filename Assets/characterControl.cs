@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public enum runstate { ONTRAIN, INTRAIN, JUMPING, SLIDING, SWITCHUP, SWITCHDOWN, STUMBLING }
@@ -32,8 +33,6 @@ public class characterControl : MonoBehaviour
     float slidingTime;
     public float slidingLimit;
 
-    //public GameObject train;
-
     float stumbleTime;
     public float stumbleLimit;
     public float stumbleSpeed;
@@ -44,6 +43,15 @@ public class characterControl : MonoBehaviour
     public SpriteRenderer m_SpriteRenderer;
 
     public GameObject manager;
+
+    public Vector2 startPos;
+    public Vector2 direction;
+    public bool directionChosen;
+    public float slideSensitivity;
+    public bool touchHeld;
+    public bool tapped;
+    public float posingTimer;
+    public float holdSensitivity;
 
     void Start()
     {
@@ -70,6 +78,94 @@ public class characterControl : MonoBehaviour
         if (safeTime >= safeLimit)
         {
             m_SpriteRenderer.color = new Color(1, 0.48f, 0.78f);
+        }
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            switch (touch.phase)
+            {
+                // Record initial touch position.
+                case TouchPhase.Began:
+                    startPos = touch.position;
+                    directionChosen = false;
+                    tapped = false;
+                    touchHeld = false;
+                    break;
+
+                // Determine direction by comparing the current touch position with the initial one.
+                case TouchPhase.Moved:
+                    direction = touch.position - startPos;
+                    break;
+
+                // Report that a direction has been chosen when the finger is lifted.
+                case TouchPhase.Ended:
+                    if (Math.Abs(direction.y) > slideSensitivity)
+                    {
+                        directionChosen = true;
+                    }
+                    if (posingTimer < holdSensitivity && !directionChosen)
+                    {
+                        tapped = true;
+                    }
+                    touchHeld = false;
+                    posingTimer = 0;
+                    break;
+
+                //Report that touch was held
+                case TouchPhase.Stationary:
+                    posingTimer += Time.unscaledDeltaTime;
+                    if (posingTimer > holdSensitivity)
+                    {
+                        touchHeld = true;
+                    }
+                    break;
+            }
+
+            if (directionChosen)
+            {
+                if (Input.GetKeyDown("up") || Math.Sign(direction.y) == 1)
+                {
+                    if (state == runstate.INTRAIN)
+                    {
+                        state = runstate.SWITCHUP;
+                    }
+
+
+                    if (state == runstate.ONTRAIN)
+                    {
+                        state = runstate.JUMPING;
+                    }
+                }
+
+                if (Input.GetKeyDown("down") || Math.Sign(direction.y) == -1)
+                {
+                    if (state == runstate.INTRAIN)
+                    {
+                        state = runstate.SLIDING;
+                    }
+
+
+                    if (state == runstate.ONTRAIN)
+                    {
+                        state = runstate.SWITCHDOWN;
+                    }
+                }
+            }
+
+            if (touchHeld)
+            {
+                //Change post
+                Debug.Log("Strike a pose!");
+            }
+
+            if (tapped)
+            {
+                Debug.Log("Screen was tapped)");
+                //TO DO: Check if player touched a UI Icon by tapping.
+                //Send mouse position to function in UI Manager to check.
+            }
+
         }
 
         if (Input.GetKeyDown("up"))
@@ -100,25 +196,6 @@ public class characterControl : MonoBehaviour
                 state = runstate.SWITCHDOWN;
             }
         }
-
-        /*
-        if (Input.GetKeyDown("space"))
-        {
-            if (state == runstate.ONTRAIN || state == runstate.JUMPING)
-            {
-                jumpBase = transform.position;
-                stumbleBase = jumpBase;
-            }
-            if (state == runstate.INTRAIN || state == runstate.SLIDING || state == runstate.SWITCHUP ||state == runstate.SWITCHDOWN)
-            {
-                slideBase = transform.position;
-                stumbleBase = slideBase;
-            }
-
-            state = runstate.STUMBLING;
-        }
-        */
-
 
         if (state == runstate.INTRAIN || state == runstate.ONTRAIN)
         {
