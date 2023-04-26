@@ -2261,6 +2261,14 @@ MonoBehaviour:
   safeLimit: 3
   m_SpriteRenderer: {fileID: 0}
   manager: {fileID: 1879781933}
+  startPos: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  directionChosen: 0
+  slideSensitivity: 0
+  touchHeld: 0
+  tapped: 0
+  posingTimer: 0
+  holdSensitivity: 0
 --- !u!70 &1174327761
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3101,7 +3109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   startPosition: {x: 0, y: 0, z: 0}
   setBack: -27.84
 --- !u!1 &1792860931
