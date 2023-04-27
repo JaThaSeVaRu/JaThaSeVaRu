@@ -23,7 +23,7 @@ public class heart : MonoBehaviour
         {
             if (inLove == false)
             {
-                gameManager.staticHeartsStolen++;
+                GameManager.instance.player.CollectedHearts++;
                 inLove = true;
             }
         }

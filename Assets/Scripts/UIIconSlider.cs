@@ -6,7 +6,8 @@ public class UIIconSlider : MonoBehaviour
 {
     private RectTransform UIObject;
     [SerializeField] private Vector3 goalPosition;
-    [SerializeField] private Vector3 startPosition;
+    [SerializeField] private Transform showObjectPosition;
+    [SerializeField] private Transform hideObjectPosition;
     [SerializeField] private float showObjectForSeconds;
     [SerializeField] private float slideSpeed;
     [SerializeField] AnimationCurve animationCurve;
@@ -14,20 +15,21 @@ public class UIIconSlider : MonoBehaviour
 
     void Awake()
     {
-        goalPosition = GetComponentInParent<Transform>().position;
-        startPosition = this.transform.position;
-        
-        animationCurve.postWrapMode = WrapMode.Once;
+        if (this.transform.position != hideObjectPosition.position)
+        {
+            this.transform.position = hideObjectPosition.position;
+            goalPosition = showObjectPosition.position;
+        }
+        ShowUIIcon();
     }
-    void Update()
+    void ShowUIIcon()
     {
+        
         
     }
 
-    //private IEnumerator SlideObject()
-    //{
-        //Animate
-        //yield return WaitForSeconds(showObjectForSeconds);
-        //Animate backwards
-    //}
+    void HideUIIcon()
+    {
+        goalPosition = hideObjectPosition.position;
+    }
 }

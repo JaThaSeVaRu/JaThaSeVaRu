@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,19 +7,27 @@ using UnityEngine.UI;
 public class AssetSwapper : MonoBehaviour
 {
     [SerializeField] private Image weatherIcon;
+
+    private void Start()
+    {
+        GameManager.instance.world.OnWeatherChanged += SwapWeatherAssets;
+        GameManager.instance.world.OnTimeOfDayChange += SwapTimeOfDayAssets;
+        
+    }
+
     public void SwapWeatherAssets(WorldData world)
     {
         if (world != null)
         {
-            switch (world.currentWeather)
+            switch (world.CurrentWeather)
             {
-                case WorldData.CurrentWeather.cloudy:
+                case WorldData.Weather.cloudy:
                     //Set cloudy weather and use assets
                     break;
-                case WorldData.CurrentWeather.clear:
+                case WorldData.Weather.clear:
                     //Set clear weather and use assets
                     break;
-                case WorldData.CurrentWeather.rainy:
+                case WorldData.Weather.rainy:
                     //Set rainy weather and use assets
                     break;
             }
@@ -33,22 +42,22 @@ public class AssetSwapper : MonoBehaviour
     {
         if (world != null)
         {
-            switch (world.currentTime)
+            switch (world.CurrentTime)
             {
-                case WorldData.CurrentTime.sunrise:
+                case WorldData.TimeOfDay.sunrise:
                     //Set background and use assets
                     weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Sunrise/sunriseIcon");
                     break;
-                case WorldData.CurrentTime.day:
+                case WorldData.TimeOfDay.day:
                     //Set background and use assets
                     //Ex
                     weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Day/sunIcon");
                     break;
-                case WorldData.CurrentTime.sunset:
+                case WorldData.TimeOfDay.sunset:
                     //Set background and use assets
                     weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Sunset/sunsetIcon");
                     break;
-                case WorldData.CurrentTime.night:
+                case WorldData.TimeOfDay.night:
                     //Set background and use assets
                     //Ex
                     weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Day/moonIcon");

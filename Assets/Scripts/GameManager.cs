@@ -7,10 +7,12 @@ public class GameManager : MonoBehaviour
     public WorldData world;
     public PlayerData player;
     public AssetSwapper swapper;
+    public static GameManager instance;
 
     public float timeBetweenUpdates;
     void Start()
     {
+        instance = this;
         world.GetSystemTime();
         world.GetWeather();
     }
