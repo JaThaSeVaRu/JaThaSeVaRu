@@ -6,7 +6,7 @@ public class FightingCharacter : MonoBehaviour
 {
     Vector2 startPos;
     Vector2 endPos;
-    float tapDistance = 1;
+    float tapDistance = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +36,10 @@ public class FightingCharacter : MonoBehaviour
                     if (Vector2.Distance(startPos, endPos) < tapDistance)
                     {
                         //Tap
-                        Debug.Log(Camera.main.WorldToScreenPoint(touch.position).x);
-                        Debug.Log(Camera.main.scaledPixelWidth);
+                        if(touch.position.x < Screen.width/2f)
+                        {
+                            Debug.Log("Test");
+                        }
                     }
                     else
                     {
