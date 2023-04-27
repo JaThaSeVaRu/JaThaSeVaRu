@@ -132,10 +132,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  sprites:
+  daySprites:
+  - {fileID: 21300000, guid: 9fd7012df3633224db784d7fd281ec9c, type: 3}
+  nightSprites:
   - {fileID: 21300000, guid: 9fd7012df3633224db784d7fd281ec9c, type: 3}
   listlength: 0
   spriteChoice: 0
+  daytime: 0
+  day: 0
+  night: 0
 --- !u!70 &887307765118051590
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +154,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 5.6}
+  m_Offset: {x: 0, y: 1.82}
   m_Size: {x: 2.58, y: 0.64}
   m_Direction: 1
 --- !u!212 &-3845368901946631537

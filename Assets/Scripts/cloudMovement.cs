@@ -8,14 +8,16 @@ public class cloudMovement : MonoBehaviour
 
     void Start()
     {
+        //Set random speed (from veeeeeery slow to slow)
         speed = Random.Range(0.001f, 0.1f);
     }
 
     void Update()
     {
-
+        //move left
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
+        //disappear when out of bounds
         if (transform.position.x <= -15)
         {
             Destroy(gameObject);
