@@ -5,10 +5,12 @@ using UnityEngine;
 public class heart : MonoBehaviour
 {
     public bool inLove;
+    public GameObject LovePose, IdlePose;
 
     void Start()
     {
-        
+        LovePose.GetComponent<SpriteRenderer>().enabled = false;
+        IdlePose.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     void Update()
@@ -23,8 +25,11 @@ public class heart : MonoBehaviour
         {
             if (inLove == false)
             {
-                GameManager.instance.player.CollectedHearts++;
+                Debug.Log("Test");
                 inLove = true;
+                //Effekt
+                LovePose.GetComponent<SpriteRenderer>().enabled = true;
+                IdlePose.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
     }
