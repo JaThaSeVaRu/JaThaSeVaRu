@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public SBahnStationFinder APIFinder;
     public StationFinder stationFinder;
     public VelocityFinder velocityFinder;
+    public WeatherData weatherData;
     public static GameManager instance;
 
     public float timeBetweenUpdates;

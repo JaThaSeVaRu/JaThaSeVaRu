@@ -43,6 +43,7 @@ public class VelocityFinder : MonoBehaviour
             //Debug.Log(Input.location.lastData.timestamp);
             if (Input.location.lastData.latitude != oldLatitude || Input.location.lastData.longitude != oldLongitude)
             {
+                GameManager.instance.player.Coordinates = new Vector2(Input.location.lastData.latitude,Input.location.lastData.longitude);
                 if (Input.location.lastData.timestamp == oldTimestamp)
                 {
                     //Speed.text = "Speed: 0";
