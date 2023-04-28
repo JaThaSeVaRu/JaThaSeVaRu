@@ -228,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 305863053}
   m_Layer: 0
-  m_Name: ssad
+  m_Name: notsdf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,6 +280,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &417083271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4531590395739823289, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
+  m_PrefabInstance: {fileID: 994005940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece566ce590004866a528e5b9adb8952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &492051903 stripped
@@ -1313,6 +1324,22 @@ PrefabInstance:
       value: Manager
       objectReference: {fileID: 0}
     - target: {fileID: 4531590395739823301, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
+      propertyPath: APIFinder
+      value: 
+      objectReference: {fileID: 1524024965}
+    - target: {fileID: 4531590395739823301, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
+      propertyPath: weatherData
+      value: 
+      objectReference: {fileID: 417083271}
+    - target: {fileID: 4531590395739823301, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
+      propertyPath: stationFinder
+      value: 
+      objectReference: {fileID: 1524024966}
+    - target: {fileID: 4531590395739823301, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
+      propertyPath: velocityFinder
+      value: 
+      objectReference: {fileID: 1991118487}
+    - target: {fileID: 4531590395739823301, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
       propertyPath: timeBetweenUpdates
       value: 5
       objectReference: {fileID: 0}
@@ -1721,6 +1748,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6837499671104482427, guid: 9907828839a0116459fe7620a11a95df, type: 3}
   m_PrefabInstance: {fileID: 952943735}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1524024965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2521632413906447872, guid: 33b9ba1ec3e192548a7785a446fac1ee, type: 3}
+  m_PrefabInstance: {fileID: 1113974261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1329f961575e94ca1ba8e3a67a4a259c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1524024966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2521632413906447878, guid: 33b9ba1ec3e192548a7785a446fac1ee, type: 3}
+  m_PrefabInstance: {fileID: 1113974261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9f00473340344c180c58ecec26eeac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1584662765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2148,6 +2197,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6837499670175001955, guid: 9907828839a0116459fe7620a11a95df, type: 3}
   m_PrefabInstance: {fileID: 952943735}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1991118484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6901063269272960735, guid: 96f285f1262f103479d881ae98b8db97, type: 3}
+  m_PrefabInstance: {fileID: 1465989275}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1991118487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991118484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120f521967f5e174a9be26021bc99905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
 --- !u!1001 &2005756454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2159,6 +2226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 5622508292230580, guid: 7e5bf08d6aa627441b2ff967b2c32fa6, type: 3}
+      propertyPath: house10
+      value: 
+      objectReference: {fileID: 4552488871626385812, guid: 65e6c83b22071a94882950ef25127192, type: 3}
     - target: {fileID: 5622508292230581, guid: 7e5bf08d6aa627441b2ff967b2c32fa6, type: 3}
       propertyPath: m_RootOrder
       value: 4
