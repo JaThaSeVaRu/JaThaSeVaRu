@@ -56,12 +56,14 @@ public class UIManager : MonoBehaviour
         ButtonsOnTheRight = ButtonsUI.anchorMax == RightSideMaxAnchor ? true : false;
 
         GameManager.instance.player.OnCollectHearts += UpdateScoreUI;
+        GameManager.instance.stationFinder.OnClosestStationChange += UpdateUIStationName;
+        
     }
 
     private void Update() 
     {
-        if(StationFinder.instance.ClosestStation != null)
-            ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;
+        
+        
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;
         CurrentWeatherText.text = GameManager.instance.world.CurrentWeather.ToString();
         CurrentTimeText.text = GameManager.instance.world.CurrentTime.ToString();
@@ -151,5 +153,11 @@ public class UIManager : MonoBehaviour
     void UpdateScoreUI(PlayerData player)
     {
         HeartCounter.text = player.CollectedHearts.ToString();
+    }
+
+    void UpdateUIStationName(StationData stationData)
+    {
+        if(StationFinder.instance.ClosestStation != null)
+            ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;
     }
 }

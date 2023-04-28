@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,24 @@ public class StationFinder : MonoBehaviour
 {
     [SerializeField] public List<StationData> Stations = new List<StationData>();
     public float ShortestDistance = 100f;
-    public PlayerData player;
-    public StationData ClosestStation;
-    public StationData LastStation;
+    public float WaitTimeToUpdateClosestStation;
+    public event Action<StationData> OnClosestStationChange;
+    public StationData closestStation;
+    public StationData ClosestStation
+    {
+        get
+        {
+            return closestStation; 
+        }
+        set
+        {
+            if (value != closestStation)
+            {
+                closestStation = value;
+                OnClosestStationChange?.Invoke(closestStation);
+            }
+        }
+    }
     public static StationFinder instance;
     void Awake()
     {
@@ -17,11 +33,12 @@ public class StationFinder : MonoBehaviour
         {
         	instance = this;
         }
+
+        GameManager.instance.player.OnVelocityChange += DetermineArrivalToStation;
     }
-    float cd = 3;
     private void Update() 
     {
-        cd -= Time.deltaTime;
+        WaitTimeToUpdateClosestStation -= Time.deltaTime;
         //FindNearestStation();
     }
 
@@ -37,11 +54,11 @@ public class StationFinder : MonoBehaviour
 
     public void FindNearestStation() 
     {
-        if (cd < 0)
+        if (WaitTimeToUpdateClosestStation < 0)
         {
             //StartCoroutine(SBahnStationFinder.instance.GetStationsInfo());
             StartCoroutine(Search());
-            cd = 3;
+            WaitTimeToUpdateClosestStation = 10;
         }
     }
 
@@ -50,7 +67,7 @@ public class StationFinder : MonoBehaviour
         yield return new WaitForSeconds(3);
         foreach (StationData station in Stations)
         {
-            float distance = Vector2.Distance(player.Coordinates, station.Coordinates);
+            float distance = Vector2.Distance(GameManager.instance.player.Coordinates, station.Coordinates);
             if (distance < ShortestDistance)
             {
                 ShortestDistance = distance;
@@ -59,6 +76,14 @@ public class StationFinder : MonoBehaviour
         }
         ShortestDistance = float.MaxValue;
         yield return null;
+    }
+
+    void DetermineArrivalToStation(PlayerData player)
+    {
+        if (Vector2.Distance(player.Coordinates, ClosestStation.Coordinates) < 500 && player.Velocity < 5)
+        {
+            Debug.Log("Arriving to station: " + ClosestStation.StationName);
+        }
     }
 
 }

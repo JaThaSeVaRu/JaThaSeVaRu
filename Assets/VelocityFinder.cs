@@ -1,23 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.Serialization;
 
-public class GPSTesting : MonoBehaviour
+public class VelocityFinder : MonoBehaviour
 {
-    public TMP_Text OldGPS, NewGPS;
-
-    public TMP_Text SpeedText;
-
-    public TMP_Text Timestamp;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     float oldLatitude, oldLongitude;
     double speedLatitude, speedLongitude;
     double oldTimestamp;
@@ -41,21 +27,15 @@ public class GPSTesting : MonoBehaviour
         return d*1000;
     }
 
-    void Update()
-    {
-        /*
-        */
-    }
+    // public void buttonGPS()
+    // {
+    //     updateGPSnum();
+    // }
 
-    public void buttonGPS()
-    {
-        updateGPSnum();
-    }
-
-    public void buttonStation()
-    {
-        StationFinder.instance.FindNearestStation();
-    }
+    // public void buttonStation()
+    // {
+    //     StationFinder.instance.FindNearestStation();
+    // }
     public bool updateGPSnum()
     {
         if (UnityEngine.Input.location.status == LocationServiceStatus.Running)
@@ -79,20 +59,14 @@ public class GPSTesting : MonoBehaviour
                     //speedLongitude *= 111.320 * System.Math.Cos(speedLatitude);
 
                     Speed = d / (Input.location.lastData.timestamp - oldTimestamp) * 3600f;
-                    
-                    SpeedText.text = "Speed: " + Speed * 3600f + " km/h";
+                    GameManager.instance.player.Velocity = (float)Speed;
                 }
-                OldGPS.text = "OldGPS: " + oldLatitude + ", " + oldLongitude;
                 oldLongitude = Input.location.lastData.longitude;
                 oldLatitude = Input.location.lastData.latitude;
-                NewGPS.text = "NewGPS: " + oldLatitude + ", " + oldLongitude;
-
                 oldTimestamp = Input.location.lastData.timestamp;
-                Timestamp.text = "Time: " + oldTimestamp;
             }
             return true;
         }
         return false;
     }
-
 }

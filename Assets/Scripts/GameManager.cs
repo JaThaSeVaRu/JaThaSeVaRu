@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     public WorldData world;
     public PlayerData player;
     public AssetSwapper swapper;
+    public SBahnStationFinder APIFinder;
+    public StationFinder stationFinder;
+    public VelocityFinder velocityFinder;
     public static GameManager instance;
 
     public float timeBetweenUpdates;
@@ -15,6 +19,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         world.GetSystemTime();
         world.GetWeather();
+        //APIFinder.GetStationsInfo();
     }
 
     // Update is called once per frame
@@ -25,6 +30,7 @@ public class GameManager : MonoBehaviour
             player.Coordinates = new Vector2(Input.location.lastData.latitude, Input.location.lastData.longitude);
         }
         StartCoroutine (SwapAssets());
+        StartCoroutine(UpdateGPS());
         //Test swapping assets
         //swapper.SwapTimeOfDayAssets(world);
     }
@@ -35,5 +41,11 @@ public class GameManager : MonoBehaviour
         swapper.SwapTimeOfDayAssets(world);
         yield return new WaitForSeconds(timeBetweenUpdates * 60);
     }
-    
+
+    private IEnumerator UpdateGPS()
+    {
+        velocityFinder.updateGPSnum();
+        yield return new WaitForSeconds(timeBetweenUpdates * 60);
+    }
+
 }
