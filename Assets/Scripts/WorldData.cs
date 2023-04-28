@@ -1,50 +1,91 @@
+using System;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class WorldData : ScriptableObject
 {
-    [SerializeField] public enum CurrentTime
+    public event Action<WorldData> OnTimeOfDayChange;
+    [SerializeField] public enum TimeOfDay
     {
         sunrise,//0
         day,//1
         sunset,//2
         night//3
     }
-    public CurrentTime currentTime;
-    [SerializeField] public enum CurrentWeather
+     private TimeOfDay currentTime;
+     public TimeOfDay CurrentTime
+     {
+         get
+         {
+             return currentTime;
+         }   // get method
+         set
+         {
+             if (value != currentTime)
+             {
+                 currentTime = value;
+                 OnTimeOfDayChange?.Invoke(this);
+             }
+         }  // set method
+     }
+    
+    [SerializeField] public enum Weather
     {
         clear,//0
         cloudy,//1
         rainy,//2
     }
-    public CurrentWeather currentWeather;
+
+    public event Action<WorldData> OnWeatherChanged;
+    
+    private Weather currentWeather;
+    public Weather CurrentWeather
+    {
+        get
+        {
+            return currentWeather;
+        }   // get method
+        set
+        {
+            if (value != currentWeather)
+            {
+                currentWeather = value;
+                OnWeatherChanged?.Invoke(this);
+            }
+        }  // set method
+    }
+    
+    
+    
     public void GetSystemTime()
     {
         int systemHour = System.DateTime.Now.Hour;
         if(systemHour > 19)
-            currentTime = CurrentTime.sunset;
+            currentTime = TimeOfDay.sunset;
         else if(systemHour > 10)
-            currentTime = CurrentTime.day;
+            currentTime = TimeOfDay.day;
         else if(systemHour > 7)
-            currentTime = CurrentTime.sunrise;
+            currentTime = TimeOfDay.sunrise;
         else
         {
-            currentTime = CurrentTime.night;
+            currentTime = TimeOfDay.night;
         }   
     }
     public void GetWeather()
     {
         if (WeatherData.instance.Info.currentConditions.icon == "clear-day" || WeatherData.instance.Info.currentConditions.icon == "clear-night")
         {
-            currentWeather = CurrentWeather.clear;
+            CurrentWeather = Weather.clear;
         }
         else if (WeatherData.instance.Info.currentConditions.icon == "snow" || WeatherData.instance.Info.currentConditions.icon == "rain" || WeatherData.instance.Info.currentConditions.icon =="fog")
         {
-            currentWeather = CurrentWeather.rainy;
+            CurrentWeather = Weather.rainy;
         }
         else
         {
-            currentWeather = CurrentWeather.cloudy;
+            CurrentWeather = Weather.cloudy;
         }
     }
 }

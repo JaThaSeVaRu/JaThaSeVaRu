@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4531590395739823290}
   - component: {fileID: 4531590395739823301}
   - component: {fileID: 1850093561}
+  - component: {fileID: 6083932317992841888}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -77,8 +78,6 @@ MonoBehaviour:
   CurrentTimeText: {fileID: 0}
   HeartCounter: {fileID: 0}
   CurrentWeatherText: {fileID: 0}
-  player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
-  world: {fileID: 11400000, guid: a829f6294f1ed43969a258647177f97f, type: 2}
   IconsUI: {fileID: 0}
   ButtonsUI: {fileID: 0}
   LeftSideMaxAnchor: {x: 0, y: 1}
@@ -106,6 +105,9 @@ MonoBehaviour:
   world: {fileID: 11400000, guid: a829f6294f1ed43969a258647177f97f, type: 2}
   player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
   swapper: {fileID: 1850093561}
+  APIFinder: {fileID: 0}
+  stationFinder: {fileID: 0}
+  velocityFinder: {fileID: 0}
   timeBetweenUpdates: 0
 --- !u!114 &1850093561
 MonoBehaviour:
@@ -120,3 +122,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weatherIcon: {fileID: 0}
+--- !u!114 &6083932317992841888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531590395739823294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fe0868d53a42a4abde735f02dbe955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

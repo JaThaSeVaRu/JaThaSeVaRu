@@ -10,10 +10,8 @@ public class SBahnStationFinder : MonoBehaviour {
 	public float minutesBetweenUpdate;
 	public StationInfo Info;
 	public string API_key;
-	private float latitude;
-	private float longitude;
 	public float searchRadius;
-	private bool locationInitialized;
+	public bool locationInitialized;
 	public PlayerData player;
 	public static SBahnStationFinder instance;
     void Awake()
@@ -24,25 +22,25 @@ public class SBahnStationFinder : MonoBehaviour {
         }
     }
     public void Start() {
-		latitude = player.Coordinates.x;
-		longitude = player.Coordinates.y;
 		locationInitialized = true;
 	}
-	void Update() {
-		if (locationInitialized) {
-			locationInitialized = false;
-			if (timer <= 0) {
-				StartCoroutine (GetStationsInfo ());
-				timer = minutesBetweenUpdate * 60;
-			} else {
-				timer -= Time.deltaTime;
-			}
-		}
-	}
-	private IEnumerator GetStationsInfo()
+	// void Update() {
+	// 	if (locationInitialized) {
+	// 		if (timer <= 0) {
+	// 			//StartCoroutine (GetStationsInfo ());
+	// 			
+	// 			timer = minutesBetweenUpdate * 10;
+	// 		} else {
+	// 			timer -= Time.deltaTime;
+	// 		}
+	// 	}
+	// }
+
+
+	public IEnumerator GetStationsInfo()
 	{
 		var www = new UnityWebRequest(
-        "https://maps.googleapis.com/maps/api/place/search/json?location=" + latitude.ToString().Replace(",",".") + "," + longitude.ToString().Replace(",", ".") + "&radius=" + searchRadius + "&keyword=&type=train_station&key=" + API_key)
+        "https://maps.googleapis.com/maps/api/place/search/json?location=" + player.Coordinates.x.ToString().Replace(",",".") + "," + player.Coordinates.y.ToString().Replace(",", ".") + "&radius=" + searchRadius + "&keyword=&type=train_station&key=" + API_key)
 		{
 			downloadHandler = new DownloadHandlerBuffer()
 		};
@@ -50,7 +48,7 @@ public class SBahnStationFinder : MonoBehaviour {
         Debug.Log("Getting station data.");
 		yield return www.SendWebRequest();
 
-		if (www.isNetworkError || www.isHttpError)
+		if (www.error != null)
 		{
 			//error
             Debug.Log("Something went wrong with Station API");
@@ -60,10 +58,15 @@ public class SBahnStationFinder : MonoBehaviour {
 		Info = JsonConvert.DeserializeObject<StationInfo>(www.downloadHandler.text);
 		//Info = JsonUtility.FromJson<StationInfo>(www.downloadHandler.text);
 		Debug.Log(www.downloadHandler.text);
+		StationFinder.instance.clearStations();
 		foreach (PlaceDetails pd in Info.results)
 		{
+
+			StationFinder.instance.addStation(new StationData(pd.name, pd.geometry.location.lat, pd.geometry.location.lng));
 			Debug.Log(pd.geometry.location.ToString());
 		}
+
+		yield return new WaitForSeconds(0);
 	}
 }
 [Serializable]

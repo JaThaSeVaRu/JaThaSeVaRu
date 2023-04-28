@@ -22,10 +22,6 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI CurrentTimeText;
     public TextMeshProUGUI HeartCounter;
     public TextMeshProUGUI CurrentWeatherText;
-    
-    //Scriptable objects
-    public PlayerData player;
-    public WorldData world;
 
     //Game UI
     public RectTransform IconsUI;
@@ -58,22 +54,20 @@ public class UIManager : MonoBehaviour
         RightSidePivot = new Vector2(1, 1);
 
         ButtonsOnTheRight = ButtonsUI.anchorMax == RightSideMaxAnchor ? true : false;
-        
+
+        GameManager.instance.player.OnCollectHearts += UpdateScoreUI;
+        GameManager.instance.stationFinder.OnClosestStationChange += UpdateUIStationName;
         
     }
 
     private void Update() 
     {
-        player.Coordinates.x = Input.location.lastData.latitude;
-        player.Coordinates.y = Input.location.lastData.longitude;
-        player.time = Input.location.lastData.timestamp;
-        HeartCounter.text = player.CollectedHearts.ToString();
-        //PlayerLocationText.text = player.Coordinates.ToString();
-        //ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;
+        
+        
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;
-        CurrentWeatherText.text = world.currentWeather.ToString();
-        CurrentTimeText.text = world.currentTime.ToString();
-
+        CurrentWeatherText.text = GameManager.instance.world.CurrentWeather.ToString();
+        CurrentTimeText.text = GameManager.instance.world.CurrentTime.ToString();
+        
         //Test swapping sides
         if (Input.GetKey(KeyCode.A))
         {
@@ -154,5 +148,16 @@ public class UIManager : MonoBehaviour
     {
         currentScreen = CurrentScreen.pauseScreen;
         SwapUIMenus();
+    }
+
+    void UpdateScoreUI(PlayerData player)
+    {
+        HeartCounter.text = player.CollectedHearts.ToString();
+    }
+
+    void UpdateUIStationName(StationData stationData)
+    {
+        if(StationFinder.instance.ClosestStation != null)
+            ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;
     }
 }

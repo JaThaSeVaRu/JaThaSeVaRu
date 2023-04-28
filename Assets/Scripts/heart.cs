@@ -22,7 +22,7 @@ public class heart : MonoBehaviour
             //if lover is not yet in love: increase amount of collected hearts by one and change inLove to true
             if (inLove == false)
             {
-                gameManager.staticHeartsStolen++;
+                GameManager.instance.player.CollectedHearts++;
                 inLove = true;
             }
         }
