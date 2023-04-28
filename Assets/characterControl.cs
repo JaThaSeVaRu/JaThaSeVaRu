@@ -265,6 +265,8 @@ public class characterControl : MonoBehaviour
 
     public void Stumble()
     {
+        anim.SetBool("IsJumping", false);
+        anim.SetBool("Slide", false);
 
         safeTime = 0;
 
