@@ -13,6 +13,7 @@ public class obstacleSpawn : MonoBehaviour
 
     public GameObject onTrainPylon;
     public GameObject onTrainBird;
+    public GameObject Kontrolleur;
 
     public float inTrainSpawnTime;
     public float inTrainSpawnMin;
@@ -73,7 +74,7 @@ public class obstacleSpawn : MonoBehaviour
 
         if (inTrainSpawnTime >= inTrainSpawnRate)
         {
-            inTrainChoice = Random.Range(1, 5);
+            inTrainChoice = Random.Range(5, 6);
 
             if (inTrainChoice == 1)
             {
@@ -102,6 +103,14 @@ public class obstacleSpawn : MonoBehaviour
             if (inTrainChoice == 4)
             {
                 Instantiate(Lover, new Vector3(15, -4f, -4.8f), Quaternion.identity);
+                inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
+                inTrainSpawnTime = 0;
+                noSpawn = true;
+            }
+
+            if (inTrainChoice == 5)
+            {
+                Instantiate(Kontrolleur, new Vector3(15, -4f, -4.8f), Quaternion.identity);
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
                 inTrainSpawnTime = 0;
                 noSpawn = true;
