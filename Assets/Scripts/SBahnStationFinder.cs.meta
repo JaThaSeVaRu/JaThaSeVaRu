@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 1329f961575e94ca1ba8e3a67a4a259c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - currentWeatherText: {instanceID: 0}
+  - player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
