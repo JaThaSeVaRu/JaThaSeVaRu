@@ -52,7 +52,7 @@ MonoBehaviour:
   daySprites:
   - {fileID: 21300000, guid: 39e7bc96a43fea34c8bf8c6af77bbb44, type: 3}
   nightSprites:
-  - {fileID: 21300000, guid: 39e7bc96a43fea34c8bf8c6af77bbb44, type: 3}
+  - {fileID: 21300000, guid: 74898aa5333204a4a9fde760b65c7754, type: 3}
   listlength: 0
   spriteChoice: 0
   daytime: 0
