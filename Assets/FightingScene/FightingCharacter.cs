@@ -7,11 +7,15 @@ public class FightingCharacter : MonoBehaviour
     Vector2 startPos;
     Vector2 endPos;
     float tapDistance = 100;
+    public List<Sprite> spriteList = new List<Sprite>();
+    int direction = 0;
+    SpriteRenderer sprite;
+    int lastSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -38,14 +42,24 @@ public class FightingCharacter : MonoBehaviour
                         //Tap
                         if(touch.position.x < Screen.width/2f)
                         {
-                            Debug.Log("Test");
+                            //Attack Left
+                            direction = -1;
+                            sprite.sprite = newSprite();
                         }
+                        else
+                        {
+                            //Attack Right
+                            direction = 1;
+                            sprite.sprite = newSprite();
+                        }
+                        transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
                     }
                     else
                     {
                         //Swipe
 
                     }
+
                     break;
 
                 //Report that touch was held
@@ -54,5 +68,16 @@ public class FightingCharacter : MonoBehaviour
                     break;
             }
         }
+    }
+
+    Sprite newSprite()
+    {
+        int newSpriteNumber = Random.Range(0, spriteList.Count);
+        while(newSpriteNumber == lastSprite)
+        {
+            newSpriteNumber = Random.Range(0, spriteList.Count);
+        }
+        lastSprite = newSpriteNumber;
+        return spriteList[newSpriteNumber];
     }
 }
