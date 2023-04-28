@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 3153575320147822908}
   m_Layer: 0
   m_Name: poseEffect
-  m_TagString: Untagged
+  m_TagString: pose
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
