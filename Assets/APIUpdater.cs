@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class APIUpdater : MonoBehaviour
 {
-    [SerializeField] private float GPSUpdateTime;
-    [SerializeField] private float StationsAPIUpdateTime;
-    [SerializeField] private float WeatherAPIUpdateTime;
+    [SerializeField] private float GPSUpdateTimeInSeconds = 1;
+    [SerializeField] private float StationsAPIUpdateTimeInMinutes = 2;
+    [SerializeField] private float WeatherAPIUpdateTimeInMinutes = 30;
     void Start()
     {
         StartCoroutine((UpdateGPS()));
@@ -21,7 +22,7 @@ public class APIUpdater : MonoBehaviour
         {
             GameManager.instance.stationFinder.FindNearestStation();
         }
-        yield return new WaitForSeconds(GPSUpdateTime * 60);
+        yield return new WaitForSeconds(GPSUpdateTimeInSeconds);
         StartCoroutine(UpdateGPS());
     }
     void UpdateStationsAPI()
@@ -31,7 +32,7 @@ public class APIUpdater : MonoBehaviour
             GameManager.instance.APIFinder.GetStationsInfo();
         }
 
-        Invoke("UpdateStationsAPI", StationsAPIUpdateTime * 60);
+        Invoke("UpdateStationsAPI", StationsAPIUpdateTimeInMinutes * 60);
     }
     void UpdateWeatherAPI()
     {
@@ -39,6 +40,6 @@ public class APIUpdater : MonoBehaviour
         {
             GameManager.instance.weatherData.GetWeatherInfo();
         }
-        Invoke("UpdateWeatherAPI", StationsAPIUpdateTime * 60);
+        Invoke("UpdateWeatherAPI", WeatherAPIUpdateTimeInMinutes * 60);
     }
 }

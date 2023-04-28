@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
         instance = this;
         world.GetSystemTime();
         world.GetWeather();
-        //APIFinder.GetStationsInfo();
     }
 
     // Update is called once per frame
@@ -31,7 +30,6 @@ public class GameManager : MonoBehaviour
             player.Coordinates = new Vector2(Input.location.lastData.latitude, Input.location.lastData.longitude);
         }
         StartCoroutine (SwapAssets());
-        StartCoroutine(UpdateGPS());
         //Test swapping assets
         //swapper.SwapTimeOfDayAssets(world);
     }
@@ -40,12 +38,6 @@ public class GameManager : MonoBehaviour
     {
         swapper.SwapWeatherAssets(world);
         swapper.SwapTimeOfDayAssets(world);
-        yield return new WaitForSeconds(timeBetweenUpdates * 60);
-    }
-
-    private IEnumerator UpdateGPS()
-    {
-        velocityFinder.updateGPSnum();
         yield return new WaitForSeconds(timeBetweenUpdates * 60);
     }
 
