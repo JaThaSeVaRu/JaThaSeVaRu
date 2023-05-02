@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   coordinates: {x: 0, y: 0}
-  velocity: 40.4
+  velocity: 10
   time: 0
   _collectedHearts: 0

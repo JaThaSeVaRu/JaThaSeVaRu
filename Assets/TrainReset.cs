@@ -10,6 +10,7 @@ public class TrainReset : MonoBehaviour
         {
             if(go.name != gameObject.name)
             {
+                Debug.Log("yeah");
                 this.transform.localPosition = go.transform.localPosition + new Vector3(Mathf.Abs(transform.localPosition.x - go.transform.localPosition.x), 0 ,0);
                 break;
             }

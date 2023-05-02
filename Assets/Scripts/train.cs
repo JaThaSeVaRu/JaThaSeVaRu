@@ -26,6 +26,7 @@ public class train : MonoBehaviour
         }
         //get current position and set as start position
         //startPosition = transform.position;
+        FindObjectOfType<AudioManager>().Play("Train");
     }
 
     void Update()
