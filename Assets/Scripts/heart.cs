@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class heart : MonoBehaviour
 {
-    //check if already in love
     public bool inLove;
+    public GameObject LovePose, IdlePose, Herz;
+    //private Animator anim;
+    void Start()
+    {
+        LovePose.GetComponent<SpriteRenderer>().enabled = false;
+        IdlePose.GetComponent<SpriteRenderer>().enabled = true;
+        Herz.GetComponent<SpriteRenderer>().enabled = false;
+        //anim = GetComponent<Animator>();
+        //anim.SetBool("Herz_getroffen", false);
+    }
 
-
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //IMPORTANT: check lover-Script for extension of this script
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-    //this script might get fused with the lover-Script later on
+    void Update()
+    {
+        
+    }
 
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("pose"))
         {
-            //if lover is not yet in love: increase amount of collected hearts by one and change inLove to true
             if (inLove == false)
             {
-                GameManager.Instance.player.CollectedHearts++;
+                Debug.Log("Test");
                 inLove = true;
+                //Effekt
+                LovePose.GetComponent<SpriteRenderer>().enabled = true;
+                IdlePose.GetComponent<SpriteRenderer>().enabled = false;
+                Herz.GetComponent<SpriteRenderer>().enabled = true;
+                //anim.SetBool("Herz_getroffen", true);
             }
         }
     }
