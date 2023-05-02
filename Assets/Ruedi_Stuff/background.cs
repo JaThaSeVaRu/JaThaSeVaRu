@@ -583,12 +583,12 @@ public class background : MonoBehaviour
     void Update()
     {
 
-        // float height = 2f * Camera.main.orthographicSize;
-        // float width = height * Camera.main.aspect;
-        // Instantiate(StationList[0],
-        //     new Vector3(
-        //         StationList[0].GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f + width / 2f, 0,
-        //         -0.1f), Quaternion.identity);
+        float height = 2f * Camera.main.orthographicSize;
+        float width = height * Camera.main.aspect;
+        Instantiate(StationList[0],
+            new Vector3(
+                StationList[0].GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f + width / 2f, 0,
+                -0.1f), Quaternion.identity);
         
         cloudSpawnTimer += Time.deltaTime;
         if (cloudSpawnTimer >= cloudSpawnRate)
