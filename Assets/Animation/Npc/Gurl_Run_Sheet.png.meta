@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e02227a66073634682e6f16cf2fc5a7
+guid: d8a49fe354e414b4c81dd0cf501cd3ca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boy_Run_Sheet_0
+      name: Gurl_Run_Sheet_0
       rect:
         serializedVersion: 2
-        x: 65
-        y: 58
-        width: 164
-        height: 216
+        x: 50
+        y: 53
+        width: 184
+        height: 244
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3bead86af543e5409526fc5141c4939
-      internalID: -1551160115
+      spriteID: b4a3abae3051f1b438bf0024016be71f
+      internalID: 2127849539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boy_Run_Sheet_1
+      name: Gurl_Run_Sheet_1
       rect:
         serializedVersion: 2
-        x: 291
-        y: 61
-        width: 141
-        height: 212
+        x: 304
+        y: 50
+        width: 161
+        height: 247
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9af9bc3328a61024ab55dfb7b8e10c56
-      internalID: 654015062
+      spriteID: a1e7ad334db6dc848bec07ffba31dadd
+      internalID: -178073771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boy_Run_Sheet_2
+      name: Gurl_Run_Sheet_2
       rect:
         serializedVersion: 2
-        x: 549
-        y: 58
-        width: 110
-        height: 212
+        x: 608
+        y: 54
+        width: 103
+        height: 241
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03f2bdb2549303c48b4be950ee6c8574
-      internalID: 1384941723
+      spriteID: 62ee6314d76d4c04d8abd6e06c6c3ea1
+      internalID: 1322781428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boy_Run_Sheet_3
+      name: Gurl_Run_Sheet_3
       rect:
         serializedVersion: 2
-        x: 742
-        y: 77
-        width: 138
-        height: 196
+        x: 802
+        y: 65
+        width: 149
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3254febf185e4154692c79d505ffc03f
-      internalID: 528417256
+      spriteID: c4c1bcdba4fdb4c44ba8d37fbe150d98
+      internalID: -2096913207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boy_Run_Sheet_4
+      name: Gurl_Run_Sheet_4
       rect:
         serializedVersion: 2
-        x: 935
-        y: 58
+        x: 1022
+        y: 53
+        width: 182
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc7d8df3b99da04481c7e3908546967
+      internalID: 1223374288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gurl_Run_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 50
         width: 155
-        height: 217
+        height: 241
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf4e307ddd65c8549906714dccba726c
-      internalID: 1957217995
+      spriteID: 2e36fbba140a7bd4fa33902f3168c7b4
+      internalID: 1951261571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boy_Run_Sheet_5
+      name: Gurl_Run_Sheet_6
       rect:
         serializedVersion: 2
-        x: 1171
-        y: 61
-        width: 140
-        height: 218
+        x: 1555
+        y: 55
+        width: 103
+        height: 235
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 861c05155a1a050459705333b717da03
-      internalID: -1822266089
+      spriteID: 9a7b685a2068e2a4f8f8edfcf54daa77
+      internalID: 1459851403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boy_Run_Sheet_6
+      name: Gurl_Run_Sheet_7
       rect:
         serializedVersion: 2
-        x: 1386
-        y: 58
-        width: 114
-        height: 212
+        x: 1732
+        y: 65
+        width: 155
+        height: 228
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,29 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71f86df9b98200941829cc0a18270738
-      internalID: 1740303676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boy_Run_Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 1562
-        y: 77
-        width: 140
-        height: 196
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6de246f277de6d442aa6e7b5b58b7bd2
-      internalID: 748010384
+      spriteID: 40de5ae4597e82c45b5faaf2b7222d1e
+      internalID: 1446341443
       vertices: []
       indices: 
       edges: []
@@ -295,14 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boy_Run_Sheet_0: -1551160115
-      Boy_Run_Sheet_2: 1384941723
-      Boy_Run_Sheet_1: 654015062
-      Boy_Run_Sheet_5: -1822266089
-      Boy_Run_Sheet_4: 1957217995
-      Boy_Run_Sheet_3: 528417256
-      Boy_Run_Sheet_6: 1740303676
-      Boy_Run_Sheet_7: 748010384
+      Gurl_Run_Sheet_5: 1951261571
+      Gurl_Run_Sheet_1: -178073771
+      Gurl_Run_Sheet_3: -2096913207
+      Gurl_Run_Sheet_7: 1446341443
+      Gurl_Run_Sheet_0: 2127849539
+      Gurl_Run_Sheet_2: 1322781428
+      Gurl_Run_Sheet_6: 1459851403
+      Gurl_Run_Sheet_4: 1223374288
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

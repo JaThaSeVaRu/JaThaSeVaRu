@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 66791097}
   - component: {fileID: 66791099}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Rainbow
   m_TagString: pose
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
