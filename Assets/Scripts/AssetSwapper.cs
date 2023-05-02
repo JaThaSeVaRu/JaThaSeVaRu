@@ -13,6 +13,8 @@ public class AssetSwapper : MonoBehaviour
     {
         GameManager.Instance.world.OnWeatherChanged += SwapWeatherAssets;
         GameManager.Instance.world.OnTimeOfDayChange += SwapTimeOfDayAssets;
+        StarsParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        RainParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         
     }
 
@@ -45,6 +47,7 @@ public class AssetSwapper : MonoBehaviour
         
         if (world != null)
         {
+            StarsParticles.Stop();
             switch (world.CurrentTime)
             {
                 case WorldData.TimeOfDay.sunrise:
