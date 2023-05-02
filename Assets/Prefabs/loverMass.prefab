@@ -638,7 +638,13 @@ MonoBehaviour:
   speed: 0.01
   switchSpeed: 0
   character: {fileID: 0}
-  player: {fileID: 0}
+  winlose: {fileID: 0}
+  player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
+  retreat: 0
+  retreatTime: 0
+  keepTime: 1
+  retreatLimit: 1
+  retreatSpeed: 5
 --- !u!61 &3543860955503450611
 BoxCollider2D:
   m_ObjectHideFlags: 0

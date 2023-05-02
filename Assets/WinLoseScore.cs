@@ -13,30 +13,20 @@ public class WinLoseScore : MonoBehaviour
     public int actualHearts;
     public int heartWorth;
 
-    public TMP_Text hearts;
-    public TMP_Text trueHearts;
-    public TMP_Text nextHeart;
-    public TMP_Text stateText;
-
     public float stayTime;
     public float returnTime;
-
-
+    
     public PlayerData player;
 
     void Start()
     {
         state = gamestate.RUNNING;
     }
-
-
+    
     void Update()
     {
 
         heartWorth = Mathf.FloorToInt(1 + (actualHearts / 10f));
-
-        Texts();
-
 
         if (state == gamestate.FIGHTING || state == gamestate.CAUGHT)
         {
@@ -52,7 +42,7 @@ public class WinLoseScore : MonoBehaviour
 
     }
 
-    public void Texts()
+    /*public void Texts()
     {
         hearts.text = "Score: " + stolenHearts;
         trueHearts.text = "stolen Hearts: " + player.CollectedHearts;
@@ -80,11 +70,11 @@ public class WinLoseScore : MonoBehaviour
             stateText.text = "you got caught";
         }
 
-    }
+    }*/
 
     public void ButtonInput()
     {
-        if (Input.GetKeyDown("up") && state == gamestate.RUNNING)
+        /*if (Input.GetKeyDown("up") && state == gamestate.RUNNING)
         {
             StealHeart();
         }
@@ -99,7 +89,7 @@ public class WinLoseScore : MonoBehaviour
         if (Input.GetKeyDown("right") && state == gamestate.RUNNING)
         {
             Fight();
-        }
+        }*/
 
     }
 

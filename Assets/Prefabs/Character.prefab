@@ -186,11 +186,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  winlose: {fileID: 0}
   switchSpeed: 10
   jumpSpeed: 15
   poseSpeed: 5
   approachSpeed: 0.1
-  approachBase: 0.1
+  approachBase: 0
   approachLimit: 3
   falling: 0
   gettingUp: 0
@@ -203,6 +204,9 @@ MonoBehaviour:
   posingLimit: 0.5
   stumbleLimit: 0.25
   stumbleSpeed: 0
+  caughtLimit: 1
+  pushTime: 0.2
+  pushSpeed: 15
   safeTime: 0
   safeLimit: 3
   m_SpriteRenderer: {fileID: 3014747267222560555}

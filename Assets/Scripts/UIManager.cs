@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     public CurrentScreen currentScreen;
     //UI Texts
     public TextMeshProUGUI ClosestStationText;
-    public TextMeshProUGUI PlayerLocationText;
     public TextMeshProUGUI CurrentTimeText;
     public TextMeshProUGUI HeartCounter;
     public TextMeshProUGUI CurrentWeatherText;
