@@ -12,7 +12,7 @@ public class VelocityFinder : MonoBehaviour
 
 
     float R = 6.371f;
-    float calculateGPSDistance(float lat1, float lon1, float lat2, float lon2)
+    public float calculateGPSDistance(float lat1, float lon1, float lat2, float lon2)
     {
         float phi1 = lat1 * Mathf.PI / 180f;
         float phi2 = lat2 * Mathf.PI / 180f;
@@ -63,12 +63,16 @@ public class VelocityFinder : MonoBehaviour
                     Speed = d / (Input.location.lastData.timestamp - oldTimestamp) * 3600f;
                     GameManager.Instance.player.Velocity = (float)Speed;
                 }
+
+                
                 oldLongitude = Input.location.lastData.longitude;
                 oldLatitude = Input.location.lastData.latitude;
                 oldTimestamp = Input.location.lastData.timestamp;
+                GameManager.Instance.player.Coordinates = new Vector2(oldLatitude, oldLongitude); 
             }
             return true;
         }
+        //TO DO: Slow down velocity slowly
         Speed = TestSpeed;
         GameManager.Instance.player.Velocity = (float)Speed;
         return false;

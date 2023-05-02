@@ -22,7 +22,7 @@ public class treeTrain : MonoBehaviour
     void Update()
     {
         //move left
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        transform.Translate(Vector3.left * speed / 10f * GameManager.Instance.player.Velocity * Time.deltaTime);
 
         //if setback-Position is reached set back to starting position to simulate an infinite loop
         if (transform.position.x <= setBack)

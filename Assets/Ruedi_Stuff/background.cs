@@ -72,6 +72,8 @@ public class background : MonoBehaviour
     //Y-Axis positions for spawning Houses
     */
     public List<float> HeightList = new List<float>();
+
+    public List<GameObject> StationList = new List<GameObject>();
     // -5.5 -4.3 -3.8
     /*public float frontHouseHeight;
     public float midHouseHeight;
@@ -122,6 +124,8 @@ public class background : MonoBehaviour
     {
         instance = this;
 
+        GameManager.Instance.OnArrival += showStation;
+        
         CombinedList.AddRange(ParkList);
         CombinedList.AddRange(HouseList);
 
@@ -529,8 +533,36 @@ public class background : MonoBehaviour
         */
     }
 
+    void showStation()
+    {
+        string closestStation = GameManager.Instance.stationFinder.ClosestStation.StationName;
+        string[] stationnames = {"Alex", "Hack", "Friedrich"};
+        //find correct keyword
+        foreach (string station in stationnames)
+        {
+            if (closestStation.Contains(station))
+            {
+                //find correct prefab
+                foreach (GameObject go in StationList)
+                {
+                    if (go.name.Contains(station))
+                    {
+                        float height = 2f * Camera.main.orthographicSize;
+                        float width = height * Camera.main.aspect;
+                        //found correct prefab
+                        Instantiate(go,
+                            new Vector3(
+                                go.GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f + width / 2f, 0,
+                                -0.1f), Quaternion.identity);
+                        break;
+                    }
+                }
+            }
+        }
+    }
     public void createNewBackground(GameObject parent)
     {
+        
         if(parent.transform.childCount != 0)
         {
             Transform lastChild = parent.GetComponent<LastObjectFinder>().lastObject.transform;
@@ -550,13 +582,13 @@ public class background : MonoBehaviour
 
     void Update()
     {
-        FrontLayer.speed = GameManager.Instance.player.Velocity * 0.5f;
-        MiddleLayer.speed = GameManager.Instance.player.Velocity * 0.3f;
-        BackLayer.speed = GameManager.Instance.player.Velocity * 0.1f;
-        
-        FrontTrees.speed = GameManager.Instance.player.Velocity * 0.4f;
-        MiddleTrees.speed = GameManager.Instance.player.Velocity * 0.2f;
-        BackTrees.speed = GameManager.Instance.player.Velocity * 0.05f;
+
+        // float height = 2f * Camera.main.orthographicSize;
+        // float width = height * Camera.main.aspect;
+        // Instantiate(StationList[0],
+        //     new Vector3(
+        //         StationList[0].GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f + width / 2f, 0,
+        //         -0.1f), Quaternion.identity);
         
         cloudSpawnTimer += Time.deltaTime;
         if (cloudSpawnTimer >= cloudSpawnRate)

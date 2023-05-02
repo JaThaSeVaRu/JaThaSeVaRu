@@ -155,7 +155,7 @@ public class UIManager : MonoBehaviour
         HeartCounter.text = player.CollectedHearts.ToString();
     }
 
-    void UpdateUIStationName(StationData stationData)
+    void UpdateUIStationName()
     {
         if(StationFinder.instance.ClosestStation != null)
             ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;

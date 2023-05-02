@@ -37,7 +37,7 @@ public class train : MonoBehaviour
         //move left
         foreach(GameObject t in TrainParts)
         {
-            t.transform.Translate(Vector3.left * GameManager.Instance.player.Velocity * Time.deltaTime);
+            t.transform.Translate(Vector3.left * GameManager.Instance.player.Velocity  * Time.deltaTime);
         }
         
 

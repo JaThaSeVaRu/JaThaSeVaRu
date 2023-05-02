@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,23 @@ public class GameManager : MonoBehaviour
     public StationFinder stationFinder;
     public VelocityFinder velocityFinder;
     public WeatherData weatherData;
+    private bool inTransit;
+    public bool InTransit
+    {
+        get
+        {
+            return inTransit;
+        }
+        set
+        {
+            if (value != inTransit)
+            {
+                inTransit = value;
+                OnArrival?.Invoke();
+            }
+        }
+    }
+    public event Action OnArrival;
     public static GameManager Instance
     {
         get

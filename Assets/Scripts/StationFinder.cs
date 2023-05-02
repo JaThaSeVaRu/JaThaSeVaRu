@@ -9,8 +9,8 @@ public class StationFinder : MonoBehaviour
     [SerializeField] public List<StationData> Stations = new List<StationData>();
     public float ShortestDistance = 100f;
     public float WaitTimeToUpdateClosestStation;
-    public event Action<StationData> OnClosestStationChange;
-    public StationData closestStation;
+    public event Action OnClosestStationChange;
+    private StationData closestStation;
     public StationData ClosestStation
     {
         get
@@ -22,7 +22,7 @@ public class StationFinder : MonoBehaviour
             if (value != closestStation)
             {
                 closestStation = value;
-                OnClosestStationChange?.Invoke(closestStation);
+                OnClosestStationChange?.Invoke();
             }
         }
     }
@@ -78,12 +78,35 @@ public class StationFinder : MonoBehaviour
         yield return null;
     }
 
+    private int counter;
     public void DetermineArrivalToStation(PlayerData player)
     {
-        // if (Vector2.Distance(player.Coordinates, ClosestStation.Coordinates) < 500 && player.Velocity < 5)
-        // {
-        //     Debug.Log("Arriving to station: " + ClosestStation.StationName);
-        // }
+        if (ClosestStation != null)
+        {
+            if (GameManager.Instance.velocityFinder.calculateGPSDistance(player.Coordinates.x, player.Coordinates.y,
+                    closestStation.Coordinates.x, closestStation.Coordinates.y) < 0.5f && player.Velocity < 5)
+            {
+                if (player.Velocity < 5)
+                {
+                    counter++;
+                    if (counter >= 10)
+                    {
+                        GameManager.Instance.InTransit = false;
+                    }
+                }
+                else
+                {
+                    counter = 0;
+                    GameManager.Instance.InTransit = true;
+                }
+            }
+        }
+        else
+        {
+            print("No station coordinates");
+        }
+        
+        
     }
 
 }
