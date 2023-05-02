@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class AssetSwapper : MonoBehaviour
 {
     [SerializeField] private Image weatherIcon;
-
+    public ParticleSystem StarsParticles;
+    public ParticleSystem RainParticles; 
     private void Start()
     {
         GameManager.Instance.world.OnWeatherChanged += SwapWeatherAssets;
@@ -29,6 +30,7 @@ public class AssetSwapper : MonoBehaviour
                     break;
                 case WorldData.Weather.rainy:
                     //Set rainy weather and use assets
+                    RainParticles.Play();
                     break;
             }
         }
@@ -60,6 +62,7 @@ public class AssetSwapper : MonoBehaviour
                 case WorldData.TimeOfDay.night:
                     //Set background and use assets
                     //Ex
+                    StarsParticles.Play();
                     weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Day/moonIcon");
                     break;
             }
