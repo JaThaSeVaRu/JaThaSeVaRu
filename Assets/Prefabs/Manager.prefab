@@ -59,6 +59,7 @@ MonoBehaviour:
       sunrise: 
       sunset: 
   API_key: M44TEVPMER3GCB5RSP42GPFDB
+  locationInitialized: 0
   player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
 --- !u!114 &4531590395739823290
 MonoBehaviour:
@@ -108,7 +109,8 @@ MonoBehaviour:
   APIFinder: {fileID: 0}
   stationFinder: {fileID: 0}
   velocityFinder: {fileID: 0}
-  timeBetweenUpdates: 0
+  weatherData: {fileID: 4531590395739823289}
+  timeBetweenUpdates: 5
 --- !u!114 &1850093561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weatherIcon: {fileID: 0}
+  StarsParticles: {fileID: 759480490067715616, guid: 9f2885eac4e92e34196c4fc21a2d9e3d, type: 3}
+  RainParticles: {fileID: 7139837027169457067, guid: 73d88c931eee8464daffb32fe71bf3db, type: 3}
 --- !u!114 &6083932317992841888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20fe0868d53a42a4abde735f02dbe955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GPSUpdateTimeInSeconds: 1
+  StationsAPIUpdateTimeInMinutes: 2
+  WeatherAPIUpdateTimeInMinutes: 30

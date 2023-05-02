@@ -1424,11 +1424,11 @@ PrefabInstance:
     - target: {fileID: 1850093561, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
       propertyPath: RainParticles
       value: 
-      objectReference: {fileID: 7139837027169457067, guid: 73d88c931eee8464daffb32fe71bf3db, type: 3}
+      objectReference: {fileID: 1401250463}
     - target: {fileID: 1850093561, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
       propertyPath: StarsParticles
       value: 
-      objectReference: {fileID: 759480490067715616, guid: 9f2885eac4e92e34196c4fc21a2d9e3d, type: 3}
+      objectReference: {fileID: 1980187535}
     - target: {fileID: 4531590395739823288, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1722,13 +1722,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2126848591}
     m_Modifications:
+    - target: {fileID: 2493957272692879596, guid: 9f2885eac4e92e34196c4fc21a2d9e3d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5699370405649011665, guid: 9f2885eac4e92e34196c4fc21a2d9e3d, type: 3}
       propertyPath: m_Name
       value: Stars
       objectReference: {fileID: 0}
     - target: {fileID: 5699370405649011665, guid: 9f2885eac4e92e34196c4fc21a2d9e3d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7040094679098303887, guid: 9f2885eac4e92e34196c4fc21a2d9e3d, type: 3}
       propertyPath: m_RootOrder
@@ -1880,6 +1884,11 @@ PrefabInstance:
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3014747267222560555, guid: a892404a79cbffc4da0d080b1c00c095, type: 3}
   m_PrefabInstance: {fileID: 1954524785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1401250463 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7139837027169457067, guid: 73d88c931eee8464daffb32fe71bf3db, type: 3}
+  m_PrefabInstance: {fileID: 1819083793}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1436449437 stripped
 Transform:
@@ -2443,7 +2452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7139837027169457065, guid: 73d88c931eee8464daffb32fe71bf3db, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7139837027169457068, guid: 73d88c931eee8464daffb32fe71bf3db, type: 3}
       propertyPath: m_RootOrder
@@ -3270,6 +3279,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6837499670175001955, guid: 9907828839a0116459fe7620a11a95df, type: 3}
   m_PrefabInstance: {fileID: 952943735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1980187535 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 759480490067715616, guid: 9f2885eac4e92e34196c4fc21a2d9e3d, type: 3}
+  m_PrefabInstance: {fileID: 1260676087}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1991118484 stripped
 GameObject:

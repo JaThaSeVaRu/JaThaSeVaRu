@@ -97,10 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d295d67cc692ff48ace0b6eefe1992d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGmaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  BGmaterial: {fileID: 2100000, guid: e9b638b2d354bfd4382a4f6b12b5ebb2, type: 2}
   BGcolors:
-  - {r: 1, g: 0.7773585, b: 0.94029343, a: 1}
+  - {r: 1, g: 0.78679246, b: 0.78679246, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.7803922, b: 0.6627451, a: 0}
-  - {r: 0.28433606, g: 0.25468138, b: 0.46226418, a: 0}
-  time: 5
+  - {r: 1, g: 0.7803922, b: 0.6627451, a: 1}
+  - {r: 0.19636174, g: 0.1725703, b: 0.3301887, a: 1}
+  time: 10

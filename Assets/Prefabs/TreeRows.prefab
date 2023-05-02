@@ -95,7 +95,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2209080786197495443, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 17.15
       objectReference: {fileID: 0}
     - target: {fileID: 2209080786197495443, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
       propertyPath: m_LocalPosition.y
@@ -284,6 +284,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2209080786197495443, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
   m_PrefabInstance: {fileID: 8881022325351804438}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8543071190330811375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 986480992076353017, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
+  m_PrefabInstance: {fileID: 8881022325351804438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1159055960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8543071190330811375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a16358fc646dd247b7ce4738ac97cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  startPosition: {x: 0, y: 0, z: 0}
+  setBack: -20.622
 --- !u!1001 &9027556578111273536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -353,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2209080786197495443, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 17.15
       objectReference: {fileID: 0}
     - target: {fileID: 2209080786197495443, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
       propertyPath: m_LocalPosition.y
@@ -542,6 +562,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2209080786197495443, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
   m_PrefabInstance: {fileID: 9027556578111273536}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8140535451605989305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 986480992076353017, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
+  m_PrefabInstance: {fileID: 9027556578111273536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &488216354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140535451605989305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a16358fc646dd247b7ce4738ac97cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  startPosition: {x: 0, y: 0, z: 0}
+  setBack: -20.622
 --- !u!1001 &9027556579087803347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -611,7 +651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2209080786197495443, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 17.15
       objectReference: {fileID: 0}
     - target: {fileID: 2209080786197495443, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
       propertyPath: m_LocalPosition.y
@@ -800,3 +840,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2209080786197495443, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
   m_PrefabInstance: {fileID: 9027556579087803347}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8140535450896313898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 986480992076353017, guid: a01ec246a7d1dea4ebc0e0d71768dd42, type: 3}
+  m_PrefabInstance: {fileID: 9027556579087803347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &810001211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140535450896313898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a16358fc646dd247b7ce4738ac97cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  startPosition: {x: 0, y: 0, z: 0}
+  setBack: -20.622

@@ -75,9 +75,9 @@ MonoBehaviour:
   - {fileID: 4552488871626385812, guid: 5a3ccb2d45d80f64fa91ca8e4f37ea2c, type: 3}
   - {fileID: 4552488871626385812, guid: 05908d733b267e64c81ee37091471d81, type: 3}
   PlayingArea: {fileID: 0}
-  FrontLayer: {fileID: 1468149889711163154}
-  MiddleLayer: {fileID: 9104036560479726583}
-  BackLayer: {fileID: 3598356459140921474}
+  FrontLayer: {fileID: 8540403414776026306}
+  MiddleLayer: {fileID: 4923924786515827551}
+  BackLayer: {fileID: 254122480494584762}
   CloudLayer: {fileID: 5296018907663695880}
   FrontTrees: {fileID: 0}
   MiddleTrees: {fileID: 0}
@@ -87,6 +87,10 @@ MonoBehaviour:
   - -5.5
   - -4.3
   - -3.8
+  StationList:
+  - {fileID: 3629711787985562555, guid: f6510431e326b274d8c9c5e7c7039098, type: 3}
+  - {fileID: 3629711787985562555, guid: 69f975e8ed8743c428865866030a9f08, type: 3}
+  - {fileID: 3629711787985562555, guid: 762c6bedb1ee68444b33a07d5b7ef60d, type: 3}
   cloudSpawnMin: 15
   cloudSpawnMax: 60
 --- !u!1 &1468149889711163154
