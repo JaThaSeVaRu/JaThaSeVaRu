@@ -62,15 +62,16 @@ public class WorldData : ScriptableObject
     public void GetSystemTime()
     {
         int systemHour = System.DateTime.Now.Hour;
-        if(systemHour > 19)
-            currentTime = TimeOfDay.sunset;
-        else if(systemHour > 10)
-            currentTime = TimeOfDay.day;
-        else if(systemHour > 7)
-            currentTime = TimeOfDay.sunrise;
+        
+        if(22 > systemHour && systemHour >= 20)
+            CurrentTime = TimeOfDay.sunset;
+        else if(20 > systemHour && systemHour >= 9)
+            CurrentTime = TimeOfDay.day;
+        else if(9 > systemHour && systemHour >= 7)
+            CurrentTime = TimeOfDay.sunrise;
         else
         {
-            currentTime = TimeOfDay.night;
+            CurrentTime = TimeOfDay.night;
         }   
     }
     public void GetWeather()

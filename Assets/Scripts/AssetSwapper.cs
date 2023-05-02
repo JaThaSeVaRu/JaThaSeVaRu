@@ -42,6 +42,7 @@ public class AssetSwapper : MonoBehaviour
 
     public void SwapTimeOfDayAssets(WorldData world)
     {
+        
         if (world != null)
         {
             switch (world.CurrentTime)
@@ -49,21 +50,25 @@ public class AssetSwapper : MonoBehaviour
                 case WorldData.TimeOfDay.sunrise:
                     //Set background and use assets
                     weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Sunrise/sunriseIcon");
+                    LightChange.instance.Change(LightChange.ColorOfTime.Sunrise);
                     break;
                 case WorldData.TimeOfDay.day:
                     //Set background and use assets
                     //Ex
                     weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Day/sunIcon");
+                    LightChange.instance.Change(LightChange.ColorOfTime.Day);
                     break;
                 case WorldData.TimeOfDay.sunset:
                     //Set background and use assets
                     weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Sunset/sunsetIcon");
+                    LightChange.instance.Change(LightChange.ColorOfTime.Sunset);
                     break;
                 case WorldData.TimeOfDay.night:
                     //Set background and use assets
                     //Ex
                     StarsParticles.Play();
                     weatherIcon.sprite = Resources.Load<Sprite>("TimeOfDay/Day/moonIcon");
+                    LightChange.instance.Change(LightChange.ColorOfTime.Night);
                     break;
             }
         }

@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         world.GetSystemTime();
         world.GetWeather();
+        StartCoroutine (SwapAssets());
     }
 
     // Update is called once per frame
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
         {
             player.Coordinates = new Vector2(Input.location.lastData.latitude, Input.location.lastData.longitude);
         }
-        StartCoroutine (SwapAssets());
+        
         //Test swapping assets
         //swapper.SwapTimeOfDayAssets(world);
     }
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
         swapper.SwapWeatherAssets(world);
         swapper.SwapTimeOfDayAssets(world);
         yield return new WaitForSeconds(timeBetweenUpdates * 60);
+        StartCoroutine (SwapAssets());
     }
 
 }
