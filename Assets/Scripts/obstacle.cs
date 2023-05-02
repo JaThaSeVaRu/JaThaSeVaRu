@@ -61,7 +61,7 @@ public class obstacle : MonoBehaviour
     void Update()
     {
         //set movement speed equal to train speed
-        speed = train.staticSpeed;
+        speed = train.speed;
 
         //move left along with train
         transform.Translate(Vector3.left * speed * Time.deltaTime);
