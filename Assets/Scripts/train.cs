@@ -24,7 +24,6 @@ public class train : MonoBehaviour
                 TrainParts.Add(ts.gameObject);
             }
         }
-        Debug.Log(TrainParts.Count);
         //get current position and set as start position
         //startPosition = transform.position;
     }

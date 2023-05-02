@@ -14,6 +14,5 @@ public class TrainReset : MonoBehaviour
                 break;
             }
         }
-        Debug.Log("Train Reset");
     }
 }

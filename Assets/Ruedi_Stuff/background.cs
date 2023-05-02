@@ -6,7 +6,21 @@ public class background : MonoBehaviour
 {
     //list of prefabs
     //maybe not the most efficient way. ffeel free to optimize
-    public GameObject house1;
+    public List<GameObject> HouseList = new List<GameObject>();
+    public List<GameObject> ParkList = new List<GameObject>();
+    public List<GameObject> CloudList = new List<GameObject>();
+    List<GameObject> CombinedList = new List<GameObject>();
+
+    public GameObject PlayingArea;
+
+    public GameObject FrontLayer;
+    public GameObject MiddleLayer;
+    public GameObject BackLayer;
+    public GameObject CloudLayer;
+
+
+    /*
+     * public GameObject house1;
     public GameObject house2;
     public GameObject house3;
     public GameObject house4;
@@ -28,11 +42,12 @@ public class background : MonoBehaviour
     public GameObject cloud6;
     public GameObject cloud7;
     public GameObject cloud8;
+    */
 
     //amount of houses and clouds for the for loop that spawns houses and clouds in Start
-    public int frontHouseAmount = 15;
+    ////public int frontHouseAmount = 15;
     public int cloudAmount = 5;
-
+    /*
     //variables to choose the assets to be spawned
     //prev: variables that remember the previously chosen asset to prevent duplicates
     int frontChoice;
@@ -40,9 +55,9 @@ public class background : MonoBehaviour
     int midChoice;
     int prevMidChoice;
     int backChoice;
-    int prevBackChoice;
+    int prevBackChoice;*/
     int cloudChoice;
-
+    /*
     //X-Axis positions for spawning Houses in Start
     public float startFrontPos = -10;
     public float startMidPos = -10;
@@ -52,33 +67,37 @@ public class background : MonoBehaviour
     public float midHousePos = 12;
     public float backHousePos = 12;
     //Y-Axis positions for spawning Houses
-    public float frontHouseHeight;
+    */
+    public List<float> HeightList = new List<float>();
+    // -5.5 -4.3 -3.8
+    /*public float frontHouseHeight;
     public float midHouseHeight;
     public float backHouseHeight;
-
+    */
     //Timers for runtime spawns of houses and clouds
-    float frontSpawnTimer;
+    /*float frontSpawnTimer;
     float midSpawnTimer;
-    float backSpawnTimer;
+    float backSpawnTimer;*/
     float cloudSpawnTimer;
-
+    /*
     //Timelimits for runtime spawns of houses
     public float frontSpawnRate;
     public float midSpawnRate;
     public float backSpawnRate;
-
+    */
     //Timelimit for runtime spawns of clouds
     float cloudSpawnRate;
     //minimum and maximum values to set cloudSpawnRate after a cloud has been spawned
     public float cloudSpawnMin;
     public float cloudSpawnMax;
-
+    /*
     //static Y-Axis positions of houses for the houseMovement Script to use
     public static float staticFrontHouseHeight;
     public static float staticMidHouseHeight;
     public static float staticBackHouseHeight;
-
+    */
     //X-Axis offset for each type of house or park to prevent overlaps
+    /*
     float house1Range = 3;
     float house2Range = 3;
     float house3Range = 3;
@@ -93,13 +112,72 @@ public class background : MonoBehaviour
     float park2Range = 1;
     float park3Range = 1.5f;
     float park4Range = 1;
-
-
+    */
+    public static background instance;
 
     void Start()
     {
+        instance = this;
 
-        //set the static positions of the houses for the houseMovement Script to use
+        CombinedList.AddRange(ParkList);
+        CombinedList.AddRange(HouseList);
+
+        for (int i = 0; i < 3; i++)
+        {
+            float xStartLocation = PlayingArea.transform.position.x - (PlayingArea.GetComponent<BoxCollider2D>().size.x / 2f) * 1.5f;
+            float xEndLocation = PlayingArea.transform.position.x + (PlayingArea.GetComponent<BoxCollider2D>().size.x / 2f) * 1.5f;
+            float currentCenter = xStartLocation;
+            int oldHouse = -1;
+
+            while (currentCenter < xEndLocation)
+            {
+                int newHouse = Random.Range(0, CombinedList.Count);
+                //prevent double asset
+                while (oldHouse == newHouse)
+                {
+                    newHouse = Random.Range(0, CombinedList.Count);
+                }
+
+                GameObject go = null;
+
+                //sets an offset for the next house to prevent overlapping
+                if (oldHouse == -1)
+                {
+                    go = Instantiate(CombinedList[newHouse], new Vector3(currentCenter, HeightList[i], 0), Quaternion.identity);
+                    currentCenter += CombinedList[newHouse].GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f;
+                }
+                else
+                {
+                    currentCenter += CombinedList[newHouse].GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f;
+                    go = Instantiate(CombinedList[newHouse], new Vector3(currentCenter, HeightList[i], 0), Quaternion.identity);
+                }
+                switch (i)
+                {
+                    case 0:
+                        go.transform.parent = FrontLayer.transform;
+                        FrontLayer.GetComponent<LastObjectFinder>().lastObject = go;
+                        break;
+                    case 1:
+                        go.transform.parent = MiddleLayer.transform;
+                        MiddleLayer.GetComponent<LastObjectFinder>().lastObject = go;
+                        break;
+                    case 2:
+                        go.transform.parent = BackLayer.transform;
+                        BackLayer.GetComponent<LastObjectFinder>().lastObject = go;
+                        break;
+                }
+                //saves this asset for the next check for duplicates
+                oldHouse = newHouse;
+            }
+        }
+
+        for (int i = 0; i < cloudAmount; i++)
+        {
+            Instantiate(CloudList[Random.Range(0, CloudList.Count)], new Vector3(Random.Range(-8f, 8f), Random.Range(0f, 4f), 5f), Quaternion.identity).transform.parent = CloudLayer.transform;
+        }
+
+        /*
+        set the static positions of the houses for the houseMovement Script to use
         staticFrontHouseHeight = frontHouseHeight;
         staticMidHouseHeight = midHouseHeight;
         staticBackHouseHeight = backHouseHeight;
@@ -445,11 +523,42 @@ public class background : MonoBehaviour
                 }
             }
         }
+        */
     }
 
+    public void createNewBackground(GameObject parent)
+    {
+        if(parent.transform.childCount != 0)
+        {
+            Transform lastChild = parent.GetComponent<LastObjectFinder>().lastObject.transform;
+
+            int newHouse = Random.Range(0, CombinedList.Count);
+            //prevent double asset
+            while (lastChild.GetComponentInChildren<SpriteRenderer>().sprite == CombinedList[newHouse].GetComponentInChildren<SpriteRenderer>().sprite)
+            {
+                newHouse = Random.Range(0, CombinedList.Count);
+            }
+
+            GameObject newObject = Instantiate(CombinedList[newHouse], new Vector3(lastChild.position.x + lastChild.GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f + CombinedList[newHouse].GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f, lastChild.position.y, 0), Quaternion.identity);
+            newObject.transform.parent = parent.transform;
+            parent.GetComponent<LastObjectFinder>().lastObject = newObject;
+        }
+    }
 
     void Update()
     {
+        cloudSpawnTimer += Time.deltaTime;
+        if (cloudSpawnTimer >= cloudSpawnRate)
+        {
+            cloudChoice = Random.Range(0, CloudList.Count);
+            Instantiate(CloudList[cloudChoice], new Vector3(11f, Random.Range(0f, 4f), 5f), Quaternion.identity);
+
+
+            cloudSpawnRate = Random.Range(cloudSpawnMin, cloudSpawnMax);
+
+            cloudSpawnTimer = 0;
+        }
+        /*
         //Timers for the runtime spawning of assets 
         frontSpawnTimer += Time.deltaTime;
         midSpawnTimer += Time.deltaTime;
@@ -800,5 +909,7 @@ public class background : MonoBehaviour
         }
 
 
+    }
+    */
     }
 }

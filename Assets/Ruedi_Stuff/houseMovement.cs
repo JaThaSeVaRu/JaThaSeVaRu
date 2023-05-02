@@ -14,6 +14,7 @@ public class houseMovement : MonoBehaviour
 
     void Update()
     {
+        /*
         //check for own Y-Axis position to determine speed
         if (transform.position.y == background.staticBackHouseHeight)
         {
@@ -30,7 +31,7 @@ public class houseMovement : MonoBehaviour
             //if Y-Position matches with front row: speed is five
             speed = 5;
         }
-
+*///
         //move to the left
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 

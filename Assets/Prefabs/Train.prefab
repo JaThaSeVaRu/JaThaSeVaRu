@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2210477937713073004}
+  - component: {fileID: 617193084}
   m_Layer: 0
   m_Name: Train
   m_TagString: Untagged
@@ -33,6 +34,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &617193084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2210477937713073007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2210477937778493995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,7 +99,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4030788265988839230, guid: b4a897f1dc9b78448b5494fda5c41c4d, type: 3}
       propertyPath: m_Name
-      value: trainmodule (1)
+      value: TrainPart2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4a897f1dc9b78448b5494fda5c41c4d, type: 3}
@@ -164,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4030788265988839230, guid: b4a897f1dc9b78448b5494fda5c41c4d, type: 3}
       propertyPath: m_Name
-      value: train
+      value: TrainPart1
       objectReference: {fileID: 0}
     - target: {fileID: 4030788265988839230, guid: b4a897f1dc9b78448b5494fda5c41c4d, type: 3}
       propertyPath: m_TagString
@@ -178,23 +191,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 487755342126012203, guid: b4a897f1dc9b78448b5494fda5c41c4d, type: 3}
   m_PrefabInstance: {fileID: 2210477939564697282}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2980553281946026492 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4030788265988839230, guid: b4a897f1dc9b78448b5494fda5c41c4d, type: 3}
-  m_PrefabInstance: {fileID: 2210477939564697282}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2210477939424875833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2980553281946026492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  startPosition: {x: 0, y: 0, z: 0}
-  setBack: -27.84
