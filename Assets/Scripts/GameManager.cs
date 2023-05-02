@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         world.GetSystemTime();
         world.GetWeather();
+        ResetHearts();
     }
 
     // Update is called once per frame
@@ -39,6 +40,11 @@ public class GameManager : MonoBehaviour
         swapper.SwapWeatherAssets(world);
         swapper.SwapTimeOfDayAssets(world);
         yield return new WaitForSeconds(timeBetweenUpdates * 60);
+    }
+
+    public void ResetHearts()
+    {
+        player.CollectedHearts = 0;
     }
 
 }
