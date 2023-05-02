@@ -3663,7 +3663,8 @@ MonoBehaviour:
   inTrainSmall: {fileID: 3576705936842731270, guid: 14c3db060a800e442bd5bf653722a1d5, type: 3}
   inTrainMedium: {fileID: 3576705936842731270, guid: 54f9d7286b46ebe499fdc7cba67310de, type: 3}
   inTrainLarge: {fileID: 3576705936842731270, guid: 91a8f15b673f10a489616cd2fb199201, type: 3}
-  Lover: {fileID: 4059962799558308350, guid: ac0776b3b6a624f4185b639d01396a11, type: 3}
+  Lover: {fileID: 4059962799558308350, guid: ae37de8dd23d65446b2cb63d99b903c4, type: 3}
+  Lover_g: {fileID: 4059962799558308350, guid: ac0776b3b6a624f4185b639d01396a11, type: 3}
   onTrainPylon: {fileID: 3576705936842731270, guid: ba9b2c27764b238438186a08e8a6010b, type: 3}
   onTrainBird: {fileID: 3576705936842731270, guid: 25434c45f2d97b345ad2ca6ba19fb012, type: 3}
   Kontrolleur: {fileID: 5661716186235104849, guid: 100f655aeeacfee449f2bde9f5a47057, type: 3}
