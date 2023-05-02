@@ -5,12 +5,15 @@ using UnityEngine;
 public class heart : MonoBehaviour
 {
     public bool inLove;
-    public GameObject LovePose, IdlePose;
-
+    public GameObject LovePose, IdlePose, Herz;
+    //private Animator anim;
     void Start()
     {
         LovePose.GetComponent<SpriteRenderer>().enabled = false;
         IdlePose.GetComponent<SpriteRenderer>().enabled = true;
+        Herz.GetComponent<SpriteRenderer>().enabled = false;
+        //anim = GetComponent<Animator>();
+        //anim.SetBool("Herz_getroffen", false);
     }
 
     void Update()
@@ -30,6 +33,8 @@ public class heart : MonoBehaviour
                 //Effekt
                 LovePose.GetComponent<SpriteRenderer>().enabled = true;
                 IdlePose.GetComponent<SpriteRenderer>().enabled = false;
+                Herz.GetComponent<SpriteRenderer>().enabled = true;
+                //anim.SetBool("Herz_getroffen", true);
             }
         }
     }
