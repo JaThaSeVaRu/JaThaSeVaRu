@@ -6,6 +6,7 @@ TagManager:
   tags:
   - obstacle
   - pose
+  - mass
   layers:
   - Default
   - TransparentFX

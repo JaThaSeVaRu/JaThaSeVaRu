@@ -11,13 +11,20 @@ public class loverMass : MonoBehaviour
 
     //get the current position of the player
     public GameObject character;
+    public GameObject winlose;
     //get the current amount of collected hearts from the player scriptable object
     public PlayerData player;
+
+    public bool retreat;
+    public float retreatTime;
+    public float keepTime;
+    public float retreatLimit;
+    public float retreatSpeed;
 
 
     void Start()
     {
-        
+        retreat = false;
     }
 
     void Update()
@@ -32,13 +39,14 @@ public class loverMass : MonoBehaviour
         switchSpeed = character.GetComponent<characterControl>().switchSpeed / 4f;
 
         //speed increases with the number of collected hearts
+        //speed = baseSpeed * (1 + winlose.GetComponent<WinLoseScore>().actualHearts);
         speed = baseSpeed * ( 1 + player.CollectedHearts);
 
 
         //lover mass slowly moves to the right
         //but can not move further than x -3.5
         //this increases tension and risk from knockbacks over time
-        if (transform.position.x <= -3.5f)
+        if (transform.position.x <= -3.5f && retreat == false)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
@@ -60,6 +68,43 @@ public class loverMass : MonoBehaviour
         if (transform.position.y > -0.6f)
         {
             transform.position = new Vector3(transform.position.x, -0.6f, transform.position.z);
+        }
+
+        if (winlose.GetComponent<WinLoseScore>().state == gamestate.CAUGHT || winlose.GetComponent<WinLoseScore>().state == gamestate.FIGHTING)
+        {
+            retreat = true;
+        }
+
+        if (retreat == true)
+        {
+            retreatTime += Time.deltaTime;
+        }
+
+        if (retreat == true && winlose.GetComponent<WinLoseScore>().state == gamestate.RUNNING)
+        {
+            retreat = false;
+            retreatTime = 0;
+        }
+
+        if (winlose.GetComponent<WinLoseScore>().state == gamestate.CAUGHT)
+        {
+            if (/*retreatTime >= keepTime && */transform.position.x >= -12 && retreat == true)
+            {
+                transform.Translate(Vector3.left * retreatSpeed * Time.deltaTime);
+            }
+            if (/*retreatTime >= keepTime && */transform.position.x <= -12 && retreat == true)
+            {
+                retreat = false;
+                retreatTime = 0;
+            }
+        }
+
+        if (winlose.GetComponent<WinLoseScore>().state == gamestate.FIGHTING)
+        {
+            if (transform.position.x >= -12 && retreat == true)
+            {
+                transform.Translate(Vector3.left * retreatSpeed * Time.deltaTime);
+            }
         }
     }
 }
