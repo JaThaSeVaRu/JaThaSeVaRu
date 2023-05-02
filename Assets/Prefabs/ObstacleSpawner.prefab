@@ -163,7 +163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8128677067961765048
 Transform:
   m_ObjectHideFlags: 0
@@ -193,13 +193,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
-  inTrainObstacle1: {fileID: 3576705936842731270, guid: 5c30cdf71f18e1844854e1cbff78bc89, type: 3}
-  inTrainObstacle2: {fileID: 3576705936842731270, guid: fe3cd02b8f02d6649a7251e3c236af94, type: 3}
-  inTrainObstacle3: {fileID: 3576705936842731270, guid: 1f6210ad7aeea0b4fbd54c4ff3e418e9, type: 3}
-  inTrainObstacle4: {fileID: 3576705936842731270, guid: 2ee9383fe6a969845be6bbf9c0bfe0ce, type: 3}
-  inTrainObstacle5: {fileID: 4059962799558308350, guid: ac0776b3b6a624f4185b639d01396a11, type: 3}
-  onTrainObstacle1: {fileID: 3576705936842731270, guid: ba9b2c27764b238438186a08e8a6010b, type: 3}
-  onTrainObstacle2: {fileID: 3576705936842731270, guid: 25434c45f2d97b345ad2ca6ba19fb012, type: 3}
+  inTrainSmall: {fileID: 3576705936842731270, guid: 14c3db060a800e442bd5bf653722a1d5, type: 3}
+  inTrainMedium: {fileID: 3576705936842731270, guid: 54f9d7286b46ebe499fdc7cba67310de, type: 3}
+  inTrainLarge: {fileID: 3576705936842731270, guid: 91a8f15b673f10a489616cd2fb199201, type: 3}
+  Lover: {fileID: 4059962799558308350, guid: ac0776b3b6a624f4185b639d01396a11, type: 3}
+  Lover_g: {fileID: 0}
+  onTrainPylon: {fileID: 3576705936842731270, guid: ba9b2c27764b238438186a08e8a6010b, type: 3}
+  onTrainBird: {fileID: 3576705936842731270, guid: 25434c45f2d97b345ad2ca6ba19fb012, type: 3}
+  Kontrolleur: {fileID: 0}
   inTrainSpawnTime: 0
   inTrainSpawnMin: 0
   inTrainSpawnMax: 3

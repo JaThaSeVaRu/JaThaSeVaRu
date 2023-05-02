@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000069ee76e57f584cf79bcafb4ab73f66780b561a6ccfcea3c1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lightcolors:
-  - {r: 1, g: 0.67358494, b: 0.7430979, a: 0}
+  - {r: 1, g: 0.7962264, b: 0.7962264, a: 0}
   - {r: 1, g: 1, b: 1, a: 0}
-  - {r: 1, g: 0.6944829, b: 0.60754716, a: 0}
-  - {r: 0.2375182, g: 0.18711284, b: 0.33962262, a: 0}
+  - {r: 1, g: 0.7372549, b: 0.6627451, a: 0}
+  - {r: 0.28657216, g: 0.25817016, b: 0.3490566, a: 0}
   light: {fileID: 4592672061375970763}
-  time: 0
+  time: 10
