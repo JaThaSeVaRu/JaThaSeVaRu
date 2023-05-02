@@ -177,10 +177,10 @@ public class characterControl : MonoBehaviour
 
                 if (Input.GetKeyDown("down") || Math.Sign(direction.y) == -1)
                 {
-                    if (state == runstate.INTRAIN)
-                    {
-                        state = runstate.POSING;
-                    }
+                    // if (state == runstate.INTRAIN)
+                    // {
+                    //     state = runstate.POSING;
+                    // }
 
 
                     if (state == runstate.ONTRAIN)
@@ -192,8 +192,10 @@ public class characterControl : MonoBehaviour
 
             if (touchHeld)
             {
-                //Change post
-                Debug.Log("Strike a pose!");
+                if (state == runstate.INTRAIN)
+                {
+                    state = runstate.POSING;
+                }
             }
 
             if (tapped)

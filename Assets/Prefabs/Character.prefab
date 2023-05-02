@@ -210,11 +210,11 @@ MonoBehaviour:
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   directionChosen: 0
-  slideSensitivity: 0
+  slideSensitivity: 150
   touchHeld: 0
   tapped: 0
   posingTimer: 0
-  holdSensitivity: 0
+  holdSensitivity: 0.5
 --- !u!70 &3014747267623063016
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
