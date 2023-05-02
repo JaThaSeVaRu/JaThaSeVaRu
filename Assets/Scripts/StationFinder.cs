@@ -34,7 +34,7 @@ public class StationFinder : MonoBehaviour
         	instance = this;
         }
 
-        GameManager.instance.player.OnVelocityChange += DetermineArrivalToStation;
+        GameManager.Instance.player.OnVelocityChange += DetermineArrivalToStation;
     }
     private void Update() 
     {
@@ -56,7 +56,7 @@ public class StationFinder : MonoBehaviour
     {
         if (WaitTimeToUpdateClosestStation < 0)
         {
-            //StartCoroutine(GameManager.instance.APIFinder.GetStationsInfo());
+            StartCoroutine(GameManager.Instance.APIFinder.GetStationsInfo());
             StartCoroutine(Search());
             WaitTimeToUpdateClosestStation = 10;
         }
@@ -67,7 +67,7 @@ public class StationFinder : MonoBehaviour
         yield return new WaitForSeconds(3);
         foreach (StationData station in Stations)
         {
-            float distance = Vector2.Distance(GameManager.instance.player.Coordinates, station.Coordinates);
+            float distance = Vector2.Distance(GameManager.Instance.player.Coordinates, station.Coordinates);
             if (distance < ShortestDistance)
             {
                 ShortestDistance = distance;
@@ -78,12 +78,12 @@ public class StationFinder : MonoBehaviour
         yield return null;
     }
 
-    void DetermineArrivalToStation(PlayerData player)
+    public void DetermineArrivalToStation(PlayerData player)
     {
-        if (Vector2.Distance(player.Coordinates, ClosestStation.Coordinates) < 500 && player.Velocity < 5)
-        {
-            Debug.Log("Arriving to station: " + ClosestStation.StationName);
-        }
+        // if (Vector2.Distance(player.Coordinates, ClosestStation.Coordinates) < 500 && player.Velocity < 5)
+        // {
+        //     Debug.Log("Arriving to station: " + ClosestStation.StationName);
+        // }
     }
 
 }

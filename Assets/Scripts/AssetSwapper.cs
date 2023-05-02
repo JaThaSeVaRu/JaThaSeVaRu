@@ -10,8 +10,8 @@ public class AssetSwapper : MonoBehaviour
 
     private void Start()
     {
-        GameManager.instance.world.OnWeatherChanged += SwapWeatherAssets;
-        GameManager.instance.world.OnTimeOfDayChange += SwapTimeOfDayAssets;
+        GameManager.Instance.world.OnWeatherChanged += SwapWeatherAssets;
+        GameManager.Instance.world.OnTimeOfDayChange += SwapTimeOfDayAssets;
         
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
@@ -12,12 +13,26 @@ public class GameManager : MonoBehaviour
     public StationFinder stationFinder;
     public VelocityFinder velocityFinder;
     public WeatherData weatherData;
-    public static GameManager instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType(typeof(GameManager)) as GameManager;
+            }
+            return instance;
+        }
+        set
+        {
+            instance = value;
+        }
+    }
+    private static GameManager instance;
 
     public float timeBetweenUpdates;
     void Start()
     {
-        instance = this;
         world.GetSystemTime();
         world.GetWeather();
     }

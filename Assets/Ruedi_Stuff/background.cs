@@ -13,10 +13,13 @@ public class background : MonoBehaviour
 
     public GameObject PlayingArea;
 
-    public GameObject FrontLayer;
-    public GameObject MiddleLayer;
-    public GameObject BackLayer;
+    public BackgroundMover FrontLayer;
+    public BackgroundMover MiddleLayer;
+    public BackgroundMover BackLayer;
     public GameObject CloudLayer;
+    public treeTrain FrontTrees;
+    public treeTrain MiddleTrees;
+    public treeTrain BackTrees;
 
 
     /*
@@ -547,6 +550,14 @@ public class background : MonoBehaviour
 
     void Update()
     {
+        FrontLayer.speed = GameManager.Instance.player.Velocity * 0.5f;
+        MiddleLayer.speed = GameManager.Instance.player.Velocity * 0.3f;
+        BackLayer.speed = GameManager.Instance.player.Velocity * 0.1f;
+        
+        FrontTrees.speed = GameManager.Instance.player.Velocity * 0.4f;
+        MiddleTrees.speed = GameManager.Instance.player.Velocity * 0.2f;
+        BackTrees.speed = GameManager.Instance.player.Velocity * 0.05f;
+        
         cloudSpawnTimer += Time.deltaTime;
         if (cloudSpawnTimer >= cloudSpawnRate)
         {

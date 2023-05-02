@@ -5,7 +5,7 @@ using UnityEngine;
 public class train : MonoBehaviour
 {
     //set speed of train
-    public static float speed = 10f;
+    public static float speed;
     //static variable for character, lover and obstacles to use
     //public static float staticSpeed;
     //starting position to be teleported back to
@@ -36,7 +36,7 @@ public class train : MonoBehaviour
         //move left
         foreach(GameObject t in TrainParts)
         {
-            t.transform.Translate(Vector3.left * speed * Time.deltaTime);
+            t.transform.Translate(Vector3.left * GameManager.Instance.player.Velocity * Time.deltaTime);
         }
         
 

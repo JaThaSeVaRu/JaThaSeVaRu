@@ -18,27 +18,27 @@ public class APIUpdater : MonoBehaviour
 
     IEnumerator UpdateGPS()
     {
-        if (GameManager.instance.velocityFinder.updateGPSnum())
+        if (GameManager.Instance.velocityFinder.updateGPSnum())
         {
-            GameManager.instance.stationFinder.FindNearestStation();
+            GameManager.Instance.stationFinder.FindNearestStation();
         }
         yield return new WaitForSeconds(GPSUpdateTimeInSeconds);
         StartCoroutine(UpdateGPS());
     }
     void UpdateStationsAPI()
     {
-        if (GameManager.instance.APIFinder.locationInitialized)
+        if (GameManager.Instance.APIFinder.locationInitialized)
         {
-            GameManager.instance.APIFinder.GetStationsInfo();
+            GameManager.Instance.APIFinder.GetStationsInfo();
         }
 
         Invoke("UpdateStationsAPI", StationsAPIUpdateTimeInMinutes * 60);
     }
     void UpdateWeatherAPI()
     {
-        if (GameManager.instance.weatherData.locationInitialized)
+        if (GameManager.Instance.weatherData.locationInitialized)
         {
-            GameManager.instance.weatherData.GetWeatherInfo();
+            GameManager.Instance.weatherData.GetWeatherInfo();
         }
         Invoke("UpdateWeatherAPI", WeatherAPIUpdateTimeInMinutes * 60);
     }

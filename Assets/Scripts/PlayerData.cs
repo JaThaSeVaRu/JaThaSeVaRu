@@ -8,7 +8,6 @@ public class PlayerData : ScriptableObject
 {
     public event Action<PlayerData> OnCoordinatesChange;
     [SerializeField] private Vector2 coordinates;
-    [SerializeField]
     public Vector2 Coordinates
     {
         get
@@ -26,7 +25,7 @@ public class PlayerData : ScriptableObject
     }
 
     public event Action<PlayerData> OnVelocityChange; 
-    private float velocity;
+    [SerializeField] private float velocity;
 
     public float Velocity
     {
@@ -48,7 +47,7 @@ public class PlayerData : ScriptableObject
     [SerializeField] public double time;
 
     public event Action<PlayerData> OnCollectHearts;
-    private int _collectedHearts;
+    [SerializeField] private int _collectedHearts;
     public int CollectedHearts
     {
         get

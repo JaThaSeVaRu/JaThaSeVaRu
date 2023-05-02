@@ -8,6 +8,7 @@ public class VelocityFinder : MonoBehaviour
     double speedLatitude, speedLongitude;
     double oldTimestamp;
     public double Speed;
+    public float TestSpeed = 10f;
 
 
     float R = 6.371f;
@@ -43,7 +44,7 @@ public class VelocityFinder : MonoBehaviour
             //Debug.Log(Input.location.lastData.timestamp);
             if (Input.location.lastData.latitude != oldLatitude || Input.location.lastData.longitude != oldLongitude)
             {
-                GameManager.instance.player.Coordinates = new Vector2(Input.location.lastData.latitude,Input.location.lastData.longitude);
+                GameManager.Instance.player.Coordinates = new Vector2(Input.location.lastData.latitude,Input.location.lastData.longitude);
                 if (Input.location.lastData.timestamp == oldTimestamp)
                 {
                     //Speed.text = "Speed: 0";
@@ -60,7 +61,7 @@ public class VelocityFinder : MonoBehaviour
                     //speedLongitude *= 111.320 * System.Math.Cos(speedLatitude);
 
                     Speed = d / (Input.location.lastData.timestamp - oldTimestamp) * 3600f;
-                    GameManager.instance.player.Velocity = (float)Speed;
+                    GameManager.Instance.player.Velocity = (float)Speed;
                 }
                 oldLongitude = Input.location.lastData.longitude;
                 oldLatitude = Input.location.lastData.latitude;
@@ -68,6 +69,8 @@ public class VelocityFinder : MonoBehaviour
             }
             return true;
         }
+        Speed = TestSpeed;
+        GameManager.Instance.player.Velocity = (float)Speed;
         return false;
     }
 }

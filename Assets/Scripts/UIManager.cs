@@ -55,8 +55,8 @@ public class UIManager : MonoBehaviour
 
         ButtonsOnTheRight = ButtonsUI.anchorMax == RightSideMaxAnchor ? true : false;
 
-        GameManager.instance.player.OnCollectHearts += UpdateScoreUI;
-        GameManager.instance.stationFinder.OnClosestStationChange += UpdateUIStationName;
+        GameManager.Instance.player.OnCollectHearts += UpdateScoreUI;
+        GameManager.Instance.stationFinder.OnClosestStationChange += UpdateUIStationName;
         
     }
 
@@ -65,8 +65,8 @@ public class UIManager : MonoBehaviour
         
         
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;
-        CurrentWeatherText.text = GameManager.instance.world.CurrentWeather.ToString();
-        CurrentTimeText.text = GameManager.instance.world.CurrentTime.ToString();
+        CurrentWeatherText.text = GameManager.Instance.world.CurrentWeather.ToString();
+        CurrentTimeText.text = GameManager.Instance.world.CurrentTime.ToString();
         
         //Test swapping sides
         if (Input.GetKey(KeyCode.A))
