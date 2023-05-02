@@ -14,10 +14,9 @@ public class Lover : MonoBehaviour
     void Update()
     {
         //get the speed of the train
-        speed = train.speed;
 
         //move left along with train
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        transform.Translate(Vector3.left * GameManager.Instance.player.Velocity * Time.deltaTime);
 
         //disappear when out of bounds
         if (transform.position.x <= -15)

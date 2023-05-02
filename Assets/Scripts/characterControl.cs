@@ -416,7 +416,7 @@ public class characterControl : MonoBehaviour
         safeTime = 0;
 
         //set the stumble speed equal to train speed to make it appear like player get's dragged along with train
-        stumbleSpeed = train.speed;
+        stumbleSpeed = GameManager.Instance.player.Velocity;
         //start timer
         stumbleTime += Time.deltaTime;
         //move to the left along with the train
