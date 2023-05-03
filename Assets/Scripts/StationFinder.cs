@@ -78,27 +78,40 @@ public class StationFinder : MonoBehaviour
         yield return null;
     }
 
-    private int counter;
+    private float timeUnder;
     public void DetermineArrivalToStation(PlayerData player)
     {
         if (ClosestStation != null)
         {
-            if (GameManager.Instance.velocityFinder.calculateGPSDistance(player.Coordinates.x, player.Coordinates.y,
-                    closestStation.Coordinates.x, closestStation.Coordinates.y) < 0.5f && player.Velocity < 5)
+            if (player.Velocity < 5)
             {
-                if (player.Velocity < 5)
+                if (timeUnder == 0)
                 {
-                    counter++;
-                    if (counter >= 10)
+                    timeUnder = Time.realtimeSinceStartup;
+                }
+                else
+                {
+                    if (Time.realtimeSinceStartup - timeUnder > 10)
                     {
                         GameManager.Instance.InTransit = false;
                     }
                 }
-                else
-                {
-                    counter = 0;
-                    GameManager.Instance.InTransit = true;
-                }
+            }
+            else
+            {
+                timeUnder = 0;
+                GameManager.Instance.InTransit = true;
+            }
+
+
+            if (GameManager.Instance.velocityFinder.calculateGPSDistance(player.Coordinates.x, player.Coordinates.y,
+                    closestStation.Coordinates.x, closestStation.Coordinates.y) < 0.5f)
+            {
+                GameManager.Instance.atStation = true;
+            }
+            else
+            {
+                GameManager.Instance.atStation = true;
             }
         }
         else

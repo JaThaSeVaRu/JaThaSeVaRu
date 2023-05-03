@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public VelocityFinder velocityFinder;
     public WeatherData weatherData;
     private bool inTransit;
+    public bool atStation;
     public bool InTransit
     {
         get
@@ -59,9 +60,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (UnityEngine.Input.location.status == LocationServiceStatus.Running)
         {
             player.Coordinates = new Vector2(Input.location.lastData.latitude, Input.location.lastData.longitude);
+        }*/
+
+        if(player.Velocity != player.TargetVelocity)
+        {
+            player.Velocity = Mathf.Lerp(player.Velocity, player.TargetVelocity, Time.deltaTime);
         }
         
         //Test swapping assets

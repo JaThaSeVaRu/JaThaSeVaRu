@@ -18,7 +18,7 @@ public class LightChange : MonoBehaviour
     public Light2D light;
     private int currentColorIndex = 0;
     private int targetColorIndex = 1;
-    private float targetPoint;
+    public float targetPoint;
     public float time;
     public static LightChange instance;
     // Start is called before the first frame update
@@ -46,6 +46,7 @@ public class LightChange : MonoBehaviour
     {
         Debug.Log(color);
         targetPoint += Time.deltaTime / time;
+        ColorTransition.instance.Transition(color);
         light.color = Color.Lerp(Lightcolors[currentColorIndex], Lightcolors[(int)color], targetPoint);
         if(light.color != Lightcolors[(int)color])
         {

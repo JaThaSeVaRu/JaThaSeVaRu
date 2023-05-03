@@ -10,18 +10,23 @@ public class ColorTransition : MonoBehaviour
     private int targetColorIndex = 1;
     private float targetPoint;
     public float time;
+    public static ColorTransition instance;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Transition();
+        //Transition();
     }
 
-    void Transition()
+    public void Transition(LightChange.ColorOfTime color)
     {
-        targetPoint += Time.deltaTime / time;
-        BGmaterial.color = Color.Lerp(BGcolors[currentColorIndex], BGcolors[targetColorIndex], targetPoint);
-        if(targetPoint >= 1f)
+        BGmaterial.color = Color.Lerp(BGcolors[currentColorIndex], BGcolors[(int) color], LightChange.instance.targetPoint);
+        /*if(targetPoint >= 1f)
         {
             targetPoint = 0f;
             currentColorIndex = targetColorIndex;
@@ -29,5 +34,6 @@ public class ColorTransition : MonoBehaviour
             if(targetColorIndex == BGcolors.Length)
                targetColorIndex = 0;
         }
+        */
     }
 }

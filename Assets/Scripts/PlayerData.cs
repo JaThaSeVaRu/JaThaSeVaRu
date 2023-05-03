@@ -27,6 +27,8 @@ public class PlayerData : ScriptableObject
     public event Action<PlayerData> OnVelocityChange; 
     [SerializeField] private float velocity;
 
+    public float TargetVelocity;
+
     public float Velocity
     {
         get
