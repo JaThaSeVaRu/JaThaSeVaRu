@@ -8,51 +8,67 @@ public class enemy : MonoBehaviour
 
     public bool fromLeft;
     public bool fromRight;
-    public bool knockedOut;
+    public bool yeeted;
 
-    public Vector3 knockBackVector;
+    public Vector3 yeetVector;
+    public Vector3 rotation;
 
     void Start()
     {
+        speed = Random.Range(1f, 7f);
+
         if (transform.position.x < 0)
         {
             fromLeft = true;
             speed = -speed;
-            knockBackVector = new Vector3(Random.Range(1f, 5f), Random.Range(-1f, -5f), 0);
+            yeetVector = new Vector3(Random.Range(5f, 30f), Random.Range(-5f, -30f), 0);
         }
         if (transform.position.x > 0)
         {
             fromRight = true; 
-            knockBackVector = new Vector3(Random.Range(1f, 5f), Random.Range(1f, 5f), 0);
+            yeetVector = new Vector3(Random.Range(5f, 30f), Random.Range(5f, 30f), 0);
         }
+        rotation = new Vector3(0, 0, Random.Range(200f, 1000f));
 
     }
 
     void Update()
     {
-        if (knockedOut == false)
+        if (yeeted == false)
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
 
-        KnockBack();
+        Yeet();
 
-        if (transform.position.x >= 10 || transform.position.x <= -10)
+        if (transform.position.x >= 15 || transform.position.x <= -15 || transform.position.y >= 15)
         {
             Destroy(gameObject);
         }
     }
 
-    public void KnockBack()
+    public void Yeet()
     {
         if (Input.GetKey("up"))
         {
-            knockedOut = true;
+            yeeted = true;
         }
 
-        if (knockedOut == true)
+        if (yeeted == true)
         {
-            transform.Translate(knockBackVector * speed * Time.deltaTime);
+            transform.Translate(yeetVector * speed * Time.deltaTime);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("pose"))
+        {
+            if (yeeted == false)
+            {
+                yeeted = true;
+                Yeet();
+            }
         }
     }
 }

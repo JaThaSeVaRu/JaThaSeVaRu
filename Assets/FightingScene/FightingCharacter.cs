@@ -19,14 +19,21 @@ public class FightingCharacter : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float launchForce = 50;
     [SerializeField] private float destroyAfterSeconds = 0f;
-    public GameObject myPrefab;
-    public GameObject myPrefab_l;
+    public GameObject heart;
+    //public GameObject myPrefab_l;
+
+    public GameObject attack; //new
+    public float attackDuration; //new
+    public float attackTime; //new
+    public bool attacking; //new
 
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         //rb.velocity = transform.forward * launchForce;
+
+        attack.SetActive(false); //new
     }
 
     // Update is called once per frame
@@ -58,16 +65,13 @@ public class FightingCharacter : MonoBehaviour
                             if (touch.position.x < Screen.width / 2f)
                             {
                                 //Attack Left
-                                direction = -1;
-                                sprite.sprite = newSprite();
+                                AttackLeft();
                             }
                             else
                             {
                                 //Attack Right
-                                direction = 1;
-                                sprite.sprite = newSprite();
+                                AttackRight();
                             }
-                            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
                         }
                         else
                         {
@@ -86,21 +90,29 @@ public class FightingCharacter : MonoBehaviour
 
             if (Input.GetKeyDown("left"))
             {
-                StartCoroutine(StartCooldown());
                 //Attack Left
-                Instantiate(myPrefab_l, new Vector3(0, -1, 0), Quaternion.identity);
-                direction = -1;
-                sprite.sprite = newSprite();
-                transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+                AttackLeft();
             }
             if (Input.GetKeyDown("right"))
             {
-                StartCoroutine(StartCooldown());
-                Instantiate(myPrefab, new Vector3(0, -1, 0), Quaternion.identity);
                 //Attack Right
-                direction = 1;
-                sprite.sprite = newSprite();
-                transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+                AttackRight();
+            }
+
+
+            //new
+            if (attacking == true)
+            {
+                attackTime += Time.deltaTime;
+                attack.SetActive(true);
+            }
+
+            //new
+            if (attackTime >= attackDuration)
+            {
+                attack.SetActive(false);
+                attacking = false;
+                attackTime = 0;
             }
         }
     }
@@ -114,6 +126,37 @@ public class FightingCharacter : MonoBehaviour
         }
         lastSprite = newSpriteNumber;
         return spriteList[newSpriteNumber];
+    }
+
+
+    //new
+    public void AttackLeft()
+    {
+        StartCoroutine(StartCooldown());
+        Instantiate(heart, new Vector3(-0.1f, -1, 0), Quaternion.identity);
+        direction = -1;
+        sprite.sprite = newSprite();
+        transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        attacking = true;
+    }
+    public void AttackRight()
+    {
+
+        StartCoroutine(StartCooldown());
+        Instantiate(heart, new Vector3(0.1f, -1, 0), Quaternion.identity);
+        direction = 1;
+        sprite.sprite = newSprite();
+        transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        attacking = true;
+    }
+
+    //new
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            Debug.Log("Ouch!");
+        }
     }
 
     public IEnumerator StartCooldown()
