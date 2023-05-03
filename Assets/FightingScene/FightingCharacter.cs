@@ -22,18 +22,15 @@ public class FightingCharacter : MonoBehaviour
     public GameObject heart;
     //public GameObject myPrefab_l;
 
-    public GameObject attack; //new
-    public float attackDuration; //new
-    public float attackTime; //new
-    public bool attacking; //new
+    public int gotHit;
+    public float recoveryTime;
+    public float recoveryRate;
 
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         //rb.velocity = transform.forward * launchForce;
-
-        attack.SetActive(false); //new
     }
 
     // Update is called once per frame
@@ -99,20 +96,15 @@ public class FightingCharacter : MonoBehaviour
                 AttackRight();
             }
 
-
-            //new
-            if (attacking == true)
+            if (gotHit == 1)
             {
-                attackTime += Time.deltaTime;
-                attack.SetActive(true);
+                recoveryTime += Time.deltaTime;
             }
 
-            //new
-            if (attackTime >= attackDuration)
+            if (recoveryTime >= recoveryRate)
             {
-                attack.SetActive(false);
-                attacking = false;
-                attackTime = 0;
+                gotHit = 0;
+                recoveryTime = 0;
             }
         }
     }
@@ -132,22 +124,26 @@ public class FightingCharacter : MonoBehaviour
     //new
     public void AttackLeft()
     {
-        StartCoroutine(StartCooldown());
-        Instantiate(heart, new Vector3(-0.1f, -1, 0), Quaternion.identity);
-        direction = -1;
-        sprite.sprite = newSprite();
-        transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
-        attacking = true;
+        if (gotHit == 0)
+        {
+            StartCoroutine(StartCooldown());
+            Instantiate(heart, new Vector3(-0.1f, -1, 0), Quaternion.identity);
+            direction = -1;
+            sprite.sprite = newSprite();
+            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        }
     }
     public void AttackRight()
     {
 
-        StartCoroutine(StartCooldown());
-        Instantiate(heart, new Vector3(0.1f, -1, 0), Quaternion.identity);
-        direction = 1;
-        sprite.sprite = newSprite();
-        transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
-        attacking = true;
+        if (gotHit == 0)
+        {
+            StartCoroutine(StartCooldown());
+            Instantiate(heart, new Vector3(0.1f, -1, 0), Quaternion.identity);
+            direction = 1;
+            sprite.sprite = newSprite();
+            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        }
     }
 
     //new
@@ -156,6 +152,7 @@ public class FightingCharacter : MonoBehaviour
         if (collision.gameObject.CompareTag("enemy"))
         {
             Debug.Log("Ouch!");
+            gotHit = 1;
         }
     }
 

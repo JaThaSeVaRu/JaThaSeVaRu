@@ -70,5 +70,11 @@ public class enemy : MonoBehaviour
                 Yeet();
             }
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("got heart back");
+            speed = -speed;
+
+        }
     }
 }
