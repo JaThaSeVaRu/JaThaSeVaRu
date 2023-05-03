@@ -4,26 +4,46 @@ using UnityEngine;
 
 public class train : MonoBehaviour
 {
-    public float speed = 8f;
-    public static float staticSpeed;
-    public Vector3 startPosition;
-    public float setBack = -27.84f;
+    //set speed of train
+    //static variable for character, lover and obstacles to use
+    //public static float staticSpeed;
+    //starting position to be teleported back to
+    //public Vector3 startPosition;
+    //X-Axis value to initialise the teleport back to startPosititon
+    //public float setBack = -27.84f;
 
+    public static List<GameObject> TrainParts = new List<GameObject>();
 
     void Start()
     {
-        startPosition = transform.position;
+        foreach(Transform ts in GetComponentsInChildren<Transform>())
+        {
+            if (ts.gameObject.layer == LayerMask.NameToLayer("Train"))
+            {
+                TrainParts.Add(ts.gameObject);
+            }
+        }
+        //get current position and set as start position
+        //startPosition = transform.position;
+        FindObjectOfType<AudioManager>().Play("Train");
     }
 
     void Update()
     {
-        staticSpeed = speed;
+        //set static speed equal to speed for the character-Script, lover-Script and the Obstacle-Script to use
+        //staticSpeed = speed;
         
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        //move left
+        foreach(GameObject t in TrainParts)
+        {
+            t.transform.Translate(Vector3.left * GameManager.Instance.player.Velocity  * Time.deltaTime);
+        }
+        
 
-        if (transform.position.x <= setBack)
+        //if setback-Position is reached set back to starting position to simulate an infinite loop
+        /*if (transform.position.x <= setBack)
         {
             transform.position = startPosition;
-        }
+        }*/
     }
 }

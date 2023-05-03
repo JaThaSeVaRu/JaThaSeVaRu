@@ -11,7 +11,7 @@ public class WeatherData : MonoBehaviour {
 	public string API_key;
 	private float latitude;
 	private float longitude;
-	private bool locationInitialized;
+	public bool locationInitialized;
 	public PlayerData player;
 	public static WeatherData instance;
     void Awake()
@@ -32,14 +32,14 @@ public class WeatherData : MonoBehaviour {
 	void Update() {
 		if (locationInitialized) {
 			if (timer <= 0) {
-				StartCoroutine (GetWeatherInfo ());
+				//StartCoroutine (GetWeatherInfo ());
 				timer = minutesBetweenUpdate * 60;
 			} else {
 				timer -= Time.deltaTime;
 			}
 		}
 	}
-	private IEnumerator GetWeatherInfo()
+	public IEnumerator GetWeatherInfo()
 	{
 		var www = new UnityWebRequest(
         "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + latitude + "%2C" + longitude + "/today?unitGroup=metric&elements=temp%2Cwindspeed%2Csunrise%2Csunset%2Cicon&key=" + API_key + "deleteThis" + "&contentType=json")
@@ -58,6 +58,7 @@ public class WeatherData : MonoBehaviour {
         Debug.Log("We got weather data");
 		Info = JsonUtility.FromJson<WeatherInfo>(www.downloadHandler.text);
         //Debug.Log(www.downloadHandler.text);
+        yield return new WaitForSeconds(0);
 	}
 }
 [Serializable]

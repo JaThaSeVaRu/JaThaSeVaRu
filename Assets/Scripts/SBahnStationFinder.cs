@@ -11,7 +11,7 @@ public class SBahnStationFinder : MonoBehaviour {
 	public StationInfo Info;
 	public string API_key;
 	public float searchRadius;
-	private bool locationInitialized;
+	public bool locationInitialized;
 	public PlayerData player;
 	public static SBahnStationFinder instance;
     void Awake()
@@ -24,17 +24,17 @@ public class SBahnStationFinder : MonoBehaviour {
     public void Start() {
 		locationInitialized = true;
 	}
-	void Update() {
-		/*if (locationInitialized) {
-			if (timer <= 0) {
-				StartCoroutine (GetStationsInfo ());
-				
-				timer = minutesBetweenUpdate * 10;
-			} else {
-				timer -= Time.deltaTime;
-			}
-		}*/
-	}
+	// void Update() {
+	// 	if (locationInitialized) {
+	// 		if (timer <= 0) {
+	// 			//StartCoroutine (GetStationsInfo ());
+	// 			
+	// 			timer = minutesBetweenUpdate * 10;
+	// 		} else {
+	// 			timer -= Time.deltaTime;
+	// 		}
+	// 	}
+	// }
 
 
 	public IEnumerator GetStationsInfo()
@@ -48,7 +48,7 @@ public class SBahnStationFinder : MonoBehaviour {
         Debug.Log("Getting station data.");
 		yield return www.SendWebRequest();
 
-		if (www.isNetworkError || www.isHttpError)
+		if (www.error != null)
 		{
 			//error
             Debug.Log("Something went wrong with Station API");
@@ -66,6 +66,7 @@ public class SBahnStationFinder : MonoBehaviour {
 			Debug.Log(pd.geometry.location.ToString());
 		}
 
+		yield return new WaitForSeconds(0);
 	}
 }
 [Serializable]

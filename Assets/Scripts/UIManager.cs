@@ -18,14 +18,9 @@ public class UIManager : MonoBehaviour
     public CurrentScreen currentScreen;
     //UI Texts
     public TextMeshProUGUI ClosestStationText;
-    public TextMeshProUGUI PlayerLocationText;
     public TextMeshProUGUI CurrentTimeText;
     public TextMeshProUGUI HeartCounter;
     public TextMeshProUGUI CurrentWeatherText;
-    
-    //Scriptable objects
-    public PlayerData player;
-    public WorldData world;
 
     //Game UI
     public RectTransform IconsUI;
@@ -43,6 +38,8 @@ public class UIManager : MonoBehaviour
     public GameObject GameUI;
     public GameObject PauseUI;
 
+    public TweenManager tweener;
+
     private void Start()
     {
         //Set StartScreen first
@@ -58,25 +55,18 @@ public class UIManager : MonoBehaviour
         RightSidePivot = new Vector2(1, 1);
 
         ButtonsOnTheRight = ButtonsUI.anchorMax == RightSideMaxAnchor ? true : false;
-        
+
+        GameManager.Instance.player.OnCollectHearts += UpdateScoreUI;
+        GameManager.Instance.stationFinder.OnClosestStationChange += UpdateUIStationName;
         
     }
 
     private void Update() 
     {
-        if (Input.location.status == LocationServiceStatus.Running)
-        {
-            player.Coordinates.x = Input.location.lastData.latitude;
-            player.Coordinates.y = Input.location.lastData.longitude;
-            player.time = Input.location.lastData.timestamp;
-        }
-        PlayerLocationText.text = player.Coordinates.ToString();
-        if(StationFinder.instance.ClosestStation != null)
-            ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;
-        CurrentWeatherText.text = world.currentWeather.ToString();
-        CurrentTimeText.text = world.currentTime.ToString();
-
+        CurrentWeatherText.text = GameManager.Instance.world.CurrentWeather.ToString();
+        CurrentTimeText.text = GameManager.Instance.world.CurrentTime.ToString();
+        
         //Test swapping sides
         if (Input.GetKey(KeyCode.A))
         {
@@ -157,5 +147,17 @@ public class UIManager : MonoBehaviour
     {
         currentScreen = CurrentScreen.pauseScreen;
         SwapUIMenus();
+    }
+
+    void UpdateScoreUI(PlayerData player)
+    {
+        HeartCounter.text = player.CollectedHearts.ToString();
+        tweener.TweenScore(HeartCounter.rectTransform);
+    }
+
+    void UpdateUIStationName()
+    {
+        if(StationFinder.instance.ClosestStation != null)
+            ClosestStationText.text = StationFinder.instance.ClosestStation.StationName;
     }
 }

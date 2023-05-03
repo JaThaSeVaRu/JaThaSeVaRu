@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class GPSTesting : MonoBehaviour
 {
-    public TMP_Text OldGPS, NewGPS, Speed, Timestamp;
+    public TMP_Text OldGPS, NewGPS;
+
+    public TMP_Text SpeedText;
+
+    public TMP_Text Timestamp;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     float oldLatitude, oldLongitude;
     double speedLatitude, speedLongitude;
     double oldTimestamp;
+    public double Speed;
 
 
     float R = 6.371f;
@@ -72,7 +78,9 @@ public class GPSTesting : MonoBehaviour
                     //speedLatitude *= 110.574;
                     //speedLongitude *= 111.320 * System.Math.Cos(speedLatitude);
 
-                    Speed.text = "Speed: " + (d / (Input.location.lastData.timestamp - oldTimestamp)) * 3600f + " km/h";
+                    Speed = d / (Input.location.lastData.timestamp - oldTimestamp) * 3600f;
+                    
+                    SpeedText.text = "Speed: " + Speed * 3600f + " km/h";
                 }
                 OldGPS.text = "OldGPS: " + oldLatitude + ", " + oldLongitude;
                 oldLongitude = Input.location.lastData.longitude;
