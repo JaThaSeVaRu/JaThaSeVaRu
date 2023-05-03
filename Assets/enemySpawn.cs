@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemySpawn : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject enemy_1;
 
     public int spawnChoice;
 
@@ -33,10 +34,16 @@ public class enemySpawn : MonoBehaviour
             {
                 Instantiate(enemy, leftSpawn, Quaternion.identity);
                 spawnTime = 0;
+
+                Instantiate(enemy_1, leftSpawn, Quaternion.identity);
+                spawnTime = 0;
             }
             if (spawnChoice == 2)
             {
                 Instantiate(enemy, rightSpawn, Quaternion.identity);
+                spawnTime = 0;
+
+                Instantiate(enemy_1, rightSpawn, Quaternion.identity);
                 spawnTime = 0;
             }
         }
