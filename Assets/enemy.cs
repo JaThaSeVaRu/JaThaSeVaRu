@@ -74,7 +74,6 @@ public class enemy : MonoBehaviour
         {
             Debug.Log("got heart back");
             speed = -speed;
-
         }
     }
 }
