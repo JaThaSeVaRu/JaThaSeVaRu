@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using DG.Tweening;
 using UnityEngine;
 
-public enum runstate { ONTRAIN, INTRAIN, JUMPING, POSING, SWITCHUP, SWITCHDOWN, STUMBLING }
+public enum runstate { ONTRAIN, INTRAIN, JUMPING, POSING, SWITCHUP, SWITCHDOWN, STUMBLING, CAUGHT }
 public class characterControl : MonoBehaviour
 {
     //for the Statemachine
     public runstate state;
+    public GameObject winlose;
 
     //various speed values used for switching lanes up and down, jumping and posing
     //posingSpeed might not be needed in the future
@@ -53,6 +55,11 @@ public class characterControl : MonoBehaviour
     //stumbling speed equals the current train speed to simulate the player being dragged along with the train
     public float stumbleSpeed;
 
+    float caughtTime;
+    public float caughtLimit;
+    public float pushTime;
+    public float pushSpeed;
+
     //Timer values to make the Player invulnerable for stumbling 
     public float safeTime;
     public float safeLimit;
@@ -95,6 +102,7 @@ public class characterControl : MonoBehaviour
     {
         //calculate approachSpeed
         //approchspeed increases by collecting hearts
+        //approachSpeed = approachBase * (1 + (winlose.GetComponent<WinLoseScore>().actualHearts * 0.1f));
         approachSpeed = approachBase * (1 + (player.CollectedHearts * 0.1f));
 
         //start the safetimer after stumbling
@@ -114,6 +122,9 @@ public class characterControl : MonoBehaviour
         {
             m_SpriteRenderer.color = new Color(1, 0.48f, 0.78f);
         }
+        
+        //Posing timer
+        
 
 
         //touchinputs (jaime knows whats going on here)
@@ -275,6 +286,11 @@ public class characterControl : MonoBehaviour
         if (state == runstate.STUMBLING)
         {
             Stumble();
+        }
+
+        if (state == runstate.CAUGHT)
+        {
+            GotCaught();
         }
 
         //if player siwtched lane UPWARDS
@@ -445,6 +461,34 @@ public class characterControl : MonoBehaviour
 
     }
 
+    public void GotCaught()
+    {
+        caughtTime += Time.deltaTime;
+
+        if (caughtTime >= caughtLimit && caughtTime < caughtLimit + pushTime)
+        {
+            winlose.GetComponent<WinLoseScore>().state = gamestate.CAUGHT;
+            transform.Translate(Vector3.right * pushSpeed * Time.deltaTime);
+        }
+        if (caughtTime >= caughtLimit + pushTime)
+        {
+            safeTime = 0;
+
+            transform.position = new Vector3(transform.position.x, stumbleBase.y, transform.position.z);
+
+            if (stumbleBase.y == jumpBase.y)
+            {
+                state = runstate.ONTRAIN;
+            }
+            if (stumbleBase.y == poseBase.y)
+            {
+                state = runstate.INTRAIN;
+            }
+
+            caughtTime = 0;
+        }
+    }
+
 
     //check collision with obstacles
     void OnTriggerEnter2D(Collider2D collision)
@@ -467,6 +511,26 @@ public class characterControl : MonoBehaviour
 
                 //change state to stumbling
                 state = runstate.STUMBLING;
+            }
+
+        }
+
+
+        if (collision.gameObject.CompareTag("mass"))
+        {
+            if (state != runstate.CAUGHT && safeTime >= safeLimit)
+            {
+                if (state == runstate.ONTRAIN || state == runstate.JUMPING)
+                {
+                    stumbleBase = jumpBase;
+                }
+                if (state == runstate.INTRAIN || state == runstate.POSING || state == runstate.SWITCHUP || state == runstate.SWITCHDOWN)
+                {
+                    stumbleBase = poseBase;
+                }
+
+                state = runstate.CAUGHT;
+
             }
 
         }

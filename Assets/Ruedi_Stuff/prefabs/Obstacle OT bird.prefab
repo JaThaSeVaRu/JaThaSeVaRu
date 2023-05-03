@@ -47,6 +47,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  daySprites:
+  - {fileID: 21300000, guid: 39e7bc96a43fea34c8bf8c6af77bbb44, type: 3}
+  nightSprites:
+  - {fileID: 21300000, guid: 74898aa5333204a4a9fde760b65c7754, type: 3}
+  listlength: 0
+  spriteChoice: 0
+  daytime: 0
+  day: 0
+  night: 0
 --- !u!70 &8871794287240433596
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

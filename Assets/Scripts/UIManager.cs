@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     public CurrentScreen currentScreen;
     //UI Texts
     public TextMeshProUGUI ClosestStationText;
-    public TextMeshProUGUI PlayerLocationText;
     public TextMeshProUGUI CurrentTimeText;
     public TextMeshProUGUI HeartCounter;
     public TextMeshProUGUI CurrentWeatherText;
@@ -62,8 +61,6 @@ public class UIManager : MonoBehaviour
 
     private void Update() 
     {
-        
-        
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;
         CurrentWeatherText.text = GameManager.Instance.world.CurrentWeather.ToString();
         CurrentTimeText.text = GameManager.Instance.world.CurrentTime.ToString();
