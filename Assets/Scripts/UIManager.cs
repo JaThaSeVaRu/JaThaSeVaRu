@@ -38,6 +38,8 @@ public class UIManager : MonoBehaviour
     public GameObject GameUI;
     public GameObject PauseUI;
 
+    public TweenManager tweener;
+
     private void Start()
     {
         //Set StartScreen first
@@ -150,6 +152,7 @@ public class UIManager : MonoBehaviour
     void UpdateScoreUI(PlayerData player)
     {
         HeartCounter.text = player.CollectedHearts.ToString();
+        tweener.TweenScore(HeartCounter.rectTransform);
     }
 
     void UpdateUIStationName()

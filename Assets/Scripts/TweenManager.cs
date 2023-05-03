@@ -21,8 +21,6 @@ public class TweenManager : MonoBehaviour
         Icons.DOMove(Icons.position + (Vector3.down * IconsY), 2).SetDelay(3).SetEase(Ease.InOutBack);
         
         StationName.DOMove(StationName.position + (Vector3.down * StationNameY), 2).SetDelay(3).SetEase(Ease.InOutBack);
-
-        GameManager.Instance.player.OnCollectHearts += TweenScore;
     }
 
     private void Update()
@@ -43,8 +41,8 @@ public class TweenManager : MonoBehaviour
         }
     }
 
-    void TweenScore(PlayerData player)
+    public void TweenScore(RectTransform transform)
     {
-        GameManager.Instance.UiManager.HeartCounter.rectTransform.DOScale(2, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);
+        transform.DOScale(2, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);
     }
 }
