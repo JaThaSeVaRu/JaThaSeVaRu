@@ -296,7 +296,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c23034c3535751749ba894cc4a373d79, type: 3}
   Herz: {fileID: 0}
   IsAvailable: 1
-  CooldownDuration: 0.5
+  CooldownDuration: 0.4
   rb: {fileID: 0}
   launchForce: 50
   destroyAfterSeconds: 5
