@@ -68,6 +68,21 @@ public class FightingCharacter : MonoBehaviour
                     break;
             }
         }
+
+        if (Input.GetKey("left"))
+        {
+            //Attack Left
+            direction = -1;
+            sprite.sprite = newSprite();
+            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        }
+        if (Input.GetKey("right"))
+        {
+            //Attack Right
+            direction = 1;
+            sprite.sprite = newSprite();
+            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        }
     }
 
     Sprite newSprite()
