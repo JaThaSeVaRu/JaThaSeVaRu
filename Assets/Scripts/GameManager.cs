@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public StationFinder stationFinder;
     public VelocityFinder velocityFinder;
     public WeatherData weatherData;
+    public UIManager UiManager;
     private bool inTransit;
     public bool atStation;
     public bool InTransit

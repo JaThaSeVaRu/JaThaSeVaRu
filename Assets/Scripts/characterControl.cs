@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum runstate { ONTRAIN, INTRAIN, JUMPING, POSING, SWITCHUP, SWITCHDOWN, STUMBLING, CAUGHT }
@@ -456,7 +457,6 @@ public class characterControl : MonoBehaviour
             }
 
             stumbleTime = 0;
-
         }
 
     }
@@ -468,6 +468,8 @@ public class characterControl : MonoBehaviour
         if (caughtTime >= caughtLimit && caughtTime < caughtLimit + pushTime)
         {
             winlose.GetComponent<WinLoseScore>().state = gamestate.CAUGHT;
+            winlose.GetComponent<WinLoseScore>().GetCaught();
+            GameManager.Instance.player.CollectedHearts = 0;
             transform.Translate(Vector3.right * pushSpeed * Time.deltaTime);
         }
         if (caughtTime >= caughtLimit + pushTime)
