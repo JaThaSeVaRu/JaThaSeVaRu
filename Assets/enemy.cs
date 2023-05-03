@@ -48,6 +48,7 @@ public class enemy : MonoBehaviour
 
         if (transform.position.x >= 15 || transform.position.x <= -15 || transform.position.y >= 15)
         {
+            enemySpawn.enemyList.Remove(gameObject);
             Destroy(gameObject);
         }
     }

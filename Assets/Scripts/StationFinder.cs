@@ -118,8 +118,7 @@ public class StationFinder : MonoBehaviour
         {
             print("No station coordinates");
         }
-        
-        
+
     }
 
 }
