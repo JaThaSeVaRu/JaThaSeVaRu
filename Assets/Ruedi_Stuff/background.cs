@@ -155,6 +155,7 @@ public class background : MonoBehaviour
                 }
                 else
                 {
+                    currentCenter += CombinedList[oldHouse].GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f;
                     currentCenter += CombinedList[newHouse].GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f;
                     go = Instantiate(CombinedList[newHouse], new Vector3(currentCenter, HeightList[i], 0), Quaternion.identity);
                 }
