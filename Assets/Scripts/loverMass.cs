@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class loverMass : MonoBehaviour
     //get the current amount of collected hearts from the player scriptable object
     public PlayerData player;
 
+    public WinLoseScore winLoseScore;
     public bool retreat;
     public float retreatTime;
     public float keepTime;
@@ -25,6 +27,7 @@ public class loverMass : MonoBehaviour
     void Start()
     {
         retreat = false;
+        winLoseScore = GetComponent<WinLoseScore>();
     }
 
     void Update()

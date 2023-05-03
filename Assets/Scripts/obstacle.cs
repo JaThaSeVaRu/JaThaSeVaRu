@@ -46,7 +46,7 @@ public class obstacle : MonoBehaviour
             //use the chosen Sprite
             if (daySprites[spriteChoice])
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = daySprites[spriteChoice];
+                this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = daySprites[spriteChoice];
             }
         }
         if (night == true)
@@ -56,7 +56,7 @@ public class obstacle : MonoBehaviour
             spriteChoice = Random.Range(0, listlength);
             if (nightSprites[spriteChoice])
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = nightSprites[spriteChoice];
+                this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = nightSprites[spriteChoice];
             }
         }
 
