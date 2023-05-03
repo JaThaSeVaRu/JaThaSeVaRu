@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 public enum runstate { ONTRAIN, INTRAIN, JUMPING, POSING, SWITCHUP, SWITCHDOWN, STUMBLING, CAUGHT }
@@ -121,6 +122,9 @@ public class characterControl : MonoBehaviour
         {
             m_SpriteRenderer.color = new Color(1, 0.48f, 0.78f);
         }
+        
+        //Posing timer
+        
 
 
         //touchinputs (jaime knows whats going on here)

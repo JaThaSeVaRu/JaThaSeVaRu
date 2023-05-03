@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 3347380687020580670}
   - component: {fileID: 7526413149959405538}
   - component: {fileID: 1084402689416775450}
+  - component: {fileID: 1861942248006130903}
   m_Layer: 0
   m_Name: lover_g
   m_TagString: obstacle
@@ -439,6 +440,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  daySprites:
+  - {fileID: 21300000, guid: 0860fb407c1ea544484f8a04e7838930, type: 3}
+  - {fileID: 21300000, guid: 0860fb407c1ea544484f8a04e7838930, type: 3}
+  nightSprites:
+  - {fileID: 21300000, guid: 0860fb407c1ea544484f8a04e7838930, type: 3}
+  - {fileID: 21300000, guid: 0860fb407c1ea544484f8a04e7838930, type: 3}
+  listlength: 0
+  spriteChoice: 0
+  daytime: 0
+  day: 0
+  night: 0
 --- !u!61 &1084402689416775450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -465,6 +477,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.7497263}
   m_EdgeRadius: 0
+--- !u!114 &1861942248006130903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059962799558308350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7786c19c5957a864cb2828ac22967d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inLove: 0
+  LovePose: {fileID: 0}
+  IdlePose: {fileID: 0}
+  Herz: {fileID: 0}
 --- !u!1 &4083172372528153235
 GameObject:
   m_ObjectHideFlags: 0

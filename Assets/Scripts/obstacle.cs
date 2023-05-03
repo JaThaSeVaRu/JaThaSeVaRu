@@ -24,19 +24,19 @@ public class obstacle : MonoBehaviour
 
     void Start()
     {
-        //randomly set daytime (placeholder script)
-        daytime = Random.Range(1, 3);
-
-        if (daytime == 1)
+        if (GameManager.Instance.world.CurrentTime == WorldData.TimeOfDay.day ||
+            GameManager.Instance.world.CurrentTime == WorldData.TimeOfDay.sunrise)
         {
             day = true;
         }
-        if (daytime == 2)
+
+        if (GameManager.Instance.world.CurrentTime == WorldData.TimeOfDay.night ||
+            GameManager.Instance.world.CurrentTime == WorldData.TimeOfDay.sunset)
         {
             night = true;
         }
 
-        //get listlength
+            //get listlength
         if (day == true)
         {
             night = false;
@@ -44,14 +44,20 @@ public class obstacle : MonoBehaviour
             //choose a sprite once obstacle got spawned 
             spriteChoice = Random.Range(0, listlength);
             //use the chosen Sprite
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = daySprites[spriteChoice];
+            if (daySprites[spriteChoice])
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = daySprites[spriteChoice];
+            }
         }
         if (night == true)
         {
             day = false;
             listlength = nightSprites.Length;
             spriteChoice = Random.Range(0, listlength);
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = nightSprites[spriteChoice];
+            if (nightSprites[spriteChoice])
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = nightSprites[spriteChoice];
+            }
         }
 
 

@@ -218,7 +218,7 @@ MonoBehaviour:
   touchHeld: 0
   tapped: 0
   posingTimer: 0
-  holdSensitivity: 0.5
+  holdSensitivity: 1
 --- !u!70 &3014747267623063016
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

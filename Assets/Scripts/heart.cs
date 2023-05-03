@@ -6,19 +6,17 @@ public class heart : MonoBehaviour
 {
     public bool inLove;
     public GameObject LovePose, IdlePose, Herz;
+
+    private BoxCollider2D boxCollider;
     //private Animator anim;
     void Start()
     {
         LovePose.GetComponent<SpriteRenderer>().enabled = false;
         IdlePose.GetComponent<SpriteRenderer>().enabled = true;
         Herz.GetComponent<SpriteRenderer>().enabled = false;
+        
         //anim = GetComponent<Animator>();
         //anim.SetBool("Herz_getroffen", false);
-    }
-
-    void Update()
-    {
-        
     }
 
 
@@ -36,6 +34,11 @@ public class heart : MonoBehaviour
                 Herz.GetComponent<SpriteRenderer>().enabled = true;
                 //anim.SetBool("Herz_getroffen", true);
             }
+        }
+
+        if (collision.GetComponent<posingEffect>())
+        {
+            GameManager.Instance.player.CollectedHearts++;
         }
     }
 }
