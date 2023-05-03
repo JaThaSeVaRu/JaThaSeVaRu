@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4301496493799638415}
   - component: {fileID: 156341717646603789}
   - component: {fileID: 7505356884628935146}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8269632156330227655}
   - component: {fileID: 4061998443908363004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Girl_Love
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 1557093515918066733}
   - component: {fileID: 3306110883803803267}
   - component: {fileID: 4835132777553945880}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 4244668673156257221}
   - component: {fileID: 2154069862196311103}
   - component: {fileID: 5037367508806483377}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3347380687020580670}
   - component: {fileID: 7526413149959405538}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: lover_g
   m_TagString: obstacle
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 2895160186942279476}
   - component: {fileID: 5476190233783243612}
   - component: {fileID: 2885680155118555263}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: heart
   m_TagString: obstacle
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1202643721924342725}
   - component: {fileID: 5842905861491439741}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: girl_Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713841812687445826}
   - component: {fileID: 2440975123922486604}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 2307353360723197219}
   - component: {fileID: 7315711155321301397}
   - component: {fileID: 3510010584922936938}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Herz_Sheet2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2223069376244811450}
   - component: {fileID: 6985593419432453999}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +937,7 @@ GameObject:
   - component: {fileID: 6190894860893733211}
   - component: {fileID: 6144613434649928799}
   - component: {fileID: 6495326084554579900}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

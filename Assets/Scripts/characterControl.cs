@@ -115,13 +115,13 @@ public class characterControl : MonoBehaviour
         //change playercolor to white when invincible
         if (safeTime < safeLimit)
         {
-            m_SpriteRenderer.color = new Color(1, 0.9f, 0.9f);
+            m_SpriteRenderer.color = new Color(1, 0.48f, 0.78f);
         }
 
         //change playercolor to default when not invincible
         if (safeTime >= safeLimit)
         {
-            m_SpriteRenderer.color = new Color(1, 0.48f, 0.78f);
+            m_SpriteRenderer.color = new Color(1, 0.9f, 0.9f);
         }
         
         //Posing timer
