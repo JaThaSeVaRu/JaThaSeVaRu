@@ -8,80 +8,100 @@ public class FightingCharacter : MonoBehaviour
     Vector2 endPos;
     float tapDistance = 100;
     public List<Sprite> spriteList = new List<Sprite>();
+    public GameObject Herz;
     int direction = 0;
     SpriteRenderer sprite;
     int lastSprite;
+
+    public bool IsAvailable = true;
+    public float CooldownDuration = 0.5f;
+
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float launchForce = 50;
+    [SerializeField] private float destroyAfterSeconds = 0f;
+    public GameObject myPrefab;
+    public GameObject myPrefab_l;
 
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        //rb.velocity = transform.forward * launchForce;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (IsAvailable)
         {
-            Touch touch = Input.GetTouch(0);
-            switch (touch.phase)
+            // rb.velocity = transform.forward * launchForce;
+            if (Input.touchCount > 0)
             {
-                // Record initial touch position.
-                case TouchPhase.Began:
-                    startPos = touch.position;
-                    break;
+                Touch touch = Input.GetTouch(0);
+                switch (touch.phase)
+                {
+                    // Record initial touch position.
+                    case TouchPhase.Began:
+                        startPos = touch.position;
+                        break;
 
-                case TouchPhase.Moved:
-                    break;
+                    case TouchPhase.Moved:
+                        break;
 
-                // Report that a direction has been chosen when the finger is lifted.
-                case TouchPhase.Ended:
-                    endPos = touch.position;
-                    if (Vector2.Distance(startPos, endPos) < tapDistance)
-                    {
-                        //Tap
-                        if(touch.position.x < Screen.width/2f)
+                    // Report that a direction has been chosen when the finger is lifted.
+                    case TouchPhase.Ended:
+                        endPos = touch.position;
+                        if (Vector2.Distance(startPos, endPos) < tapDistance)
                         {
-                            //Attack Left
-                            direction = -1;
-                            sprite.sprite = newSprite();
+                            StartCoroutine(StartCooldown());
+                            //Tap
+                            if (touch.position.x < Screen.width / 2f)
+                            {
+                                //Attack Left
+                                direction = -1;
+                                sprite.sprite = newSprite();
+                            }
+                            else
+                            {
+                                //Attack Right
+                                direction = 1;
+                                sprite.sprite = newSprite();
+                            }
+                            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
                         }
                         else
                         {
-                            //Attack Right
-                            direction = 1;
-                            sprite.sprite = newSprite();
+                            //Swipe
+
                         }
-                        transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
-                    }
-                    else
-                    {
-                        //Swipe
 
-                    }
+                        break;
 
-                    break;
+                    //Report that touch was held
+                    case TouchPhase.Stationary:
 
-                //Report that touch was held
-                case TouchPhase.Stationary:
-
-                    break;
+                        break;
+                }
             }
-        }
 
-        if (Input.GetKey("left"))
-        {
-            //Attack Left
-            direction = -1;
-            sprite.sprite = newSprite();
-            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
-        }
-        if (Input.GetKey("right"))
-        {
-            //Attack Right
-            direction = 1;
-            sprite.sprite = newSprite();
-            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+            if (Input.GetKeyDown("left"))
+            {
+                StartCoroutine(StartCooldown());
+                //Attack Left
+                Instantiate(myPrefab_l, new Vector3(0, -1, 0), Quaternion.identity);
+                direction = -1;
+                sprite.sprite = newSprite();
+                transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+            }
+            if (Input.GetKeyDown("right"))
+            {
+                StartCoroutine(StartCooldown());
+                Instantiate(myPrefab, new Vector3(0, -1, 0), Quaternion.identity);
+                //Attack Right
+                direction = 1;
+                sprite.sprite = newSprite();
+                transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+            }
         }
     }
 
@@ -94,5 +114,12 @@ public class FightingCharacter : MonoBehaviour
         }
         lastSprite = newSpriteNumber;
         return spriteList[newSpriteNumber];
+    }
+
+    public IEnumerator StartCooldown()
+    {
+        IsAvailable = false;
+        yield return new WaitForSeconds(CooldownDuration);
+        IsAvailable = true;
     }
 }
