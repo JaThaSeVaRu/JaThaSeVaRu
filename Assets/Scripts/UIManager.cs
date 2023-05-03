@@ -61,8 +61,6 @@ public class UIManager : MonoBehaviour
 
     private void Update() 
     {
-        
-        
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;
         CurrentWeatherText.text = GameManager.Instance.world.CurrentWeather.ToString();
         CurrentTimeText.text = GameManager.Instance.world.CurrentTime.ToString();

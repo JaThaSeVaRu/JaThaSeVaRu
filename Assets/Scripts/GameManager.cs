@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         world.GetSystemTime();
         world.GetWeather();
+        player.CollectedHearts = 0;
         StartCoroutine (SwapAssets());
     }
 
