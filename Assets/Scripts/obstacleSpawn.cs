@@ -135,7 +135,7 @@ public class obstacleSpawn : MonoBehaviour
 
             if (onTrainChoice == 1)
             {
-                Instantiate(onTrainPylon, new Vector3(15, -6f, -0.5f), Quaternion.identity);
+                Instantiate(onTrainPylon, new Vector3(15, -2.5f, -0.5f), Quaternion.identity);
                 onTrainSpawnRate = Random.Range(onTrainSpawnMin, onTrainSpawnMax);
                 onTrainSpawnTime = 0;
                 noSpawn = true;
