@@ -18,7 +18,7 @@ public class EditorPlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             playerTraveling = true;
-            player.Velocity = playerMockSpeed;
+            player.TargetVelocity = playerMockSpeed;
         }
         if (playerTraveling)
         {
@@ -33,7 +33,7 @@ public class EditorPlayerMovement : MonoBehaviour
         {
             player.LastStation = TargetStation;
             playerTraveling = false;
-            player.Velocity = 0;
+            player.TargetVelocity = 0;
             world.GetSystemTime();
             Debug.Log("Player reached target at: " + TargetStation.StationName);
         }
