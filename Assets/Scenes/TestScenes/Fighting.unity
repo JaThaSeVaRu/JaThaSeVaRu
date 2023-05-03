@@ -223,7 +223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483d2df5e9e35c943bb649e37df8ac55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 7622140964313519100, guid: afff20815c3338549bcdd43092834d50, type: 3}
+  spawnChoice: 0
+  leftSpawn: {x: -10, y: -1.2, z: 0}
+  rightSpawn: {x: 10, y: -1.2, z: 0}
+  spawnRate: 1
+  spawnTime: 0
 --- !u!4 &1402895198
 Transform:
   m_ObjectHideFlags: 0
