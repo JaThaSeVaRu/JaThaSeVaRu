@@ -13,6 +13,8 @@ public class enemy : MonoBehaviour
     public Vector3 yeetVector;
     public Vector3 rotation;
 
+    int direction = 0;
+
     void Start()
     {
         speed = Random.Range(1f, 7f);
@@ -20,15 +22,18 @@ public class enemy : MonoBehaviour
         if (transform.position.x < 0)
         {
             fromLeft = true;
+            direction = 1;
             speed = -speed;
             yeetVector = new Vector3(Random.Range(5f, 30f), Random.Range(-5f, -30f), 0);
         }
         if (transform.position.x > 0)
         {
-            fromRight = true; 
+            fromRight = true;
+            direction = -1;
             yeetVector = new Vector3(Random.Range(5f, 30f), Random.Range(5f, 30f), 0);
         }
         rotation = new Vector3(0, 0, Random.Range(200f, 1000f));
+        transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
 
     }
 
@@ -74,6 +79,8 @@ public class enemy : MonoBehaviour
         {
             Debug.Log("got heart back");
             speed = -speed;
+            direction = -direction;
+            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
         }
     }
 }
