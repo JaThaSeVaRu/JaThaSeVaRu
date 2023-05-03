@@ -12,7 +12,7 @@ public class ColorTransition : MonoBehaviour
     public float time;
     public static ColorTransition instance;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }
@@ -23,9 +23,10 @@ public class ColorTransition : MonoBehaviour
         //Transition();
     }
 
-    public void Transition(LightChange.ColorOfTime color)
+    public void Transition(Color color)
     {
-        BGmaterial.color = Color.Lerp(BGcolors[currentColorIndex], BGcolors[(int) color], LightChange.instance.targetPoint);
+        BGmaterial.color = new Color(color.r, color.b, color.g, 1);
+        //BGmaterial.color = Color.Lerp(BGcolors[currentColorIndex], BGcolors[(int) color], LightChange.instance.targetPoint);
         /*if(targetPoint >= 1f)
         {
             targetPoint = 0f;
