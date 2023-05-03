@@ -345,6 +345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece566ce590004866a528e5b9adb8952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &455347860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8193445622708436123, guid: b6c070c9a23b9bd409c283acd2ae886d, type: 3}
+  m_PrefabInstance: {fileID: 1546920890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &488216352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8140535451605989305, guid: 3a4ee446786c44b4fb08ff8aa17eb344, type: 3}
@@ -532,6 +537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeRows (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9027556579040292838, guid: 3a4ee446786c44b4fb08ff8aa17eb344, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9027556579040292839, guid: 3a4ee446786c44b4fb08ff8aa17eb344, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -632,6 +641,10 @@ PrefabInstance:
     - target: {fileID: 2210477937713073007, guid: c9cfa818072e16641bd81cce1f8c1b0f, type: 3}
       propertyPath: m_Name
       value: TrainManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210477937713073007, guid: c9cfa818072e16641bd81cce1f8c1b0f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7228855278506584390, guid: c9cfa818072e16641bd81cce1f8c1b0f, type: 3}
       propertyPath: m_IsActive
@@ -1864,7 +1877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8128677067961765054, guid: 942795912bad1714cb2597ea1fb74744, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8128677067961765055, guid: 942795912bad1714cb2597ea1fb74744, type: 3}
       propertyPath: Lover
@@ -2486,6 +2499,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3543860955503450611, guid: 62b6ea86c8b701c4aae64c11ef466c5d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7831499682069960629, guid: 62b6ea86c8b701c4aae64c11ef466c5d, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2534,6 +2551,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
+    - target: {fileID: 7831499682069960630, guid: 62b6ea86c8b701c4aae64c11ef466c5d, type: 3}
+      propertyPath: winlose
+      value: 
+      objectReference: {fileID: 455347860}
     - target: {fileID: 7831499682069960630, guid: 62b6ea86c8b701c4aae64c11ef466c5d, type: 3}
       propertyPath: character
       value: 
@@ -3521,6 +3542,10 @@ PrefabInstance:
     - target: {fileID: 5622508292230579, guid: 7e5bf08d6aa627441b2ff967b2c32fa6, type: 3}
       propertyPath: m_Name
       value: Background Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622508292230579, guid: 7e5bf08d6aa627441b2ff967b2c32fa6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5622508292230580, guid: 7e5bf08d6aa627441b2ff967b2c32fa6, type: 3}
       propertyPath: BackLayer

@@ -40,4 +40,9 @@ public class TweenManager : MonoBehaviour
             shownStation = true;
         }
     }
+
+    public void TweenScore(RectTransform transform)
+    {
+        transform.DOScale(2, 0.5f).SetEase(Ease.OutBounce).SetLoops(1);
+    }
 }
