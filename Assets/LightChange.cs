@@ -15,16 +15,20 @@ public class LightChange : MonoBehaviour
 
 
     public Color[] Lightcolors;
+    public Color[] Nightcolors;
     public Light2D light;
+    public Light2D NightLight;
     private int currentColorIndex = 0;
     private int targetColorIndex = 1;
     public float targetPoint;
     public float time;
     public static LightChange instance;
+    public ColorTransition ct;
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+        ct = ColorTransition.instance;
     }
 
     // Update is called once per frame
@@ -42,12 +46,14 @@ public class LightChange : MonoBehaviour
         ChangeC = StartCoroutine(ChangeCoroutine(color));
     }
 
+
     IEnumerator ChangeCoroutine(ColorOfTime color)
     {
         Debug.Log(color);
         targetPoint += Time.deltaTime / time;
-        ColorTransition.instance.Transition(color);
         light.color = Color.Lerp(Lightcolors[currentColorIndex], Lightcolors[(int)color], targetPoint);
+        NightLight.color = Color.Lerp(Nightcolors[currentColorIndex], Nightcolors[(int)color], targetPoint);
+        ct.Transition(light.color);
         if(light.color != Lightcolors[(int)color])
         {
             yield return new WaitForSeconds(Time.deltaTime);
@@ -68,4 +74,6 @@ public class LightChange : MonoBehaviour
         }*/
         yield return null;
     }
+
+
 }
