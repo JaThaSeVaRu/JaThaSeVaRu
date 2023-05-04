@@ -154,7 +154,7 @@ public class UIManager : MonoBehaviour
     void UpdateScoreUI(PlayerData player)
     {
         HeartCounter.text = player.CollectedHearts.ToString();
-        tweener.TweenScore(HeartCounter.rectTransform);
+        //tweener.TweenScore(HeartCounter.rectTransform);
     }
 
     void UpdateUIStationName()
