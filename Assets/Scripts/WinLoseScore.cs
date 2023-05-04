@@ -21,13 +21,16 @@ public class WinLoseScore : MonoBehaviour
 
     public float stayTime;
     public float returnTime;
-    
+
+    public GameObject Loose;
+
     public PlayerData player;
 
     void Start()
     {
         state = gamestate.RUNNING;
-        
+        Loose.GetComponent<SpriteRenderer>().enabled = false;
+
     }
     
     void Update()
@@ -67,6 +70,7 @@ public class WinLoseScore : MonoBehaviour
     public void GameOver()
     {
         state = gamestate.GAMEOVER;
+        Loose.GetComponent<SpriteRenderer>().enabled = true;
     }
     public void Fight()
     {
