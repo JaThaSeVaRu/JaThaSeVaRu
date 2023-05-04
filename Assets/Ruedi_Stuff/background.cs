@@ -563,7 +563,7 @@ public class background : MonoBehaviour
     }
     public void createNewBackground(GameObject parent)
     {
-     //bla   
+        
         if(parent.transform.childCount != 0)
         {
             Transform lastChild = parent.GetComponent<LastObjectFinder>().lastObject.transform;
@@ -581,10 +581,8 @@ public class background : MonoBehaviour
         }
     }
 
-    void Update()
+    public void CloudSpawner(float cloudSpawnMin, float cloudSpawnMax)
     {
-
-
         cloudSpawnTimer += Time.deltaTime;
         if (cloudSpawnTimer >= cloudSpawnRate)
         {
@@ -596,6 +594,11 @@ public class background : MonoBehaviour
 
             cloudSpawnTimer = 0;
         }
+    }
+
+    void Update()
+    {
+        CloudSpawner(15, 60);
         /*
         //Timers for the runtime spawning of assets 
         frontSpawnTimer += Time.deltaTime;
