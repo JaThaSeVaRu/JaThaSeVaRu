@@ -34,6 +34,7 @@ public class heart : MonoBehaviour
                 LovePose.GetComponent<SpriteRenderer>().enabled = true;
                 IdlePose.GetComponent<SpriteRenderer>().enabled = false;
                 Herz.GetComponent<SpriteRenderer>().enabled = true;
+                Herz.GetComponent<Animator>().Play("Herz_getroffen",0,0);
                 GameManager.Instance.player.CollectedHearts++;
                 boxCollider.enabled = !boxCollider.enabled;
                 //anim.SetBool("Herz_getroffen", true);
