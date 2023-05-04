@@ -563,7 +563,7 @@ public class background : MonoBehaviour
     }
     public void createNewBackground(GameObject parent)
     {
-        
+     //bla   
         if(parent.transform.childCount != 0)
         {
             Transform lastChild = parent.GetComponent<LastObjectFinder>().lastObject.transform;
