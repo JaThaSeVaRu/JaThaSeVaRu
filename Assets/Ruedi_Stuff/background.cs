@@ -581,10 +581,8 @@ public class background : MonoBehaviour
         }
     }
 
-    void Update()
+    public void CloudSpawner(float cloudSpawnMin, float cloudSpawnMax)
     {
-
-
         cloudSpawnTimer += Time.deltaTime;
         if (cloudSpawnTimer >= cloudSpawnRate)
         {
@@ -596,6 +594,11 @@ public class background : MonoBehaviour
 
             cloudSpawnTimer = 0;
         }
+    }
+
+    void Update()
+    {
+        CloudSpawner(15, 60);
         /*
         //Timers for the runtime spawning of assets 
         frontSpawnTimer += Time.deltaTime;
