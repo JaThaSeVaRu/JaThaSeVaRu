@@ -6,6 +6,7 @@ public class heart : MonoBehaviour
 {
     public bool inLove;
     public GameObject LovePose, IdlePose, Herz;
+    public AudioSource HeartSteal;
 
     private BoxCollider2D boxCollider;
     //private Animator anim;
@@ -39,4 +40,5 @@ public class heart : MonoBehaviour
             }
         }
     }
+
 }
