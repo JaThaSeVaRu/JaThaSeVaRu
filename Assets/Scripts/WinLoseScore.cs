@@ -10,8 +10,14 @@ public class WinLoseScore : MonoBehaviour
 {
     public gamestate state;
     
-    public int actualHearts;
-    public int heartWorth;
+    public static int actualHearts;
+    public int actualHeartsCheck;
+    public static int heartWorth;
+    public int heartWorthCheck;
+    public static int score;
+    public int scoreCheck;
+
+    public string scoreString;
 
     public float stayTime;
     public float returnTime;
@@ -26,7 +32,7 @@ public class WinLoseScore : MonoBehaviour
     
     void Update()
     {
-        heartWorth = Mathf.FloorToInt(1 + (actualHearts / 10f));
+        heartWorth = Mathf.FloorToInt(1 + (actualHearts / 5f));
 
         if (state == gamestate.FIGHTING || state == gamestate.CAUGHT)
         {
@@ -37,6 +43,10 @@ public class WinLoseScore : MonoBehaviour
             state = gamestate.RUNNING;
             stayTime = 0;
         }
+
+        actualHeartsCheck = actualHearts;
+        heartWorthCheck = heartWorth;
+        scoreCheck = score;
     }
 
     // public void StealHeart()

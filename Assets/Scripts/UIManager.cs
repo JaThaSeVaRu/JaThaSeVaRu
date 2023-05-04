@@ -153,7 +153,7 @@ public class UIManager : MonoBehaviour
 
     void UpdateScoreUI(PlayerData player)
     {
-        HeartCounter.text = player.CollectedHearts.ToString();
+        HeartCounter.text = WinLoseScore.score.ToString();
         //tweener.TweenScore(HeartCounter.rectTransform);
     }
 

@@ -7,6 +7,8 @@ public class heart : MonoBehaviour
     public bool inLove;
     public GameObject LovePose, IdlePose, Herz;
 
+    public int heartValue;
+
     private BoxCollider2D boxCollider;
     //private Animator anim;
     void Awake()
@@ -24,6 +26,10 @@ public class heart : MonoBehaviour
         //anim.SetBool("Herz_getroffen", false);
     }
 
+    public void Update()
+    {
+        heartValue = WinLoseScore.heartWorth;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,7 +44,9 @@ public class heart : MonoBehaviour
                 IdlePose.GetComponent<SpriteRenderer>().enabled = false;
                 Herz.GetComponent<SpriteRenderer>().enabled = true;
                 Herz.GetComponent<Animator>().Play("Herz_getroffen",0,0);
-                GameManager.Instance.player.CollectedHearts++;
+                //GameManager.Instance.player.CollectedHearts++;
+                WinLoseScore.actualHearts++;
+                WinLoseScore.score += heartValue;
                 boxCollider.enabled = !boxCollider.enabled;
                 //anim.SetBool("Herz_getroffen", true);
             }
