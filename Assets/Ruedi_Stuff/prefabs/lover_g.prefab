@@ -503,6 +503,7 @@ MonoBehaviour:
   LovePose: {fileID: 135268380769047444}
   IdlePose: {fileID: 4235335567793041993}
   Herz: {fileID: 5775054916420911959}
+  heartValue: 0
 --- !u!50 &2895160186942279476
 Rigidbody2D:
   serializedVersion: 4
