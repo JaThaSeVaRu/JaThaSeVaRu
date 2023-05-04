@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1850093561}
   - component: {fileID: 6083932317992841888}
   - component: {fileID: 1990264443}
-  - component: {fileID: 5053793348920815564}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -147,27 +146,6 @@ MonoBehaviour:
   StationsAPIUpdateTimeInMinutes: 2
   WeatherAPIUpdateTimeInMinutes: 30
 --- !u!114 &1990264443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4531590395739823294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d1f40881cc53a46abe852c07a212ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fightingModeObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  fightingCameraSize: 3.5
-  runningModeObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  runningCameraSize: 5
---- !u!114 &5053793348920815564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
