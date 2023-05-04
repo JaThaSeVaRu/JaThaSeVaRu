@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine (SwapAssets());
         player.Velocity = 10;
     }
-
+    float timeUnder = 0;
     // Update is called once per frame
     void Update()
     {
