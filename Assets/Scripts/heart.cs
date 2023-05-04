@@ -6,10 +6,13 @@ public class heart : MonoBehaviour
 {
     public bool inLove;
     public GameObject LovePose, IdlePose, Herz;
-    public AudioSource HeartSteal;
 
     private BoxCollider2D boxCollider;
     //private Animator anim;
+    void Awake()
+    {
+        Herz.GetComponent<SpriteRenderer>().enabled = false;
+    }
     void Start()
     {
         LovePose.GetComponent<SpriteRenderer>().enabled = false;
