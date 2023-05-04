@@ -94,15 +94,16 @@ public class GameManager : MonoBehaviour
             player.Velocity = Mathf.MoveTowards(player.Velocity, player.TargetVelocity, Time.deltaTime * 0.75f);
         }
 
-        if (player.Velocity < 0.1f)
+        if (player.Velocity < 0.3f)
         {
             if (timeUnder == 0)
             {
                 timeUnder = Time.realtimeSinceStartup;
+                //hier sound abspielen vanessa
             }
             else
             {
-                if (Time.realtimeSinceStartup - timeUnder > 1)
+                if (Time.realtimeSinceStartup - timeUnder > 3)
                 {
                     GameManager.Instance.InTransit = false;
                 }
