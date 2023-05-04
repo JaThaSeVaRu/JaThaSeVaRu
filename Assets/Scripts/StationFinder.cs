@@ -129,11 +129,11 @@ public class StationFinder : MonoBehaviour
             if (GameManager.Instance.velocityFinder.calculateGPSDistance(player.Coordinates.x, player.Coordinates.y,
                     closestStation.Coordinates.x, closestStation.Coordinates.y) < 0.5f)
             {
-                GameManager.Instance.atStation = true;
+                GameManager.Instance.AtStation = true;
             }
             else
             {
-                GameManager.Instance.atStation = false;
+                GameManager.Instance.AtStation = false;
             }
         }
         else

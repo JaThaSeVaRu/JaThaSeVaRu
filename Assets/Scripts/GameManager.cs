@@ -15,8 +15,27 @@ public class GameManager : MonoBehaviour
     public VelocityFinder velocityFinder;
     public WeatherData weatherData;
     public UIManager UiManager;
+
+    [SerializeField]
     private bool inTransit;
-    public bool atStation;
+    [SerializeField]
+    private bool atStation;
+    public bool AtStation
+    {
+        get
+        {
+            return atStation;
+        }
+        set
+        {
+            if (value != atStation)
+            {
+                atStation = value;
+                OnArrival?.Invoke();
+            }
+        }
+    }
+    public event Action OnArrival;
     public bool InTransit
     {
         get
@@ -28,11 +47,11 @@ public class GameManager : MonoBehaviour
             if (value != inTransit)
             {
                 inTransit = value;
-                OnArrival?.Invoke();
+                OnStopVelocity?.Invoke();
             }
         }
     }
-    public event Action OnArrival;
+    public event Action OnStopVelocity;
     public static GameManager Instance
     {
         get
@@ -70,7 +89,7 @@ public class GameManager : MonoBehaviour
 
         if(player.Velocity != player.TargetVelocity)
         {
-            player.Velocity = Mathf.Lerp(player.Velocity, player.TargetVelocity, Time.deltaTime);
+            player.Velocity = Mathf.Lerp(player.Velocity, player.TargetVelocity, Time.deltaTime*0.5f);
         }
         
         //Test swapping assets

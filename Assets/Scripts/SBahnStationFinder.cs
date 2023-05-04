@@ -39,6 +39,7 @@ public class SBahnStationFinder : MonoBehaviour {
 
 	public IEnumerator GetStationsInfo()
 	{
+		Debug.Log("Firing Google API");
 		var www = new UnityWebRequest(
         "https://maps.googleapis.com/maps/api/place/search/json?location=" + player.Coordinates.x.ToString().Replace(",",".") + "," + player.Coordinates.y.ToString().Replace(",", ".") + "&radius=" + searchRadius + "&keyword=&type=train_station&key=" + API_key)
 		{
