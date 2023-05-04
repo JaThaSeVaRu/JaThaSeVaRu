@@ -104,7 +104,7 @@ public class characterControl : MonoBehaviour
         //calculate approachSpeed
         //approchspeed increases by collecting hearts
         //approachSpeed = approachBase * (1 + (winlose.GetComponent<WinLoseScore>().actualHearts * 0.1f));
-        approachSpeed = approachBase * (1 + (player.CollectedHearts * 0.1f));
+        approachSpeed = approachBase * (1 + (WinLoseScore.actualHearts * 0.1f));
 
         //start the safetimer after stumbling
         if (safeTime <= safeLimit)
@@ -121,7 +121,7 @@ public class characterControl : MonoBehaviour
         //change playercolor to default when not invincible
         if (safeTime >= safeLimit)
         {
-            m_SpriteRenderer.color = new Color(1, 0.9f, 0.9f);
+            m_SpriteRenderer.color = new Color(1, 1, 1);
         }
         
         //Posing timer
@@ -251,11 +251,10 @@ public class characterControl : MonoBehaviour
                 state = runstate.SWITCHDOWN;
             }
         }
-
         //when running (NOT jumping, posing, stumbling or switching lanes) use approachSpeed to slowly move to the right
         if (state == runstate.INTRAIN || state == runstate.ONTRAIN)
         {
-            if (transform.position.x <= approachLimit)
+            if (transform.position.x <= approachLimit && obstacleSpawn.gameRunning == true)
             {
                 transform.Translate(Vector3.right * approachSpeed * Time.deltaTime);
             }
@@ -499,24 +498,28 @@ public class characterControl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("obstacle"))
         {
-            anim.SetBool("Switch_Down", false);
-            anim.SetBool("Switch_Up", false);
-            //check if player is already stumbling or currently invincible
-            //if Not: Proceed.
-            if (state != runstate.STUMBLING && safeTime >= safeLimit)
+            if (obstacleSpawn.gameRunning == true)
             {
-                //set stumbleBase depending on current position
-                if (state == runstate.ONTRAIN || state == runstate.JUMPING)
+                anim.SetBool("Switch_Down", false);
+                anim.SetBool("Switch_Up", false);
+                //check if player is already stumbling or currently invincible
+                //if Not: Proceed.
+                if (state != runstate.STUMBLING && safeTime >= safeLimit)
                 {
-                    stumbleBase = jumpBase;
-                }
-                if (state == runstate.INTRAIN || state == runstate.POSING || state == runstate.SWITCHUP || state == runstate.SWITCHDOWN)
-                {
-                    stumbleBase = poseBase;
+                    //set stumbleBase depending on current position
+                    if (state == runstate.ONTRAIN || state == runstate.JUMPING)
+                    {
+                        stumbleBase = jumpBase;
+                    }
+                    if (state == runstate.INTRAIN || state == runstate.POSING || state == runstate.SWITCHUP || state == runstate.SWITCHDOWN)
+                    {
+                        stumbleBase = poseBase;
+                    }
+
+                    //change state to stumbling
+                    state = runstate.STUMBLING;
                 }
 
-                //change state to stumbling
-                state = runstate.STUMBLING;
             }
 
         }

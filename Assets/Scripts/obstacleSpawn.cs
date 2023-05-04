@@ -36,14 +36,21 @@ public class obstacleSpawn : MonoBehaviour
     public float noSpawnTime;
     public float spawnBackOn;
 
+    public static bool gameRunning;
+
     void Start()
     {
-
+        gameRunning = false;
     }
 
 
     void Update()
     {
+        if (gameRunning == false)
+        {
+            noSpawnTime = 0;
+        }
+
         if (noSpawn == false)
         {
             if (character.GetComponent<characterControl>().state == runstate.INTRAIN)
@@ -150,5 +157,10 @@ public class obstacleSpawn : MonoBehaviour
                 noSpawn = true;
             }
         }
+    }
+
+    public void StartSpawn()
+    {
+        gameRunning = true;
     }
 }

@@ -43,13 +43,13 @@ public class loverMass : MonoBehaviour
 
         //speed increases with the number of collected hearts
         //speed = baseSpeed * (1 + winlose.GetComponent<WinLoseScore>().actualHearts);
-        speed = baseSpeed * ( 1 + player.CollectedHearts);
+        speed = baseSpeed * ( 1 + WinLoseScore.actualHearts);
 
 
         //lover mass slowly moves to the right
         //but can not move further than x -3.5
         //this increases tension and risk from knockbacks over time
-        if (transform.position.x <= -5f && retreat == false)
+        if (transform.position.x <= -6f && retreat == false && obstacleSpawn.gameRunning == true)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
