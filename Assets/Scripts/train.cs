@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,10 @@ public class train : MonoBehaviour
 
     public static List<GameObject> TrainParts = new List<GameObject>();
 
+    private AudioManager audioManager;
+
+    Sound s;
+
     void Start()
     {
         foreach(Transform ts in GetComponentsInChildren<Transform>())
@@ -25,7 +30,15 @@ public class train : MonoBehaviour
         }
         //get current position and set as start position
         //startPosition = transform.position;
-        FindObjectOfType<AudioManager>().Play("Train");
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Play("Train");
+        GameManager.Instance.player.OnVelocityChange += changeTrainPlaySpeed;
+        s = Array.Find(audioManager.sounds, sound => sound.name == "Train");
+    }
+
+    public void changeTrainPlaySpeed(PlayerData pd)
+    {
+        s.source.pitch = 1 * pd.Velocity / 10f;
     }
 
     void Update()
