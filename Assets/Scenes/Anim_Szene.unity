@@ -145,9 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  startPosition: {x: 0, y: 0, z: 0}
-  setBack: -29.164
 --- !u!1 &66791096
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,9 +318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  startPosition: {x: 0, y: 0, z: 0}
-  setBack: -29.164
 --- !u!1 &151105993
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +866,14 @@ MonoBehaviour:
   speed: 0.01
   switchSpeed: 0
   character: {fileID: 1174327757}
+  winlose: {fileID: 0}
   player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
+  winLoseScore: {fileID: 0}
+  retreat: 0
+  retreatTime: 0
+  keepTime: 0
+  retreatLimit: 0
+  retreatSpeed: 0
 --- !u!4 &401420050
 Transform:
   m_ObjectHideFlags: 0
@@ -1135,6 +1136,111 @@ MonoBehaviour:
   upDownSpeed: 3
   upDownTimer: 0.1
   upDownTime: 0
+--- !u!1 &691937693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 691937696}
+  - component: {fileID: 691937695}
+  - component: {fileID: 691937694}
+  m_Layer: 0
+  m_Name: Fighting_anim_sheets_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &691937694
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691937693}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93b1e2a9d70f74d47b3303ae0b0b9c72, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &691937695
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691937693}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -688224760, guid: e8f4a2c95d28e2248ac5cefa648f4d1a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.69333327, y: 0.9316116}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &691937696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691937693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.5029447, y: -0.20749754, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &768780477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8046040204789169846, guid: 9671c9e326247614a82ad57f06007d20, type: 3}
@@ -1278,9 +1384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  startPosition: {x: 0, y: 0, z: 0}
-  setBack: -29.164
 --- !u!1001 &823406381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1932,9 +2035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  startPosition: {x: 0, y: 0, z: 0}
-  setBack: -27.84
 --- !u!1 &977865180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,23 +2423,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  speed: 10
+  winlose: {fileID: 0}
+  switchSpeed: 0
   jumpSpeed: 15
-  slideSpeed: 5
+  poseSpeed: 0
   approachSpeed: 0.1
   approachBase: 0.1
   approachLimit: 3
   falling: 0
   gettingUp: 0
   jumpHeight: 3
-  slideHeight: -0.1
+  poseHeight: 0
   jumpBase: {x: 0, y: -0.6, z: 0}
-  slideBase: {x: 0, y: -4, z: 0}
+  poseBase: {x: 0, y: 0, z: 0}
   stumbleBase: {x: 0, y: 0, z: 0}
   jumpingLimit: 0.2
-  slidingLimit: 0.5
+  posingLimit: 0
   stumbleLimit: 0.25
   stumbleSpeed: 0
+  caughtLimit: 0
+  pushTime: 0
+  pushSpeed: 0
   safeTime: 0
   safeLimit: 3
   m_SpriteRenderer: {fileID: 0}
@@ -2787,45 +2891,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1617126827fcd1344a324d40a875313f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  house1: {fileID: 4552488871626385812, guid: 139ae474b51d4f844af4359bf9872628, type: 3}
-  house2: {fileID: 4552488871626385812, guid: 2277bc1b01b3984478f39ddd253de7cd, type: 3}
-  house3: {fileID: 4552488871626385812, guid: 7283f60b6033729448a81ca4e0837482, type: 3}
-  house4: {fileID: 4552488871626385812, guid: 6babf923618f1844788d4fedba7f3770, type: 3}
-  house5: {fileID: 4552488871626385812, guid: 0a47dca7895190c4395bea4b9adceb5c, type: 3}
-  house6: {fileID: 4552488871626385812, guid: 1c28b0b5283768d4da850af5be57b2db, type: 3}
-  house7: {fileID: 4552488871626385812, guid: d6ca4a60843a63d43a3f9568d63ec6e3, type: 3}
-  house8: {fileID: 4552488871626385812, guid: d18af54d4a0d056458c912358c1424db, type: 3}
-  house9: {fileID: 4552488871626385812, guid: 5bee5e58bfaa4ed459188103ad4c49ff, type: 3}
-  park1: {fileID: 4552488871626385812, guid: be6bb892c0447b34690003b8cedfb09c, type: 3}
-  park2: {fileID: 4552488871626385812, guid: ee2c1d64a9c590a458e0168f8cba8732, type: 3}
-  park3: {fileID: 4552488871626385812, guid: 46d5f14267ad1fc40a78152894c96939, type: 3}
-  park4: {fileID: 4552488871626385812, guid: b041bbca2334baa42a86d12c7361b01a, type: 3}
-  cloud1: {fileID: 4552488871626385812, guid: 00e79e893a7a84a428aee92b65ca6f2e, type: 3}
-  cloud2: {fileID: 4552488871626385812, guid: c2431273660e3cc479b280e344af483f, type: 3}
-  cloud3: {fileID: 4552488871626385812, guid: 4e5abeb7a8af4c74c96fd0fc3e5c83ba, type: 3}
-  cloud4: {fileID: 4552488871626385812, guid: 8958c0afb520a6a479a8277e65000866, type: 3}
-  cloud5: {fileID: 4552488871626385812, guid: a2665d9a94aab944e8e32bd0aa762b97, type: 3}
-  cloud6: {fileID: 4552488871626385812, guid: 974c97351580fcf4dbfce0f7ed0c1826, type: 3}
-  cloud7: {fileID: 4552488871626385812, guid: 5a3ccb2d45d80f64fa91ca8e4f37ea2c, type: 3}
-  cloud8: {fileID: 4552488871626385812, guid: 05908d733b267e64c81ee37091471d81, type: 3}
-  frontHouseAmount: 13
-  midHouseAmount: 15
-  backHouseAmount: 9
-  cloudAmount: 5
-  startFrontPos: -10
-  startMidPos: -10
-  startBackPos: -10
-  frontHousePos: 12
-  midHousePos: 11
-  backHousePos: 13
-  frontSpawnRate: 0
-  midSpawnRate: 0
-  backSpawnRate: 0
-  cloudSpawnMin: 15
-  cloudSpawnMax: 60
-  frontHouseHeight: -5.5
-  midHouseHeight: -4.3
-  backHouseHeight: -3.8
+  HouseList: []
+  ParkList: []
+  CloudList: []
+  PlayingArea: {fileID: 0}
+  FrontLayer: {fileID: 0}
+  MiddleLayer: {fileID: 0}
+  BackLayer: {fileID: 0}
+  CloudLayer: {fileID: 0}
+  FrontTrees: {fileID: 0}
+  MiddleTrees: {fileID: 0}
+  BackTrees: {fileID: 0}
+  HeightList: []
+  StationList: []
+  CloudColors: []
+  CloudMat: {fileID: 0}
+  targetPoint: 0
+  time: 0
 --- !u!4 &1448977037
 Transform:
   m_ObjectHideFlags: 0
@@ -3052,9 +3134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  startPosition: {x: 0, y: 0, z: 0}
-  setBack: -27.84
 --- !u!1 &1638501437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3381,9 +3460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  startPosition: {x: 0, y: 0, z: 0}
-  setBack: -27.84
 --- !u!1 &1736028061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4030788265988839230, guid: b4a897f1dc9b78448b5494fda5c41c4d, type: 3}
@@ -3406,9 +3482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  startPosition: {x: 0, y: 0, z: 0}
-  setBack: -27.84
 --- !u!1 &1792860931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3555,9 +3628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0f09629f60e204c90a874b284f2a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  startPosition: {x: 0, y: 0, z: 0}
-  setBack: -27.84
 --- !u!1 &1928930902
 GameObject:
   m_ObjectHideFlags: 0
