@@ -72,6 +72,8 @@ public class UIManager : MonoBehaviour
         {
             SwapUISide();
         }
+
+        
     }
 
     public void SwapUISide()

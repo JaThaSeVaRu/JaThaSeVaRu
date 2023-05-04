@@ -26,6 +26,7 @@ public class AssetSwapper : MonoBehaviour
             {
                 case WorldData.Weather.cloudy:
                     //Set cloudy weather and use assets
+                    background.instance.CloudSpawner(60, 100);
                     break;
                 case WorldData.Weather.clear:
                     //Set clear weather and use assets

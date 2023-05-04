@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f482562fe8b2d2e4783f23cdb8555d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 19
+  playerSpeed: 2
 --- !u!50 &6618329491913676390
 Rigidbody2D:
   serializedVersion: 4
@@ -187,8 +187,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1813665291
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1147341294, guid: 9e16581e1c4f9ad42b706c77f8a63dc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
