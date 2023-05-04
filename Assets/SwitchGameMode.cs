@@ -30,7 +30,7 @@ public class SwitchGameMode : MonoBehaviour
             //Call UIManager and show a RUN transition
             //Call Enemy spawner and remove enemies
             //Place character in the center
-            
+            fight.GetComponent<SpriteRenderer>().enabled = false;
             Camera.main.orthographicSize = runningCameraSize;
             foreach (var go in runningModeObjects)
             {

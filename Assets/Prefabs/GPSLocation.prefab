@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6901063269272960721}
   - component: {fileID: 6901063269272960720}
-  - component: {fileID: 1991118487}
+  - component: {fileID: 6485788252653746202}
   m_Layer: 0
   m_Name: GPSLocation
   m_TagString: Untagged
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476b3fee76412304b9a7e8ecf3784175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1991118487
+--- !u!114 &6485788252653746202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
