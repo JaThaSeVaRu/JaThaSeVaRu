@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
         world.GetWeather();
         player.CollectedHearts = 0;
         StartCoroutine (SwapAssets());
+        player.Velocity = 10;
     }
 
     // Update is called once per frame
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour
 
         if(player.Velocity != player.TargetVelocity)
         {
-            player.Velocity = Mathf.Lerp(player.Velocity, player.TargetVelocity, Time.deltaTime*0.5f);
+            player.Velocity = Mathf.MoveTowards(player.Velocity, player.TargetVelocity, Time.deltaTime * 0.75f);
         }
         
         //Test swapping assets

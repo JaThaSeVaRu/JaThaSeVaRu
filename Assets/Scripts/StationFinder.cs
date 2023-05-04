@@ -90,7 +90,7 @@ public class StationFinder : MonoBehaviour
             }
             else
             {
-                if (Time.realtimeSinceStartup - timeUnder > 10)
+                if (Time.realtimeSinceStartup - timeUnder > 5)
                 {
                     GameManager.Instance.InTransit = false;
                 }
@@ -113,7 +113,7 @@ public class StationFinder : MonoBehaviour
                 }
                 else
                 {
-                    if (Time.realtimeSinceStartup - timeUnder > 10)
+                    if (Time.realtimeSinceStartup - timeUnder > 5)
                     {
                         GameManager.Instance.InTransit = false;
                     }
