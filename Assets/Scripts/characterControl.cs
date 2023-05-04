@@ -56,7 +56,7 @@ public class characterControl : MonoBehaviour
     //stumbling speed equals the current train speed to simulate the player being dragged along with the train
     public float stumbleSpeed;
 
-    float caughtTime;
+    public float caughtTime;
     public float caughtLimit;
     public float pushTime;
     public float pushSpeed;
@@ -464,8 +464,8 @@ public class characterControl : MonoBehaviour
     public void GotCaught()
     {
 
-        Debug.Log("GotCaught");
         caughtTime += Time.deltaTime;
+        Debug.Log("GotCaught");
 
         if (caughtTime >= caughtLimit && caughtTime < caughtLimit + pushTime)
         {

@@ -49,7 +49,7 @@ public class loverMass : MonoBehaviour
         //lover mass slowly moves to the right
         //but can not move further than x -3.5
         //this increases tension and risk from knockbacks over time
-        if (transform.position.x <= -3.5f && retreat == false)
+        if (transform.position.x <= -5f && retreat == false)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
