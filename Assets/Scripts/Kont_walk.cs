@@ -18,7 +18,7 @@ public class Kont_walk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerDirection = new Vector2(-12,0);
+        playerDirection = new Vector2(-Random.Range(1,playerSpeed),0);
         transform.Translate(playerDirection * Time.deltaTime);
     }
 

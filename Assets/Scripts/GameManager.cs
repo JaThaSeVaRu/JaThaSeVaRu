@@ -75,7 +75,16 @@ public class GameManager : MonoBehaviour
         
         //Test swapping assets
         //swapper.SwapTimeOfDayAssets(world);
+        
+        if(weather != world.CurrentWeather)
+        {
+            world.testInvoke();
+            weather = world.CurrentWeather;
+        }
+    
     }
+
+    WorldData.Weather weather;
 
     private IEnumerator SwapAssets()
     {

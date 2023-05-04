@@ -76,7 +76,7 @@ public class obstacleSpawn : MonoBehaviour
 
         if (inTrainSpawnTime >= inTrainSpawnRate)
         {
-            inTrainChoice = Random.Range(1, 7);
+            inTrainChoice = 5;
 
             if (inTrainChoice == 1)
             {

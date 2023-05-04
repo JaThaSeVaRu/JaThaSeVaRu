@@ -36,38 +36,40 @@ public class obstacle : MonoBehaviour
             night = true;
         }
 
-            //get listlength
-        if (day == true)
+        //get listlength
+        if (daySprites.Length != 0 && nightSprites.Length != 0)
         {
-            night = false;
-            listlength = daySprites.Length;
-            //choose a sprite once obstacle got spawned 
-            spriteChoice = Random.Range(0, listlength);
-            //use the chosen Sprite
-            if (daySprites[spriteChoice])
+            if (day == true)
             {
-                this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = daySprites[spriteChoice];
+                night = false;
+                listlength = daySprites.Length;
+                //choose a sprite once obstacle got spawned 
+                spriteChoice = Random.Range(0, listlength);
+                //use the chosen Sprite
+                if (daySprites[spriteChoice])
+                {
+                    this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = daySprites[spriteChoice];
+                }
             }
-        }
-        if (night == true)
-        {
-            day = false;
-            listlength = nightSprites.Length;
-            spriteChoice = Random.Range(0, listlength);
-            if (nightSprites[spriteChoice])
+            if (night == true)
             {
-                this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = nightSprites[spriteChoice];
+                day = false;
+                listlength = nightSprites.Length;
+                spriteChoice = Random.Range(0, listlength);
+                if (nightSprites[spriteChoice])
+                {
+                    this.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = nightSprites[spriteChoice];
+                }
             }
+
+
         }
-
-
-
     }
 
     void Update()
     {
         //set movement speed equal to train speed
-        
+
 
         //move left along with train
         transform.Translate(Vector3.left * GameManager.Instance.player.Velocity * Time.deltaTime);

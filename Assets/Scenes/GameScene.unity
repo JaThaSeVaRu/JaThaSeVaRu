@@ -989,7 +989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870782237244251330, guid: 9907828839a0116459fe7620a11a95df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 78
+      value: 77.999985
       objectReference: {fileID: 0}
     - target: {fileID: 6837499669449965736, guid: 9907828839a0116459fe7620a11a95df, type: 3}
       propertyPath: m_UiScaleMode
@@ -2825,7 +2825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7831499682069960631, guid: 62b6ea86c8b701c4aae64c11ef466c5d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62b6ea86c8b701c4aae64c11ef466c5d, type: 3}

@@ -40,7 +40,9 @@ public class WorldData : ScriptableObject
 
     public event Action<WorldData> OnWeatherChanged;
     
+    [SerializeField]
     private Weather currentWeather;
+
     public Weather CurrentWeather
     {
         get
@@ -51,10 +53,17 @@ public class WorldData : ScriptableObject
         {
             if (value != currentWeather)
             {
+                Debug.Log("Weather changed to " + value);
                 currentWeather = value;
                 OnWeatherChanged?.Invoke(this);
             }
         }  // set method
+    }
+
+    public void testInvoke()
+    {
+        Debug.Log("Weather changed to " + value);
+        OnWeatherChanged?.Invoke(this);
     }
     
     
