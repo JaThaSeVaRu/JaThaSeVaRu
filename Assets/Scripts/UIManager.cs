@@ -154,10 +154,6 @@ public class UIManager : MonoBehaviour
     void UpdateScoreUI(PlayerData player)
     {
         HeartCounter.text = player.CollectedHearts.ToString();
-<<<<<<< Updated upstream
-        //tweener.TweenScore(HeartCounter.rectTransform);
-=======
->>>>>>> Stashed changes
     }
 
     void UpdateUIStationName()
