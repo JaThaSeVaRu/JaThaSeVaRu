@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
 
         GameManager.Instance.player.OnCollectHearts += UpdateScoreUI;
         GameManager.Instance.stationFinder.OnClosestStationChange += UpdateUIStationName;
-        
+
     }
 
     private void Update() 
@@ -154,7 +154,10 @@ public class UIManager : MonoBehaviour
     void UpdateScoreUI(PlayerData player)
     {
         HeartCounter.text = player.CollectedHearts.ToString();
+<<<<<<< Updated upstream
         //tweener.TweenScore(HeartCounter.rectTransform);
+=======
+>>>>>>> Stashed changes
     }
 
     void UpdateUIStationName()

@@ -32,7 +32,7 @@ public class SwitchGameMode : MonoBehaviour
             {
                 if (go.GetComponent<characterControl>())
                 {
-                    go.transform.position = new Vector3(-0.029f, -3.7400f, -5);
+                    go.transform.position = new Vector3(-0.029f, -0.4f, -5);
                 }
                 go.SetActive(true);
             }
