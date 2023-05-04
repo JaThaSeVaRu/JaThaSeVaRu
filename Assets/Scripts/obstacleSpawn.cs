@@ -46,10 +46,10 @@ public class obstacleSpawn : MonoBehaviour
 
     void Update()
     {
-        if (gameRunning == false)
-        {
-            noSpawnTime = 0;
-        }
+        // if (gameRunning == false)
+        // {
+        //     noSpawnTime = 0;
+        // }
 
         if (noSpawn == false)
         {

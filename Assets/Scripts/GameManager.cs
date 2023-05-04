@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     private bool inTransit;
     [SerializeField]
     private bool atStation;
+    [SerializeField]
+    public bool gameStarted;
     public bool AtStation
     {
         get
