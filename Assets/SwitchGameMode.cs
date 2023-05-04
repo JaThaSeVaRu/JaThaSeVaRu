@@ -56,6 +56,8 @@ public class SwitchGameMode : MonoBehaviour
         {
             //TO DO
             //Call UIManager and show a FIGHT transition
+            //SERA HIER FIGHTING TRANSITION!!!! <-------------------------------------
+            
             //Call Obstacle spawner and remove obstacles
 
             //2.3f might work for camera size
