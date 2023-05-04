@@ -62,7 +62,7 @@ public class WorldData : ScriptableObject
 
     public void testInvoke()
     {
-        Debug.Log("Weather changed to " + value);
+        Debug.Log("Weather changed to " + currentWeather);
         OnWeatherChanged?.Invoke(this);
     }
     
