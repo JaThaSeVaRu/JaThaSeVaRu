@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2814466738363721289}
   - component: {fileID: 8086528284704012062}
   m_Layer: 0
-  m_Name: Fighting_anim_sheets_0
+  m_Name: Fight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -47,6 +47,7 @@ public class WinLoseScore : MonoBehaviour
         actualHeartsCheck = actualHearts;
         heartWorthCheck = heartWorth;
         scoreCheck = score;
+        GameManager.Instance.player.CollectedHearts = score;
     }
 
     // public void StealHeart()

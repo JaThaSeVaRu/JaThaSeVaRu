@@ -23,14 +23,14 @@ public class SwitchGameMode : MonoBehaviour
 
     public void SwitchMode()
     {
-        fight.GetComponent<SpriteRenderer>().enabled = true;
+        
         if (GameManager.Instance.InTransit)
         {
             //TO DO
             //Call UIManager and show a RUN transition
             //Call Enemy spawner and remove enemies
             //Place character in the center
-            
+            fight.GetComponent<SpriteRenderer>().enabled = false;
             Camera.main.orthographicSize = runningCameraSize;
             foreach (var go in runningModeObjects)
             {
@@ -63,6 +63,7 @@ public class SwitchGameMode : MonoBehaviour
             //SERA HIER FIGHTING TRANSITION!!!! <-------------------------------------
 
             fight.GetComponent<SpriteRenderer>().enabled = true;
+            //fight.GetComponent<Animator>().Play("Fight", 0, 0);
 
             //Call Obstacle spawner and remove obstacles
 
