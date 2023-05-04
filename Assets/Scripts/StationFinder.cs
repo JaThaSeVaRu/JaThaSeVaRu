@@ -34,7 +34,7 @@ public class StationFinder : MonoBehaviour
         	instance = this;
         }
 
-        GameManager.Instance.player.OnVelocityChange += DetermineArrivalToStation;
+        GameManager.Instance.player.OnCoordinatesChange += DetermineArrivalToStation;
     }
     private void Update() 
     {
@@ -81,6 +81,7 @@ public class StationFinder : MonoBehaviour
     private float timeUnder;
     public void DetermineArrivalToStation(PlayerData player)
     {
+        /*
         //Test to switch mode
         if (player.Velocity < 5)
         {
@@ -100,11 +101,12 @@ public class StationFinder : MonoBehaviour
         {
             timeUnder = 0;
             GameManager.Instance.InTransit = true;
-        }
+        }*/
         //End of test region
         
         if (ClosestStation != null)
         {
+            /*
             if (player.Velocity < 5)
             {
                 if (timeUnder == 0)
@@ -123,7 +125,7 @@ public class StationFinder : MonoBehaviour
             {
                 timeUnder = 0;
                 GameManager.Instance.InTransit = true;
-            }
+            }*/
 
 
             if (GameManager.Instance.velocityFinder.calculateGPSDistance(player.Coordinates.x, player.Coordinates.y,

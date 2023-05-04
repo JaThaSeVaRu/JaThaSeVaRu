@@ -92,15 +92,37 @@ public class GameManager : MonoBehaviour
         {
             player.Velocity = Mathf.MoveTowards(player.Velocity, player.TargetVelocity, Time.deltaTime * 0.75f);
         }
-        
+
+        if (player.Velocity < 1)
+        {
+            if (timeUnder == 0)
+            {
+                timeUnder = Time.realtimeSinceStartup;
+            }
+            else
+            {
+                if (Time.realtimeSinceStartup - timeUnder > 5)
+                {
+                    GameManager.Instance.InTransit = false;
+                }
+            }
+        }
+        else
+        {
+            timeUnder = 0;
+            GameManager.Instance.InTransit = true;
+        }
+
         //Test swapping assets
         //swapper.SwapTimeOfDayAssets(world);
-        
-        if(weather != world.CurrentWeather)
+
+        if (weather != world.CurrentWeather)
         {
             world.testInvoke();
             weather = world.CurrentWeather;
         }
+
+
     
     }
 
