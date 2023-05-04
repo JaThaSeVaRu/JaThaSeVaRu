@@ -74,13 +74,13 @@ public class VelocityFinder : MonoBehaviour
         }
         //TO DO: Slow down velocity slowly
         Speed = TestSpeed;
-        if (GameManager.Instance.player.Coordinates.x == 0)
-        {
-            GameManager.Instance.player.Coordinates = new Vector2(52.521992f, 13.413244f);
-        }
         if(GameManager.Instance.stationFinder.ClosestStation == null)
         {
             GameManager.Instance.stationFinder.FindNearestStation();
+        }
+        else
+        {
+            GameManager.Instance.player.Coordinates = new Vector2(52.52199f, 13.413244f);
         }
         GameManager.Instance.player.TargetVelocity = (float)Speed;
         return false;

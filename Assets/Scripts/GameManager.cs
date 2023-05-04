@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         player.CollectedHearts = 0;
         StartCoroutine (SwapAssets());
         player.Velocity = 10;
+        player.Coordinates = new Vector2(52.52198f, 13.41324f);
     }
     float timeUnder = 0;
     // Update is called once per frame
@@ -93,7 +94,7 @@ public class GameManager : MonoBehaviour
             player.Velocity = Mathf.MoveTowards(player.Velocity, player.TargetVelocity, Time.deltaTime * 0.75f);
         }
 
-        if (player.Velocity < 1)
+        if (player.Velocity < 0.1f)
         {
             if (timeUnder == 0)
             {
@@ -101,7 +102,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (Time.realtimeSinceStartup - timeUnder > 5)
+                if (Time.realtimeSinceStartup - timeUnder > 1)
                 {
                     GameManager.Instance.InTransit = false;
                 }
@@ -115,6 +116,8 @@ public class GameManager : MonoBehaviour
 
         //Test swapping assets
         //swapper.SwapTimeOfDayAssets(world);
+
+
 
         if (weather != world.CurrentWeather)
         {
