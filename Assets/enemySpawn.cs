@@ -18,8 +18,8 @@ public class enemySpawn : MonoBehaviour
 
     void Start()
     {
-        Instantiate(enemy, leftSpawn, Quaternion.identity);
-        Instantiate(enemy, rightSpawn, Quaternion.identity);
+        enemyList.Add(Instantiate(enemy, leftSpawn, Quaternion.identity));
+        enemyList.Add(Instantiate(enemy, rightSpawn, Quaternion.identity));
     }
 
 
@@ -33,7 +33,7 @@ public class enemySpawn : MonoBehaviour
 
             if (spawnChoice == 1)
             {
-                enemyList.Add(Instantiate(enemy, leftSpawn, Quaternion.identity));;
+                enemyList.Add(Instantiate(enemy, leftSpawn, Quaternion.identity));
                 
                 spawnTime = 0;
             }

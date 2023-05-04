@@ -8,8 +8,10 @@ public class SwitchGameMode : MonoBehaviour
 {
     //FightingMode
     [SerializeField] private GameObject[] fightingModeObjects;
+    [SerializeField] private float fightingCameraSize;
     //RunningMode
     [SerializeField] private GameObject[] runningModeObjects;
+    [SerializeField] private float runningCameraSize;
 
     private void Start()
     {
@@ -25,13 +27,26 @@ public class SwitchGameMode : MonoBehaviour
             //Call Enemy spawner and remove enemies
             //Place character in the center
             
-            Camera.main.orthographicSize = 5;
+            Camera.main.orthographicSize = runningCameraSize;
             foreach (var go in runningModeObjects)
             {
+                if (go.GetComponent<characterControl>())
+                {
+                    go.transform.position = new Vector3(-0.029f, -3.7400f, -5);
+                }
                 go.SetActive(true);
             }
             foreach (var go in fightingModeObjects)
             {
+                else if (go.GetComponent<enemySpawn>())
+                {
+                    for(int i = 0; i < enemySpawn.enemyList.Count; i++) 
+                    {
+                        Destroy(enemySpawn.enemyList[i]);
+                    }
+
+                    enemySpawn.enemyList.RemoveRange(0,enemySpawn.enemyList.Count);
+                }
                 go.SetActive(false);
             }
         }
@@ -43,16 +58,18 @@ public class SwitchGameMode : MonoBehaviour
             //Call UIManager and show a FIGHT transition
             //Call Obstacle spawner and remove obstacles
 
-            Camera.main.orthographicSize = 2.3f;
+            //2.3f might work for camera size
+            Camera.main.orthographicSize = fightingCameraSize;
             foreach (var go in runningModeObjects)
             {
-                if (go.GetComponent<characterControl>())
+                if (go.GetComponent<obstacleSpawn>())
                 {
-                    go.transform.position = new Vector3(-0.029f, -3.7400f, -5);
-                }
-                else if (go.GetComponent<obstacleSpawn>())
-                {
-                    
+                    for(int i = 0; i < obstacleSpawn.obstacleList.Count; i++) 
+                    {
+                        Destroy(obstacleSpawn.obstacleList[i]);
+                    }
+
+                    obstacleSpawn.obstacleList.RemoveRange(0,obstacleSpawn.obstacleList.Count);
                 }
                 go.SetActive(false);
             }
@@ -61,15 +78,6 @@ public class SwitchGameMode : MonoBehaviour
                 if (go.GetComponent<FightingCharacter>())
                 {
                     go.transform.position = new Vector3(0, -0.4f, 0);
-                }
-                else if (go.GetComponent<enemySpawn>())
-                {
-                    for(int i = 0; i < enemySpawn.enemyList.Count; i++) 
-                    {
-                        Destroy(enemySpawn.enemyList[i]);
-                    }
-
-                    enemySpawn.enemyList.RemoveRange(0,enemySpawn.enemyList.Count);
                 }
                 go.SetActive(true);
             }
