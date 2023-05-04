@@ -67,6 +67,7 @@ public class LightChange : MonoBehaviour
         }
         else
         {
+            currentColorIndex = (int)color;
             targetPoint = 0;
         }
         
