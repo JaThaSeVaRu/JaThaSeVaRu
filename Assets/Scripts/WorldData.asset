@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61a38397e4144d3aa148232869d1454, type: 3}
   m_Name: WorldData
   m_EditorClassIdentifier: 
-  currentWeather: 1
+  currentWeather: 0
