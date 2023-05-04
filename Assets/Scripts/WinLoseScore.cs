@@ -71,6 +71,7 @@ public class WinLoseScore : MonoBehaviour
     {
         state = gamestate.GAMEOVER;
         Loose.GetComponent<SpriteRenderer>().enabled = true;
+        Loose.GetComponent<Animator>().Play("loose_con", 0, 0);
     }
     public void Fight()
     {

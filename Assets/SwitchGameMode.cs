@@ -29,7 +29,7 @@ public class SwitchGameMode : MonoBehaviour
             GameManager.Instance.gameStarted = true;
         }
     }
-    
+
     public void SwitchMode()
     {
         if (GameManager.Instance.gameStarted)
@@ -54,17 +54,17 @@ public class SwitchGameMode : MonoBehaviour
                 {
                     if (go.GetComponent<enemySpawn>())
                     {
-                        for(int i = 0; i < enemySpawn.enemyList.Count; i++) 
+                        for (int i = 0; i < enemySpawn.enemyList.Count; i++)
                         {
                             Destroy(enemySpawn.enemyList[i]);
                         }
 
-                        enemySpawn.enemyList.RemoveRange(0,enemySpawn.enemyList.Count);
+                        enemySpawn.enemyList.RemoveRange(0, enemySpawn.enemyList.Count);
                     }
                     go.SetActive(false);
                 }
             }
-            
+
             //Switch to Fighting Mode
             else if (!GameManager.Instance.InTransit)
             {
@@ -73,6 +73,7 @@ public class SwitchGameMode : MonoBehaviour
                 //SERA HIER FIGHTING TRANSITION!!!! <-------------------------------------
 
                 fight.GetComponent<SpriteRenderer>().enabled = true;
+                fight.GetComponent<Animator>().Play("Fight", 0, 0);
                 //fight.GetComponent<Animator>().Play("Fight", 0, 0);
 
                 //Call Obstacle spawner and remove obstacles
@@ -83,12 +84,12 @@ public class SwitchGameMode : MonoBehaviour
                 {
                     if (go.GetComponent<obstacleSpawn>())
                     {
-                        for(int i = 0; i < obstacleSpawn.obstacleList.Count; i++) 
+                        for (int i = 0; i < obstacleSpawn.obstacleList.Count; i++)
                         {
                             Destroy(obstacleSpawn.obstacleList[i]);
                         }
 
-                        obstacleSpawn.obstacleList.RemoveRange(0,obstacleSpawn.obstacleList.Count);
+                        obstacleSpawn.obstacleList.RemoveRange(0, obstacleSpawn.obstacleList.Count);
                     }
                     go.SetActive(false);
                 }
@@ -102,6 +103,6 @@ public class SwitchGameMode : MonoBehaviour
                 }
             }
         }
-        
+
     }
 }
