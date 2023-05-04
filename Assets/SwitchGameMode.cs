@@ -38,7 +38,7 @@ public class SwitchGameMode : MonoBehaviour
             }
             foreach (var go in fightingModeObjects)
             {
-                else if (go.GetComponent<enemySpawn>())
+                if (go.GetComponent<enemySpawn>())
                 {
                     for(int i = 0; i < enemySpawn.enemyList.Count; i++) 
                     {
