@@ -7,6 +7,7 @@ TagManager:
   - obstacle
   - pose
   - mass
+  - enemy
   layers:
   - Default
   - TransparentFX
@@ -64,4 +65,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1460886429
+    locked: 0
+  - name: fight
+    uniqueID: 3266604099
     locked: 0

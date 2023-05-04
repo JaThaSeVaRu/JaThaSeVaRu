@@ -23,7 +23,7 @@ public class SwitchGameMode : MonoBehaviour
 
     public void SwitchMode()
     {
-        fight.GetComponent<SpriteRenderer>().enabled = true;
+        
         if (GameManager.Instance.InTransit)
         {
             //TO DO
@@ -63,6 +63,7 @@ public class SwitchGameMode : MonoBehaviour
             //SERA HIER FIGHTING TRANSITION!!!! <-------------------------------------
 
             fight.GetComponent<SpriteRenderer>().enabled = true;
+            //fight.GetComponent<Animator>().Play("Fight", 0, 0);
 
             //Call Obstacle spawner and remove obstacles
 
