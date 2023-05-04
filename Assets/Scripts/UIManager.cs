@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI ClosestStationText;
     public TextMeshProUGUI CurrentTimeText;
     public TextMeshProUGUI HeartCounter;
+    public TextMeshProUGUI Bonus;
     public TextMeshProUGUI CurrentWeatherText;
 
     //Game UI
@@ -66,7 +67,8 @@ public class UIManager : MonoBehaviour
         //CurrentWeatherText.text = WeatherData.instance.Info.currently.summary;
         CurrentWeatherText.text = GameManager.Instance.world.CurrentWeather.ToString();
         CurrentTimeText.text = GameManager.Instance.world.CurrentTime.ToString();
-        
+        Bonus.text = "+" + WinLoseScore.heartWorth;
+
         //Test swapping sides
         if (Input.GetKey(KeyCode.A))
         {

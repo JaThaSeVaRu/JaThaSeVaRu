@@ -22,7 +22,7 @@ public class characterControl : MonoBehaviour
     //approachSpeed is calculated from approachBase and number of stolen hearts
     //approachLimit prevents the player to move too far to the right
     public float approachSpeed;
-    public float approachBase;
+    public float approachBase = 0.1f;
     public float approachLimit;
 
     //falling bool for the later half of the jump

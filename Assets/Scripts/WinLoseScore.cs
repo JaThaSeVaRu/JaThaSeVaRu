@@ -26,6 +26,8 @@ public class WinLoseScore : MonoBehaviour
 
     public PlayerData player;
 
+    public TextMeshProUGUI Bonus;
+
     void Start()
     {
         state = gamestate.RUNNING;
@@ -35,7 +37,24 @@ public class WinLoseScore : MonoBehaviour
     
     void Update()
     {
-        heartWorth = Mathf.FloorToInt(1 + (actualHearts / 5f));
+        heartWorth = Mathf.FloorToInt(1 + (actualHearts / 3f));
+
+        if (Bonus.fontSize <= 140)
+        {
+            Bonus.fontSize = 20 + (heartWorth * 20);
+        }
+        if (Bonus.fontSize > 140)
+        {
+            Bonus.fontSize = 140;
+        }
+
+
+        //this one was only for testing
+        if (Input.GetKeyDown("space"))
+        {
+            actualHearts++;
+            Debug.Log("bonus up");
+        }
 
         if (state == gamestate.FIGHTING || state == gamestate.CAUGHT)
         {
