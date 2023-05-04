@@ -81,6 +81,28 @@ public class StationFinder : MonoBehaviour
     private float timeUnder;
     public void DetermineArrivalToStation(PlayerData player)
     {
+        //Test to switch mode
+        if (player.Velocity < 5)
+        {
+            if (timeUnder == 0)
+            {
+                timeUnder = Time.realtimeSinceStartup;
+            }
+            else
+            {
+                if (Time.realtimeSinceStartup - timeUnder > 10)
+                {
+                    GameManager.Instance.InTransit = false;
+                }
+            }
+        }
+        else
+        {
+            timeUnder = 0;
+            GameManager.Instance.InTransit = true;
+        }
+        //End of test region
+        
         if (ClosestStation != null)
         {
             if (player.Velocity < 5)
@@ -111,15 +133,14 @@ public class StationFinder : MonoBehaviour
             }
             else
             {
-                GameManager.Instance.atStation = true;
+                GameManager.Instance.atStation = false;
             }
         }
         else
         {
             print("No station coordinates");
         }
-        
-        
+
     }
 
 }
