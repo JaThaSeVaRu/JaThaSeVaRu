@@ -83,6 +83,8 @@ public class characterControl : MonoBehaviour
 
     private Animator anim;
 
+    [SerializeField] private AudioSource CollisionSound;
+
     void Start()
     {
         //player starts in the train
@@ -514,7 +516,7 @@ public class characterControl : MonoBehaviour
                 {
                     stumbleBase = poseBase;
                 }
-
+                CollisionSound.Play();
                 //change state to stumbling
                 state = runstate.STUMBLING;
             }
