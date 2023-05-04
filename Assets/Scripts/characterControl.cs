@@ -497,6 +497,8 @@ public class characterControl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("obstacle"))
         {
+            anim.SetBool("Switch_Down", false);
+            anim.SetBool("Switch_Up", false);
             //check if player is already stumbling or currently invincible
             //if Not: Proceed.
             if (state != runstate.STUMBLING && safeTime >= safeLimit)
@@ -520,7 +522,8 @@ public class characterControl : MonoBehaviour
 
         if (collision.gameObject.CompareTag("mass"))
         {
-            if (state != runstate.CAUGHT && safeTime >= safeLimit)
+            Debug.Log("GotCaught");
+            if (state != runstate.CAUGHT)
             {
                 if (state == runstate.ONTRAIN || state == runstate.JUMPING)
                 {

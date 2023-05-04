@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 7526413149959405538}
   m_Layer: 0
   m_Name: lover_g
-  m_TagString: obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 2885680155118555263}
   m_Layer: 0
   m_Name: heart
-  m_TagString: obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

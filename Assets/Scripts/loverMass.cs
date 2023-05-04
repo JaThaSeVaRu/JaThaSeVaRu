@@ -27,7 +27,7 @@ public class loverMass : MonoBehaviour
     void Start()
     {
         retreat = false;
-        winLoseScore = GetComponent<WinLoseScore>();
+        //winLoseScore = GetComponent<WinLoseScore>();
     }
 
     void Update()
