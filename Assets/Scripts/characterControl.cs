@@ -463,6 +463,8 @@ public class characterControl : MonoBehaviour
 
     public void GotCaught()
     {
+
+        Debug.Log("GotCaught");
         caughtTime += Time.deltaTime;
 
         if (caughtTime >= caughtLimit && caughtTime < caughtLimit + pushTime)
@@ -522,7 +524,6 @@ public class characterControl : MonoBehaviour
 
         if (collision.gameObject.CompareTag("mass"))
         {
-            Debug.Log("GotCaught");
             if (state != runstate.CAUGHT)
             {
                 if (state == runstate.ONTRAIN || state == runstate.JUMPING)
