@@ -36,6 +36,8 @@ public class SwitchGameMode : MonoBehaviour
         {
             if (GameManager.Instance.InTransit)
             {
+                fight.GetComponent<SpriteRenderer>().enabled = true;
+                fight.GetComponent<Animator>().Play("Fight", 0, 0);
                 //TO DO
                 //Call UIManager and show a RUN transition
                 //Call Enemy spawner and remove enemies

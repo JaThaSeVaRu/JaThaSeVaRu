@@ -50,111 +50,113 @@ public class obstacleSpawn : MonoBehaviour
         // {
         //     noSpawnTime = 0;
         // }
-
-        if (noSpawn == false)
+        if (!GameManager.Instance.AtStation)
         {
-            if (character.GetComponent<characterControl>().state == runstate.INTRAIN)
+            if (noSpawn == false)
             {
-                inTrainSpawnTime += Time.deltaTime;
-            }
-            if (character.GetComponent<characterControl>().state != runstate.INTRAIN)
-            {
-                inTrainSpawnTime += Time.deltaTime / 2f;
-            }
+                if (character.GetComponent<characterControl>().state == runstate.INTRAIN)
+                {
+                    inTrainSpawnTime += Time.deltaTime;
+                }
+                if (character.GetComponent<characterControl>().state != runstate.INTRAIN)
+                {
+                    inTrainSpawnTime += Time.deltaTime / 2f;
+                }
 
-            if (character.GetComponent<characterControl>().state == runstate.ONTRAIN)
-            {
-                onTrainSpawnTime += Time.deltaTime * 1.5f;
-            }
-            if (character.GetComponent<characterControl>().state != runstate.ONTRAIN)
-            {
-                onTrainSpawnTime += Time.deltaTime;
-            }
-        }
-
-        if (noSpawn == true)
-        {
-            noSpawnTime += Time.deltaTime;
-        }
-
-        if (noSpawnTime >= spawnBackOn)
-        {
-            noSpawn = false;
-            noSpawnTime = 0;
-        }
-
-        if (inTrainSpawnTime >= inTrainSpawnRate)
-        {
-            inTrainChoice = Random.Range(1, 7);
-
-            if (inTrainChoice == 1)
-            {
-                obstacleList.Add(Instantiate(inTrainSmall, new Vector3(15, -4f, -6f), Quaternion.identity));
-                inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
-                inTrainSpawnTime = 0;
-                noSpawn = true;
+                if (character.GetComponent<characterControl>().state == runstate.ONTRAIN)
+                {
+                    onTrainSpawnTime += Time.deltaTime * 1.5f;
+                }
+                if (character.GetComponent<characterControl>().state != runstate.ONTRAIN)
+                {
+                    onTrainSpawnTime += Time.deltaTime;
+                }
             }
 
-            if (inTrainChoice == 2)
+            if (noSpawn == true)
             {
-                obstacleList.Add(Instantiate(inTrainMedium, new Vector3(15, -2.8f, -6f), Quaternion.identity));
-                inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
-                inTrainSpawnTime = 0;
-                noSpawn = true;
+                noSpawnTime += Time.deltaTime;
             }
 
-            if (inTrainChoice == 3)
+            if (noSpawnTime >= spawnBackOn)
             {
-                obstacleList.Add(Instantiate(inTrainLarge, new Vector3(15, -2.2f, -6f), Quaternion.identity));
-                inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
-                inTrainSpawnTime = 0;
-                noSpawn = true;
+                noSpawn = false;
+                noSpawnTime = 0;
             }
 
-            if (inTrainChoice == 4)
+            if (inTrainSpawnTime >= inTrainSpawnRate)
             {
-                obstacleList.Add(Instantiate(Lover, new Vector3(15, -4f, -4.8f), Quaternion.identity));
-                inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
-                inTrainSpawnTime = 0;
-                noSpawn = true;
+                inTrainChoice = Random.Range(1, 7);
+
+                if (inTrainChoice == 1)
+                {
+                    obstacleList.Add(Instantiate(inTrainSmall, new Vector3(15, -4f, -6f), Quaternion.identity));
+                    inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
+                    inTrainSpawnTime = 0;
+                    noSpawn = true;
+                }
+
+                if (inTrainChoice == 2)
+                {
+                    obstacleList.Add(Instantiate(inTrainMedium, new Vector3(15, -2.8f, -6f), Quaternion.identity));
+                    inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
+                    inTrainSpawnTime = 0;
+                    noSpawn = true;
+                }
+
+                if (inTrainChoice == 3)
+                {
+                    obstacleList.Add(Instantiate(inTrainLarge, new Vector3(15, -2.2f, -6f), Quaternion.identity));
+                    inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
+                    inTrainSpawnTime = 0;
+                    noSpawn = true;
+                }
+
+                if (inTrainChoice == 4)
+                {
+                    obstacleList.Add(Instantiate(Lover, new Vector3(15, -4f, -4.8f), Quaternion.identity));
+                    inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
+                    inTrainSpawnTime = 0;
+                    noSpawn = true;
+                }
+
+                if (inTrainChoice == 5)
+                {
+                    obstacleList.Add(Instantiate(Kontrolleur, new Vector3(15, -4f, -4.8f), Quaternion.identity));
+                    inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
+                    inTrainSpawnTime = 0;
+                    noSpawn = true;
+                }
+
+                if (inTrainChoice == 6)
+                {
+                    obstacleList.Add(Instantiate(Lover_g, new Vector3(15, -4f, -4.8f), Quaternion.identity));
+                    inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
+                    inTrainSpawnTime = 0;
+                    noSpawn = true;
+                }
             }
 
-            if (inTrainChoice == 5)
+
+            if (onTrainSpawnTime >= onTrainSpawnRate)
             {
-                obstacleList.Add(Instantiate(Kontrolleur, new Vector3(15, -4f, -4.8f), Quaternion.identity));
-                inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
-                inTrainSpawnTime = 0;
-                noSpawn = true;
-            }
 
-            if (inTrainChoice == 6)
-            {
-                obstacleList.Add(Instantiate(Lover_g, new Vector3(15, -4f, -4.8f), Quaternion.identity));
-                inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
-                inTrainSpawnTime = 0;
-                noSpawn = true;
-            }
-        }
+                onTrainChoice = Random.Range(1, 3);
 
-
-        if (onTrainSpawnTime >= onTrainSpawnRate)
-        {
-
-            onTrainChoice = Random.Range(1, 3);
-
-            if (onTrainChoice == 1)
-            {
-                obstacleList.Add(Instantiate(onTrainPylon, new Vector3(15, -2.5f, -0.5f), Quaternion.identity));
-                onTrainSpawnRate = Random.Range(onTrainSpawnMin, onTrainSpawnMax);
-                onTrainSpawnTime = 0;
-                noSpawn = true;
-            }
-            if (onTrainChoice == 2)
-            {
-                obstacleList.Add(Instantiate(onTrainBird, new Vector3(15, -2.5f, -0.5f), Quaternion.identity));
-                onTrainSpawnRate = Random.Range(onTrainSpawnMin, onTrainSpawnMax);
-                onTrainSpawnTime = 0;
-                noSpawn = true;
+                if (onTrainChoice == 1)
+                {
+                    obstacleList.Add(Instantiate(onTrainPylon, new Vector3(15, -2.5f, -0.5f), Quaternion.identity));
+                    onTrainSpawnRate = Random.Range(onTrainSpawnMin, onTrainSpawnMax);
+                    onTrainSpawnTime = 0;
+                    noSpawn = true;
+                }
+                if (onTrainChoice == 2)
+                {
+                    obstacleList.Add(Instantiate(onTrainBird, new Vector3(15, -2.5f, -0.5f), Quaternion.identity));
+                    onTrainSpawnRate = Random.Range(onTrainSpawnMin, onTrainSpawnMax);
+                    onTrainSpawnTime = 0;
+                    noSpawn = true;
+                }
             }
         }
     }
