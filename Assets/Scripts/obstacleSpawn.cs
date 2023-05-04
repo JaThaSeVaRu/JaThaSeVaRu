@@ -12,11 +12,12 @@ public class obstacleSpawn : MonoBehaviour
     public GameObject Lover;
     public GameObject Lover_g;
 
-    public static List<GameObject> obstacleList = new List<GameObject>();
 
     public GameObject onTrainPylon;
     public GameObject onTrainBird;
     public GameObject Kontrolleur;
+
+    public static List<GameObject> obstacleList = new List<GameObject>();
 
     public float inTrainSpawnTime;
     public float inTrainSpawnMin;
@@ -79,10 +80,9 @@ public class obstacleSpawn : MonoBehaviour
         {
             inTrainChoice = Random.Range(1, 7);
 
-
             if (inTrainChoice == 1)
             {
-                obstacleList.Add(Instantiate(inTrainSmall, new Vector3(15, -3.3f, -6f), Quaternion.identity));
+                obstacleList.Add(Instantiate(inTrainSmall, new Vector3(15, -4f, -6f), Quaternion.identity));
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
                 inTrainSpawnTime = 0;
                 noSpawn = true;
@@ -90,7 +90,7 @@ public class obstacleSpawn : MonoBehaviour
 
             if (inTrainChoice == 2)
             {
-                obstacleList.Add(Instantiate(inTrainMedium, new Vector3(15, -3.3f, -6f), Quaternion.identity));
+                obstacleList.Add(Instantiate(inTrainMedium, new Vector3(15, -2.8f, -6f), Quaternion.identity));
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
                 inTrainSpawnTime = 0;
                 noSpawn = true;
@@ -98,7 +98,7 @@ public class obstacleSpawn : MonoBehaviour
 
             if (inTrainChoice == 3)
             {
-                obstacleList.Add(Instantiate(inTrainLarge, new Vector3(15, -3.3f, -6f), Quaternion.identity));
+                obstacleList.Add(Instantiate(inTrainLarge, new Vector3(15, -2.2f, -6f), Quaternion.identity));
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
                 inTrainSpawnTime = 0;
                 noSpawn = true;
@@ -114,13 +114,13 @@ public class obstacleSpawn : MonoBehaviour
 
             if (inTrainChoice == 5)
             {
-                obstacleList.Add(Instantiate(Kontrolleur, new Vector3(15, -4f, -6f), Quaternion.identity));
+                obstacleList.Add(Instantiate(Kontrolleur, new Vector3(15, -4f, -4.8f), Quaternion.identity));
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
                 inTrainSpawnTime = 0;
                 noSpawn = true;
             }
 
-            if(inTrainChoice == 6)
+            if (inTrainChoice == 6)
             {
                 obstacleList.Add(Instantiate(Lover_g, new Vector3(15, -4f, -4.8f), Quaternion.identity));
                 inTrainSpawnRate = Random.Range(inTrainSpawnMin, inTrainSpawnMax);
