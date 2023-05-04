@@ -41,6 +41,7 @@ public class VelocityFinder : MonoBehaviour
     {
         if (UnityEngine.Input.location.status == LocationServiceStatus.Running)
         {
+            Debug.Log("Status On");
             //Debug.Log(Input.location.lastData.timestamp);
             if (Input.location.lastData.latitude != oldLatitude || Input.location.lastData.longitude != oldLongitude)
             {
