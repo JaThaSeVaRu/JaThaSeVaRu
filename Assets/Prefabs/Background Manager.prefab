@@ -82,7 +82,6 @@ MonoBehaviour:
   FrontTrees: {fileID: 0}
   MiddleTrees: {fileID: 0}
   BackTrees: {fileID: 0}
-  cloudAmount: 5
   HeightList:
   - -5.5
   - -4.3
@@ -91,8 +90,13 @@ MonoBehaviour:
   - {fileID: 3629711787985562555, guid: f6510431e326b274d8c9c5e7c7039098, type: 3}
   - {fileID: 3629711787985562555, guid: 69f975e8ed8743c428865866030a9f08, type: 3}
   - {fileID: 3629711787985562555, guid: 762c6bedb1ee68444b33a07d5b7ef60d, type: 3}
-  cloudSpawnMin: 15
-  cloudSpawnMax: 60
+  CloudColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+  CloudMat: {fileID: 2100000, guid: f8e6ba04dfc484046a89686af1b60bc9, type: 2}
+  targetPoint: 0
+  time: 5
 --- !u!1 &1468149889711163154
 GameObject:
   m_ObjectHideFlags: 0
