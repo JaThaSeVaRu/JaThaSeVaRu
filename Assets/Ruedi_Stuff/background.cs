@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class background : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class background : MonoBehaviour
     public treeTrain FrontTrees;
     public treeTrain MiddleTrees;
     public treeTrain BackTrees;
+
+    
 
 
     /*
@@ -49,7 +52,7 @@ public class background : MonoBehaviour
 
     //amount of houses and clouds for the for loop that spawns houses and clouds in Start
     ////public int frontHouseAmount = 15;
-    public int cloudAmount = 5;
+    int cloudAmount;
     /*
     //variables to choose the assets to be spawned
     //prev: variables that remember the previously chosen asset to prevent duplicates
@@ -93,8 +96,8 @@ public class background : MonoBehaviour
     //Timelimit for runtime spawns of clouds
     float cloudSpawnRate;
     //minimum and maximum values to set cloudSpawnRate after a cloud has been spawned
-    public float cloudSpawnMin;
-    public float cloudSpawnMax;
+    float cloudSpawnMin;
+    float cloudSpawnMax;
     /*
     //static Y-Axis positions of houses for the houseMovement Script to use
     public static float staticFrontHouseHeight;
@@ -119,6 +122,10 @@ public class background : MonoBehaviour
     float park4Range = 1;
     */
     public static background instance;
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -179,10 +186,10 @@ public class background : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < cloudAmount; i++)
+        /*for (int i = 0; i < cloudAmount; i++)
         {
             Instantiate(CloudList[Random.Range(0, CloudList.Count)], new Vector3(Random.Range(-8f, 8f), Random.Range(0f, 4f), 5f), Quaternion.identity).transform.parent = CloudLayer.transform;
-        }
+        }*/
 
         /*
         set the static positions of the houses for the houseMovement Script to use
@@ -581,7 +588,55 @@ public class background : MonoBehaviour
         }
     }
 
-    public void CloudSpawner(float cloudSpawnMin, float cloudSpawnMax)
+    public void Clouds(int cloudAmount)
+    {
+        for (int i = 0; i < cloudAmount; i++)
+        {
+            Instantiate(CloudList[Random.Range(0, CloudList.Count)], new Vector3(Random.Range(-9f, 9f), Random.Range(0f, 5f), 5f), Quaternion.identity).transform.parent = CloudLayer.transform;
+        }
+    }
+
+    public enum ColorOfWeather
+    {
+        Cloudy,
+        Clear,
+        Rainy,
+    }
+
+    public Color[] CloudColors;
+    public Material CloudMat;
+    private int currentIndex = 0;
+    private int targetIndex = 1;
+    public float targetPoint;
+    public float time;
+
+    public void Transition(ColorOfWeather color)
+    {
+        if(TransitionW != null)
+            StopCoroutine(TransitionW);
+        TransitionW = StartCoroutine(TransitionCoroutine(color));
+    }
+    Coroutine TransitionW;
+    IEnumerator TransitionCoroutine(ColorOfWeather color)
+    {
+
+            targetPoint += Time.deltaTime / time;
+            CloudMat.color = Color.Lerp(CloudColors[currentIndex], CloudColors[(int)color], targetPoint);
+            if(CloudMat.color != CloudColors[(int)color])
+            {
+                yield return new WaitForSeconds(Time.deltaTime);
+                StartCoroutine(TransitionCoroutine(color));
+            }
+            else
+            {
+                targetPoint = 0;
+            }
+
+            yield return null;
+
+    }
+
+    /*public void CloudSpawner(float cloudSpawnMin, float cloudSpawnMax)
     {
         cloudSpawnTimer += Time.deltaTime;
         if (cloudSpawnTimer >= cloudSpawnRate)
@@ -594,11 +649,11 @@ public class background : MonoBehaviour
 
             cloudSpawnTimer = 0;
         }
-    }
+    }*/
 
     void Update()
     {
-        CloudSpawner(15, 60);
+        //CloudSpawner(15, 60);
         /*
         //Timers for the runtime spawning of assets 
         frontSpawnTimer += Time.deltaTime;

@@ -15,7 +15,7 @@ public class SwitchGameMode : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.OnArrival += SwitchMode;
+        GameManager.Instance.OnStopVelocity += SwitchMode;
     }
 
     public void SwitchMode()

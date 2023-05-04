@@ -15,8 +15,27 @@ public class GameManager : MonoBehaviour
     public VelocityFinder velocityFinder;
     public WeatherData weatherData;
     public UIManager UiManager;
+
+    [SerializeField]
     private bool inTransit;
-    public bool atStation;
+    [SerializeField]
+    private bool atStation;
+    public bool AtStation
+    {
+        get
+        {
+            return atStation;
+        }
+        set
+        {
+            if (value != atStation)
+            {
+                atStation = value;
+                OnArrival?.Invoke();
+            }
+        }
+    }
+    public event Action OnArrival;
     public bool InTransit
     {
         get
@@ -28,11 +47,11 @@ public class GameManager : MonoBehaviour
             if (value != inTransit)
             {
                 inTransit = value;
-                OnArrival?.Invoke();
+                OnStopVelocity?.Invoke();
             }
         }
     }
-    public event Action OnArrival;
+    public event Action OnStopVelocity;
     public static GameManager Instance
     {
         get
@@ -57,8 +76,10 @@ public class GameManager : MonoBehaviour
         world.GetWeather();
         player.CollectedHearts = 0;
         StartCoroutine (SwapAssets());
+        player.Velocity = 10;
+        player.Coordinates = new Vector2(52.52198f, 13.41324f);
     }
-
+    float timeUnder = 0;
     // Update is called once per frame
     void Update()
     {
@@ -70,17 +91,41 @@ public class GameManager : MonoBehaviour
 
         if(player.Velocity != player.TargetVelocity)
         {
-            player.Velocity = Mathf.Lerp(player.Velocity, player.TargetVelocity, Time.deltaTime);
+            player.Velocity = Mathf.MoveTowards(player.Velocity, player.TargetVelocity, Time.deltaTime * 0.75f);
         }
-        
+
+        if (player.Velocity < 0.1f)
+        {
+            if (timeUnder == 0)
+            {
+                timeUnder = Time.realtimeSinceStartup;
+            }
+            else
+            {
+                if (Time.realtimeSinceStartup - timeUnder > 1)
+                {
+                    GameManager.Instance.InTransit = false;
+                }
+            }
+        }
+        else
+        {
+            timeUnder = 0;
+            GameManager.Instance.InTransit = true;
+        }
+
         //Test swapping assets
         //swapper.SwapTimeOfDayAssets(world);
-        
-        if(weather != world.CurrentWeather)
+
+
+
+        if (weather != world.CurrentWeather)
         {
             world.testInvoke();
             weather = world.CurrentWeather;
         }
+
+
     
     }
 

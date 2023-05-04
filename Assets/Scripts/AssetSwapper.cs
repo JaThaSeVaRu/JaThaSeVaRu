@@ -22,17 +22,21 @@ public class AssetSwapper : MonoBehaviour
     {
         if (world != null)
         {
+            RainParticles.Stop();
             switch (world.CurrentWeather)
             {
                 case WorldData.Weather.cloudy:
                     //Set cloudy weather and use assets
-                    background.instance.CloudSpawner(60, 100);
+                    background.instance.Transition(background.ColorOfWeather.Cloudy);
+                    background.instance.Clouds(15);
                     break;
                 case WorldData.Weather.clear:
                     //Set clear weather and use assets
+                    background.instance.Transition(background.ColorOfWeather.Clear);
                     break;
                 case WorldData.Weather.rainy:
                     //Set rainy weather and use assets
+                    background.instance.Transition(background.ColorOfWeather.Rainy);
                     RainParticles.Play();
                     break;
             }

@@ -39,6 +39,7 @@ public class SBahnStationFinder : MonoBehaviour {
 
 	public IEnumerator GetStationsInfo()
 	{
+		Debug.Log("Firing Google API");
 		var www = new UnityWebRequest(
         "https://maps.googleapis.com/maps/api/place/search/json?location=" + player.Coordinates.x.ToString().Replace(",",".") + "," + player.Coordinates.y.ToString().Replace(",", ".") + "&radius=" + searchRadius + "&keyword=&type=train_station&key=" + API_key)
 		{
@@ -57,13 +58,13 @@ public class SBahnStationFinder : MonoBehaviour {
         Debug.Log("We got station data");
 		Info = JsonConvert.DeserializeObject<StationInfo>(www.downloadHandler.text);
 		//Info = JsonUtility.FromJson<StationInfo>(www.downloadHandler.text);
-		Debug.Log(www.downloadHandler.text);
+		//Debug.Log(www.downloadHandler.text);
 		StationFinder.instance.clearStations();
 		foreach (PlaceDetails pd in Info.results)
 		{
 
 			StationFinder.instance.addStation(new StationData(pd.name, pd.geometry.location.lat, pd.geometry.location.lng));
-			Debug.Log(pd.geometry.location.ToString());
+			Debug.Log(pd.name.ToString());
 		}
 
 		yield return new WaitForSeconds(0);
