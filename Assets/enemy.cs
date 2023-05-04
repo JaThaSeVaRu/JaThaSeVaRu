@@ -17,6 +17,8 @@ public class enemy : MonoBehaviour
 
     int direction = 0;
 
+    public AudioSource HitSound;
+
     void Start()
     {
         speed = Random.Range(1f, 7f);
@@ -79,6 +81,12 @@ public class enemy : MonoBehaviour
                 yeeted = true;
                 WinLoseScore.actualHearts++;
                 WinLoseScore.score += heartValue;
+                if(HitSound != null)
+                {
+                    HitSound.Play();
+                    HitSound.transform.parent = null;
+                    Destroy(HitSound, 5);
+                }
                 Yeet();
             }
         }

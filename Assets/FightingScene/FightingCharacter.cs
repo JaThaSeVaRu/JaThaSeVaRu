@@ -14,11 +14,13 @@ public class FightingCharacter : MonoBehaviour
     int lastSprite;
 
     public bool IsAvailable = true;
-    public float CooldownDuration = 0.5f;
+    public float CooldownDuration = 0.2f;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float launchForce = 50;
     [SerializeField] private float destroyAfterSeconds = 0f;
+
+    public AudioSource KissSound;
     public GameObject heart;
     //public GameObject myPrefab_l;
 
@@ -131,6 +133,7 @@ public class FightingCharacter : MonoBehaviour
             direction = -1;
             sprite.sprite = newSprite();
             transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+            KissSound.Play();
         }
     }
     public void AttackRight()
@@ -143,6 +146,7 @@ public class FightingCharacter : MonoBehaviour
             direction = 1;
             sprite.sprite = newSprite();
             transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+            KissSound.Play();
         }
     }
 

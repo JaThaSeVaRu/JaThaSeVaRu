@@ -166,3 +166,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   runningCameraSize: 5
+  fight: {fileID: 0}
