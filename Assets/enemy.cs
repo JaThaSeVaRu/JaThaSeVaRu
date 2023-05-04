@@ -12,6 +12,8 @@ public class enemy : MonoBehaviour
 
     public Vector3 yeetVector;
     public Vector3 rotation;
+    
+    public int heartValue;
 
     int direction = 0;
 
@@ -39,6 +41,8 @@ public class enemy : MonoBehaviour
 
     void Update()
     {
+        heartValue = WinLoseScore.heartWorth;
+        
         if (yeeted == false)
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
@@ -73,6 +77,8 @@ public class enemy : MonoBehaviour
             if (yeeted == false)
             {
                 yeeted = true;
+                WinLoseScore.actualHearts++;
+                WinLoseScore.score += heartValue;
                 Yeet();
             }
         }
@@ -81,6 +87,7 @@ public class enemy : MonoBehaviour
             Debug.Log("got heart back");
             speed = -speed;
             direction = -direction;
+            WinLoseScore.actualHearts = 0;
             transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
         }
     }
