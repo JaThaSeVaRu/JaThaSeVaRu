@@ -27,9 +27,12 @@ public class LightChange : MonoBehaviour
     public static LightChange instance;
     public ColorTransition ct;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         instance = this;
+    }
+    void Start()
+    {
         ct = ColorTransition.instance;
     }
 
