@@ -71,6 +71,11 @@ public class VelocityFinder : MonoBehaviour
                 oldTimestamp = Input.location.lastData.timestamp;
                 GameManager.Instance.player.Coordinates = new Vector2(oldLatitude, oldLongitude); 
             }
+            else
+            {
+                GameManager.Instance.player.TargetVelocity *= 0.975f;
+            }
+            
             return true;
         }
         //TO DO: Slow down velocity slowly
