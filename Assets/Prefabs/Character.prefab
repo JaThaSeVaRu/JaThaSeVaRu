@@ -353,8 +353,8 @@ GameObject:
   - component: {fileID: 3014747267623063017}
   - component: {fileID: 3014747267623063016}
   - component: {fileID: 3014747267623063019}
-  - component: {fileID: 1807776566}
   - component: {fileID: 5285007799028910023}
+  - component: {fileID: 1807776566}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -453,7 +453,7 @@ MonoBehaviour:
   jumpSpeed: 15
   poseSpeed: 5
   approachSpeed: 0.1
-  approachBase: 0
+  approachBase: 0.1
   approachLimit: 3
   falling: 0
   gettingUp: 0
@@ -468,10 +468,10 @@ MonoBehaviour:
   stumbleSpeed: 0
   caughtTime: 0
   caughtLimit: 1
-  pushTime: 0.2
-  pushSpeed: 15
+  pushTime: 0.3
+  pushSpeed: 20
   safeTime: 0
-  safeLimit: 3
+  safeLimit: 1
   m_SpriteRenderer: {fileID: 3014747267222560555}
   player: {fileID: 11400000, guid: 9fccb08eedd7e4d50b6c62579df4c57e, type: 2}
   startPos: {x: 0, y: 0}
@@ -481,7 +481,7 @@ MonoBehaviour:
   touchHeld: 0
   tapped: 0
   posingTimer: 0
-  holdSensitivity: 1
+  holdSensitivity: 0.3
   CollisionSound: {fileID: 3362301142609773973}
 --- !u!70 &3014747267623063016
 CapsuleCollider2D:
@@ -520,6 +520,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5285007799028910023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3014747267623063028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b655115873d30f645900da58e46965dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpSound: {fileID: 3121863696002383985}
+  PoseSound: {fileID: 1558364028214195151}
+  SwitchUpSound: {fileID: 6506836284462262271}
+  SwitchDownSound: {fileID: 6573458978408690501}
 --- !u!95 &1807776566
 Animator:
   serializedVersion: 4
@@ -540,22 +556,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5285007799028910023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3014747267623063028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b655115873d30f645900da58e46965dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JumpSound: {fileID: 3121863696002383985}
-  PoseSound: {fileID: 1558364028214195151}
-  SwitchUpSound: {fileID: 6506836284462262271}
-  SwitchDownSound: {fileID: 6573458978408690501}
 --- !u!1 &5246159227153970021
 GameObject:
   m_ObjectHideFlags: 0
