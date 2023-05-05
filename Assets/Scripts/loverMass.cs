@@ -91,11 +91,11 @@ public class loverMass : MonoBehaviour
 
         if (winlose.GetComponent<WinLoseScore>().state == gamestate.CAUGHT)
         {
-            if (/*retreatTime >= keepTime && */transform.position.x >= -12 && retreat == true)
+            if (/*retreatTime >= keepTime && */transform.position.x >= -11 && retreat == true)
             {
                 transform.Translate(Vector3.left * retreatSpeed * Time.deltaTime);
             }
-            if (/*retreatTime >= keepTime && */transform.position.x <= -12 && retreat == true)
+            if (/*retreatTime >= keepTime && */transform.position.x <= -11 && retreat == true)
             {
                 retreat = false;
                 retreatTime = 0;

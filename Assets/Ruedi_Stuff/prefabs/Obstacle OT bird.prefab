@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  forwardSpeed: 0.1
   movementTimer: 0
   turnTime: 1
 --- !u!1 &4338816497748224293

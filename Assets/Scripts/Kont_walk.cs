@@ -9,6 +9,8 @@ public class Kont_walk : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 playerDirection;
 
+    int direction = 1;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,5 +24,13 @@ public class Kont_walk : MonoBehaviour
         transform.Translate(playerDirection * Time.deltaTime);
     }
 
-    
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("obstacle"))
+        {
+            playerSpeed = -playerSpeed;
+            direction = -direction;
+            transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
+        }
+    }
 }
