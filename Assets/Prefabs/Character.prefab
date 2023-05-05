@@ -172,8 +172,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d91d7f23e65303f43b8cf6697a2a472c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
-  m_Pitch: 0.8
+  m_Volume: 0.3
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -482,7 +482,7 @@ MonoBehaviour:
   tapped: 0
   posingTimer: 0
   holdSensitivity: 1
-  CollisionSounds: {fileID: 3362301142609773973}
+  CollisionSound: {fileID: 3362301142609773973}
 --- !u!70 &3014747267623063016
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -20,5 +20,6 @@ public class Lose_AnimEvent : MonoBehaviour
     public void PlayHeartSound()
     {
         HeartSound.Play();
+        obstacleSpawn.instance.noSpawn = true;
     }
 }
