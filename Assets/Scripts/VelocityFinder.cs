@@ -63,7 +63,7 @@ public class VelocityFinder : MonoBehaviour
                     //speedLongitude *= 111.320 * System.Math.Cos(speedLatitude);
 
                     Speed = d / (Input.location.lastData.timestamp - oldTimestamp) * 3600f;
-                    GameManager.Instance.player.TargetVelocity = Mathf.Clamp((float)Speed, 0, 15);
+                    GameManager.Instance.player.TargetVelocity = Mathf.Clamp((float)Speed, 0, 12);
                 }
 
                 

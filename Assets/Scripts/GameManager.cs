@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         world.GetWeather();
         player.CollectedHearts = 0;
         StartCoroutine (SwapAssets());
-        //player.Velocity = 10;
+        player.Velocity = 10;
         //player.Coordinates = new Vector2(52.52198f, 13.41324f);
     }
     float timeUnder = 0;

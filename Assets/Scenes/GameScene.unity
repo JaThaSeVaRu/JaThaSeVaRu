@@ -1559,6 +1559,14 @@ PrefabInstance:
       propertyPath: velocityFinder
       value: 
       objectReference: {fileID: 1991118490}
+    - target: {fileID: 6083932317992841888, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
+      propertyPath: WeatherAPIUpdateTimeInMinutes
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083932317992841888, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
+      propertyPath: StationsAPIUpdateTimeInMinutes
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 686d572eb5832c24fb5e97f6fb3d14f8, type: 3}
 --- !u!1001 &1018501500
