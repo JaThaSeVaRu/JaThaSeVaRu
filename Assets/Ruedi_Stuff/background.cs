@@ -642,6 +642,7 @@ public class background : MonoBehaviour
             }
             else
             {
+                currentIndex = (int)color;
                 targetPoint = 0;
             }
 

@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class Herzfly : MonoBehaviour
 {
-    float destroyAfterSeconds =2f;
-    float Speed = 8f;
+    float destroyAfterSeconds =0.5f;
+    public float Speed = 6f;
     public Rigidbody2D rb;
-    void Update()
+    void Start()
     {
         StartCoroutine(HerzDestroy());
+        if (transform.position.x > 0)
+        {
+            rb.velocity = Vector3.right * Speed;
+        }
+        if (transform.position.x < 0)
+        {
+            rb.velocity = Vector3.left * Speed;
+        }
+    }
+
+    private void Update()
+    {
+        rb.velocity -= rb.velocity * 2f * Time.deltaTime;
     }
 
     IEnumerator HerzDestroy()
     {
-        if (transform.position.x > 0)
-        {
-            rb.AddForce(Vector3.right * Speed * Time.deltaTime, ForceMode2D.Impulse);
-        }
-        if (transform.position.x < 0)
-        {
-            rb.AddForce(Vector3.left * Speed * Time.deltaTime, ForceMode2D.Impulse);
-        }
 
         yield return new WaitForSeconds(destroyAfterSeconds);
 

@@ -15,6 +15,8 @@ public class SwitchGameMode : MonoBehaviour
 
     public GameObject fight;
     public static SwitchGameMode instance;
+    float lastSwitch;
+    float modeChangeCooldown = 15;
 
     private void Start()
     {
@@ -36,8 +38,9 @@ public class SwitchGameMode : MonoBehaviour
     {
         if (GameManager.Instance.gameStarted)
         {
-            if (GameManager.Instance.InTransit)
+            if (GameManager.Instance.InTransit && Time.realtimeSinceStartup - lastSwitch > modeChangeCooldown)
             {
+                lastSwitch = Time.realtimeSinceStartup;
                 fight.GetComponent<SpriteRenderer>().enabled = true;
                 fight.GetComponent<Animator>().Play("Fight", 0, 0);
                 //TO DO
@@ -70,8 +73,9 @@ public class SwitchGameMode : MonoBehaviour
             }
 
             //Switch to Fighting Mode
-            else if (!GameManager.Instance.InTransit)
+            else if (!GameManager.Instance.InTransit &&  Time.realtimeSinceStartup - lastSwitch > modeChangeCooldown)
             {
+                lastSwitch = Time.realtimeSinceStartup;
                 //TO DO
                 //Call UIManager and show a FIGHT transition
                 //SERA HIER FIGHTING TRANSITION!!!! <-------------------------------------

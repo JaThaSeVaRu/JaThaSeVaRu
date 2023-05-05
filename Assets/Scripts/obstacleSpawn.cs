@@ -38,8 +38,11 @@ public class obstacleSpawn : MonoBehaviour
 
     public static bool gameRunning;
 
+    public static obstacleSpawn instance;
+
     void Start()
     {
+        instance = this;
         gameRunning = false;
     }
 

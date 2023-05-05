@@ -21,7 +21,7 @@ public class enemy : MonoBehaviour
 
     void Start()
     {
-        speed = Random.Range(1f, 7f);
+        speed = Random.Range(1f, 5f);
 
         if (transform.position.x < 0)
         {
@@ -80,7 +80,7 @@ public class enemy : MonoBehaviour
             {
                 yeeted = true;
                 WinLoseScore.actualHearts++;
-                WinLoseScore.score += heartValue;
+                WinLoseScore.score += 1;//heartValue;
                 if(HitSound != null)
                 {
                     HitSound.Play();
@@ -96,6 +96,7 @@ public class enemy : MonoBehaviour
             speed = -speed;
             direction = -direction;
             WinLoseScore.actualHearts = 0;
+            WinLoseScore.score -= 1;
             transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
         }
     }

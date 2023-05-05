@@ -84,8 +84,8 @@ MonoBehaviour:
   BackTrees: {fileID: 0}
   HeightList:
   - -5.5
-  - -4.3
-  - -3.8
+  - -4
+  - -3.5
   StationList:
   - {fileID: 3629711787985562555, guid: f6510431e326b274d8c9c5e7c7039098, type: 3}
   - {fileID: 3629711787985562555, guid: 69f975e8ed8743c428865866030a9f08, type: 3}
@@ -93,7 +93,7 @@ MonoBehaviour:
   CloudColors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 1, b: 1, a: 0}
-  - {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+  - {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
   CloudMat: {fileID: 2100000, guid: f8e6ba04dfc484046a89686af1b60bc9, type: 2}
   targetPoint: 0
   time: 5
