@@ -21,7 +21,7 @@ public class enemy : MonoBehaviour
 
     void Start()
     {
-        speed = Random.Range(1f, 7f);
+        speed = Random.Range(1f, 5f);
 
         if (transform.position.x < 0)
         {
