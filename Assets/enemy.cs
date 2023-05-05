@@ -79,7 +79,7 @@ public class enemy : MonoBehaviour
             if (yeeted == false)
             {
                 yeeted = true;
-                WinLoseScore.actualHearts++;
+                //WinLoseScore.actualHearts++;
                 WinLoseScore.score += 1;//heartValue;
                 if(HitSound != null)
                 {
