@@ -10,13 +10,15 @@ public class SwitchGameMode : MonoBehaviour
     [SerializeField] private GameObject[] fightingModeObjects;
     [SerializeField] private float fightingCameraSize;
     //RunningMode
-    [SerializeField] private GameObject[] runningModeObjects;
+    [SerializeField] public GameObject[] runningModeObjects;
     [SerializeField] private float runningCameraSize;
 
     public GameObject fight;
+    public static SwitchGameMode instance;
 
     private void Start()
     {
+        instance = this;
         GameManager.Instance.OnStopVelocity += SwitchMode;
         fight.GetComponent<SpriteRenderer>().enabled = false;
     }

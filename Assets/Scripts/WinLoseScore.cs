@@ -85,12 +85,14 @@ public class WinLoseScore : MonoBehaviour
     public void GetCaught()
     {
         actualHearts = 0;
+        Loose.GetComponent<SpriteRenderer>().enabled = true;
+        Loose.GetComponent<Animator>().Play("loose_con", 0, 0);
     }
     public void GameOver()
     {
         state = gamestate.GAMEOVER;
-        Loose.GetComponent<SpriteRenderer>().enabled = true;
-        Loose.GetComponent<Animator>().Play("loose_con", 0, 0);
+        
+        
     }
     public void Fight()
     {

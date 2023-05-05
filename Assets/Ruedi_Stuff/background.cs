@@ -582,7 +582,20 @@ public class background : MonoBehaviour
                 newHouse = Random.Range(0, CombinedList.Count);
             }
 
-            GameObject newObject = Instantiate(CombinedList[newHouse], new Vector3(lastChild.position.x + lastChild.GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f + CombinedList[newHouse].GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f, lastChild.position.y, 0), Quaternion.identity);
+            GameObject newObject = Instantiate(CombinedList[newHouse], new Vector3(0,0,0), Quaternion.identity);
+            if(parent.name == "Front")
+            {
+                newObject.transform.localScale *= 1;
+            }
+            else if (parent.name == "Middle")
+            {
+                newObject.transform.localScale *= 0.9f;
+            }
+            else if(parent.name == "Back")
+            {
+                newObject.transform.localScale *= 0.8f;
+            }
+            newObject.transform.position = new Vector3(lastChild.position.x + lastChild.GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f + newObject.GetComponentInChildren<SpriteRenderer>().bounds.size.x / 2f, lastChild.position.y, 0);
             newObject.transform.parent = parent.transform;
             parent.GetComponent<LastObjectFinder>().lastObject = newObject;
         }

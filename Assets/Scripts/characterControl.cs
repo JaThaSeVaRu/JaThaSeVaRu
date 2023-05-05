@@ -471,7 +471,15 @@ public class characterControl : MonoBehaviour
             winlose.GetComponent<WinLoseScore>().state = gamestate.CAUGHT;
             winlose.GetComponent<WinLoseScore>().GetCaught();
             GameManager.Instance.player.CollectedHearts = 0;
-            transform.Translate(Vector3.right * pushSpeed * Time.deltaTime);
+            //transform.Translate(Vector3.right * pushSpeed * Time.deltaTime);
+            transform.position = new Vector3(0, stumbleBase.y, transform.position.z);
+            foreach (var go in obstacleSpawn.obstacleList)
+            { 
+                if (go != null)
+                {
+                    go.SetActive(false);
+                }
+            }
         }
         if (caughtTime >= caughtLimit + pushTime)
         {

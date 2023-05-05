@@ -3901,6 +3901,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5622508292230580, guid: 7e5bf08d6aa627441b2ff967b2c32fa6, type: 3}
+      propertyPath: HeightList.Array.data[1]
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622508292230580, guid: 7e5bf08d6aa627441b2ff967b2c32fa6, type: 3}
+      propertyPath: HeightList.Array.data[2]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622508292230580, guid: 7e5bf08d6aa627441b2ff967b2c32fa6, type: 3}
       propertyPath: StationList.Array.data[0]
       value: 
       objectReference: {fileID: 3629711787985562555, guid: f6510431e326b274d8c9c5e7c7039098, type: 3}

@@ -52,9 +52,9 @@ public class obstacleSpawn : MonoBehaviour
              noSpawnTime = 0;
         }
         */
-        /*
-        if (!GameManager.Instance.AtStation)
-        {*/
+        if(GameManager.Instance.player.Velocity > 1)
+        //if (!GameManager.Instance.AtStation)
+        {
             if (noSpawn == false)
             {
                 if (character.GetComponent<characterControl>().state == runstate.INTRAIN)
@@ -161,9 +161,9 @@ public class obstacleSpawn : MonoBehaviour
                     noSpawn = true;
                 }
             }
-/*
+
         }
-*/
+
     }
 
     public void StartSpawn()
