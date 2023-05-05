@@ -69,6 +69,10 @@ public class WinLoseScore : MonoBehaviour
         actualHeartsCheck = actualHearts;
         heartWorthCheck = heartWorth;
         scoreCheck = score;
+        if (score < 0)
+        {
+            score = 0;
+        }
         GameManager.Instance.player.CollectedHearts = score;
     }
 
