@@ -80,6 +80,7 @@ public class characterControl : MonoBehaviour
     public bool tapped;
     public float posingTimer;
     public float holdSensitivity;
+    public AudioSource CollisionSound;
 
     private Animator anim;
 
@@ -429,6 +430,7 @@ public class characterControl : MonoBehaviour
     {
         anim.SetBool("IsJumping", false);
         anim.SetBool("Slide", false);
+        CollisionSound.Play();
 
         //set the invincibility timer back to 0 after being hit
         safeTime = 0;

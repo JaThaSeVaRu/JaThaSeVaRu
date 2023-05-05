@@ -482,7 +482,7 @@ MonoBehaviour:
   tapped: 0
   posingTimer: 0
   holdSensitivity: 1
-  CollisionSound: {fileID: 3362301142609773973}
+  CollisionSounds: {fileID: 3362301142609773973}
 --- !u!70 &3014747267623063016
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
