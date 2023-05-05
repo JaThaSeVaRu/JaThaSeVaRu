@@ -129,7 +129,7 @@ public class FightingCharacter : MonoBehaviour
         if (gotHit == 0)
         {
             StartCoroutine(StartCooldown());
-            Instantiate(heart, new Vector3(-0.1f, -1, 0), Quaternion.identity);
+            Instantiate(heart, new Vector3(-0.1f, -0.5f, 0), Quaternion.identity);
             direction = -1;
             sprite.sprite = newSprite();
             transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
@@ -142,7 +142,7 @@ public class FightingCharacter : MonoBehaviour
         if (gotHit == 0)
         {
             StartCoroutine(StartCooldown());
-            Instantiate(heart, new Vector3(0.1f, -1, 0), Quaternion.identity);
+            Instantiate(heart, new Vector3(0.1f, -0.5f, 0), Quaternion.identity);
             direction = 1;
             sprite.sprite = newSprite();
             transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);

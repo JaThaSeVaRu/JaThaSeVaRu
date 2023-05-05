@@ -143,6 +143,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671231856531259561, guid: bf03bc8654221d04f9223a06813d6fbe, type: 3}
+      propertyPath: enemy_1
+      value: 
+      objectReference: {fileID: 7622140964313519100, guid: 97f921c2a80de8b489dd05fddd58eeb2, type: 3}
+    - target: {fileID: 8671231856531259561, guid: bf03bc8654221d04f9223a06813d6fbe, type: 3}
+      propertyPath: leftSpawn.y
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671231856531259561, guid: bf03bc8654221d04f9223a06813d6fbe, type: 3}
+      propertyPath: rightSpawn.y
+      value: -0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 8671231856531259562, guid: bf03bc8654221d04f9223a06813d6fbe, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -1928,6 +1940,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8943516802944304898, guid: 9e0ba0a2891db1d438fb46b7165970d6, type: 3}
+      propertyPath: recoveryRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8943516802944304898, guid: 9e0ba0a2891db1d438fb46b7165970d6, type: 3}
+      propertyPath: CooldownDuration
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8943516802944304899, guid: 9e0ba0a2891db1d438fb46b7165970d6, type: 3}
       propertyPath: m_Name
       value: player

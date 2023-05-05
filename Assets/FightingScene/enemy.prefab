@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 94530122890777033}
   - component: {fileID: 1419366643343601893}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HitSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 6409168822413437053}
   - component: {fileID: 6865178667669872163}
   - component: {fileID: 8306730423998441696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -181,6 +181,7 @@ MonoBehaviour:
   yeeted: 0
   yeetVector: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0}
+  heartValue: 0
   HitSound: {fileID: 1419366643343601893}
 --- !u!70 &8306730423998441696
 CapsuleCollider2D:
@@ -210,7 +211,7 @@ GameObject:
   - component: {fileID: 7365056917861022302}
   - component: {fileID: 6071296475277901090}
   - component: {fileID: 2909445688554698019}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
