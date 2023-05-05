@@ -430,7 +430,7 @@ public class characterControl : MonoBehaviour
     {
         anim.SetBool("IsJumping", false);
         anim.SetBool("Slide", false);
-        CollisionSound.Play();
+        //CollisionSound.Play();
 
         //set the invincibility timer back to 0 after being hit
         safeTime = 0;
@@ -525,6 +525,7 @@ public class characterControl : MonoBehaviour
                     {
                         stumbleBase = poseBase;
                     }
+                    CollisionSound.Play();
 
                     //change state to stumbling
                     state = runstate.STUMBLING;
