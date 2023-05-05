@@ -25,6 +25,7 @@ public class VelocityFinder : MonoBehaviour
 
         float d = R * c; // in metres
 
+        Debug.Log(d * 1000);
         return d*1000;
     }
 
@@ -62,7 +63,7 @@ public class VelocityFinder : MonoBehaviour
                     //speedLongitude *= 111.320 * System.Math.Cos(speedLatitude);
 
                     Speed = d / (Input.location.lastData.timestamp - oldTimestamp) * 3600f;
-                    GameManager.Instance.player.TargetVelocity = Mathf.Clamp((float)Speed, 0.5f, 25);
+                    GameManager.Instance.player.TargetVelocity = Mathf.Clamp((float)Speed, 0, 15);
                 }
 
                 
@@ -73,7 +74,7 @@ public class VelocityFinder : MonoBehaviour
             }
             else
             {
-                GameManager.Instance.player.TargetVelocity *= 0.9f;
+                GameManager.Instance.player.TargetVelocity = Mathf.Clamp(GameManager.Instance.player.TargetVelocity-0.7f, 0, 25);
             }
             
             return true;

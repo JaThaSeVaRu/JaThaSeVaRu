@@ -3075,17 +3075,9 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3014747267623063017, guid: a892404a79cbffc4da0d080b1c00c095, type: 3}
-      propertyPath: holdSensitivity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3014747267623063017, guid: a892404a79cbffc4da0d080b1c00c095, type: 3}
       propertyPath: m_SpriteRenderer
       value: 
       objectReference: {fileID: 1365372982}
-    - target: {fileID: 3014747267623063017, guid: a892404a79cbffc4da0d080b1c00c095, type: 3}
-      propertyPath: slideSensitivity
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3014747267623063028, guid: a892404a79cbffc4da0d080b1c00c095, type: 3}
       propertyPath: m_Name
       value: Character

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baadf72d3b4624693addc512d029deda, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  coordinates: {x: 52.52199, y: 13.413244}
-  velocity: 10
-  TargetVelocity: 10
+  coordinates: {x: 52.51864, y: 13.401889}
+  velocity: 15
+  TargetVelocity: 15
   time: 0
-  _collectedHearts: 1
+  _collectedHearts: 0

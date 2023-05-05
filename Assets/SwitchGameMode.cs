@@ -40,9 +40,9 @@ public class SwitchGameMode : MonoBehaviour
     {
         if (GameManager.Instance.gameStarted)
         {
-            if (GameManager.Instance.InTransit && Time.realtimeSinceStartup - lastSwitch > modeChangeCooldown)
+            if (GameManager.Instance.InTransit)
             {
-               
+
                 lastSwitch = Time.realtimeSinceStartup;
                 fight.GetComponent<SpriteRenderer>().enabled = true;
                 fight.GetComponent<Animator>().Play("Fight", 0, 0);
@@ -76,9 +76,9 @@ public class SwitchGameMode : MonoBehaviour
             }
 
             //Switch to Fighting Mode
-            else if (!GameManager.Instance.InTransit &&  Time.realtimeSinceStartup - lastSwitch > modeChangeCooldown)
+            else if (!GameManager.Instance.InTransit)
             {
-                
+
                 lastSwitch = Time.realtimeSinceStartup;
                 //TO DO
                 //Call UIManager and show a FIGHT transition
@@ -114,7 +114,8 @@ public class SwitchGameMode : MonoBehaviour
                     go.SetActive(true);
                 }
             }
-        }
 
+
+        }
     }
 }

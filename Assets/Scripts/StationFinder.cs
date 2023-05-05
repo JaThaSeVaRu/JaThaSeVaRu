@@ -56,7 +56,8 @@ public class StationFinder : MonoBehaviour
     {
         if (WaitTimeToUpdateClosestStation < 0)
         {
-            StartCoroutine(GameManager.Instance.APIFinder.GetStationsInfo());
+            if(ClosestStation == null)
+                StartCoroutine(GameManager.Instance.APIFinder.GetStationsInfo());
             StartCoroutine(Search());
             WaitTimeToUpdateClosestStation = 10;
         }
