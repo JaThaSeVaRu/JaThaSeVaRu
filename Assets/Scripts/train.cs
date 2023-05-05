@@ -47,9 +47,11 @@ public class train : MonoBehaviour
         //staticSpeed = speed;
         
         //move left
+
         foreach(GameObject t in TrainParts)
-        {
-            t.transform.Translate(Vector3.left * GameManager.Instance.player.Velocity  * Time.deltaTime);
+        { 
+            if (GameManager.Instance.InTransit)
+                t.transform.Translate(Vector3.left * GameManager.Instance.player.Velocity  * Time.deltaTime);
         }
         
 

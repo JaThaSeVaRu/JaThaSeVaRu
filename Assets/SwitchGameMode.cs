@@ -40,6 +40,7 @@ public class SwitchGameMode : MonoBehaviour
         {
             if (GameManager.Instance.InTransit && Time.realtimeSinceStartup - lastSwitch > modeChangeCooldown)
             {
+               
                 lastSwitch = Time.realtimeSinceStartup;
                 fight.GetComponent<SpriteRenderer>().enabled = true;
                 fight.GetComponent<Animator>().Play("Fight", 0, 0);
@@ -75,6 +76,7 @@ public class SwitchGameMode : MonoBehaviour
             //Switch to Fighting Mode
             else if (!GameManager.Instance.InTransit &&  Time.realtimeSinceStartup - lastSwitch > modeChangeCooldown)
             {
+                
                 lastSwitch = Time.realtimeSinceStartup;
                 //TO DO
                 //Call UIManager and show a FIGHT transition

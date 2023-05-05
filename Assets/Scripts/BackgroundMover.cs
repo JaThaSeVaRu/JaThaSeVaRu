@@ -9,6 +9,7 @@ public class BackgroundMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed / 10f * GameManager.Instance.player.Velocity * Time.deltaTime);
+        if(GameManager.Instance.InTransit)
+            transform.Translate(Vector3.left * speed / 10f * GameManager.Instance.player.Velocity * Time.deltaTime);
     }
 }
