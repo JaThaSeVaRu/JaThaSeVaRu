@@ -78,6 +78,7 @@ MonoBehaviour:
   ClosestStationText: {fileID: 0}
   CurrentTimeText: {fileID: 0}
   HeartCounter: {fileID: 0}
+  Bonus: {fileID: 0}
   CurrentWeatherText: {fileID: 0}
   IconsUI: {fileID: 0}
   ButtonsUI: {fileID: 0}
@@ -114,6 +115,7 @@ MonoBehaviour:
   UiManager: {fileID: 0}
   inTransit: 0
   atStation: 0
+  gameStarted: 0
   timeBetweenUpdates: 5
 --- !u!114 &1850093561
 MonoBehaviour:
@@ -167,3 +169,4 @@ MonoBehaviour:
   - {fileID: 0}
   runningCameraSize: 5
   fight: {fileID: 0}
+  TransitionSound: {fileID: 0}

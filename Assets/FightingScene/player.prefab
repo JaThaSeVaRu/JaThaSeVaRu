@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 68a730c2b52b40f4c9971f3e9523c984, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -234,16 +234,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c23034c3535751749ba894cc4a373d79, type: 3}
   Herz: {fileID: 904931824125043897, guid: 28de89aa15909364ba02ef71cbf0f176, type: 3}
   IsAvailable: 1
-  CooldownDuration: 0.5
+  CooldownDuration: 0.3
   rb: {fileID: 0}
   launchForce: 50
   destroyAfterSeconds: 0
   KissSound: {fileID: 3309639342187509376}
-  HitSound: {fileID: 0}
   heart: {fileID: 904931824125043897, guid: 3bdab3c835c2a5f488a1e86981438f69, type: 3}
   gotHit: 0
   recoveryTime: 0
-  recoveryRate: 1
+  recoveryRate: 0
 --- !u!61 &8943516802944304927
 BoxCollider2D:
   m_ObjectHideFlags: 0

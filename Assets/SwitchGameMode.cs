@@ -18,6 +18,8 @@ public class SwitchGameMode : MonoBehaviour
     float lastSwitch;
     float modeChangeCooldown = 15;
 
+    public AudioSource TransitionSound;
+
     private void Start()
     {
         instance = this;
