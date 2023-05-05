@@ -5,6 +5,7 @@ using UnityEngine;
 public class bird : MonoBehaviour
 {
     public float speed = 1f;
+    public float forwardSpeed;
 
     public float movementTimer;
     public float turnTime = 1f;
@@ -23,6 +24,7 @@ public class bird : MonoBehaviour
 
 
         transform.Translate(Vector3.up * speed * Time.deltaTime);
+        transform.Translate(Vector3.left * forwardSpeed * Time.deltaTime);
 
         if (movementTimer >= turnTime)
         {
